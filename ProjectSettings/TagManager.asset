@@ -2,7 +2,7 @@
 %TAG !u! tag:unity3d.com,2011:
 --- !u!78 &1
 TagManager:
-  serializedVersion: 2
+  serializedVersion: 3
   tags: []
   layers:
   - Default
@@ -41,3 +41,32 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: BACKGROUND
+    uniqueID: 1780334313
+    locked: 0
+  - name: WOODS - Fourth
+    uniqueID: 3446678259
+    locked: 0
+  - name: WOODS - Third
+    uniqueID: 1746096705
+    locked: 0
+  - name: WOODS - Second
+    uniqueID: 3347712715
+    locked: 0
+  - name: VINES - Second
+    uniqueID: 172454027
+    locked: 0
+  - name: WOODS - First
+    uniqueID: 4279349873
+    locked: 0
+  - name: BUSH - BACKGROUND
+    uniqueID: 3925062699
+    locked: 0
+  - name: Tilemap
+    uniqueID: 1857830551
+    locked: 0
+  - name: Player
+    uniqueID: 3361025559
+    locked: 0
+  m_RenderingLayers:
+  - Default
