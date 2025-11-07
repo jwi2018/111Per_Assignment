@@ -1,26 +1,64 @@
 using UnityEngine;
 using UnityEngine.InputSystem;
 
+public enum PlayerState
+{
+    None,
+    Idle,
+    Move,
+    Attack,
+    Skill
+}
+
 public class Player : MonoBehaviour
 {
-    [Header("이동")]
-    [SerializeField] private float _moveSpeed = 5.0f;
+    [Header("★ 상태")]
+    private PlayerState _state = PlayerState.Idle;
 
-    [Header("체력")]
-    [SerializeField] private int _maxHealth = 100;
+    [Header("★ 이동")]
+    private float _moveSpeed = 8.0f;
+
+    [Header("★ 공격")]
+    private bool _canShoot = true;
+    private float _shootCooldown = 0.5f;
+    private float _shootTimer = 0f;
+
+    [Header("★ 체력")]
+    private int _maxHealth = 100;
     private int _currentHealth;
 
-    [Header("스킬")]
-    
+    [Header("★ 스킬")]
     [SerializeField] private int[] skillCooldowns = new int[5];     // 스킬별 쿨다운 시간
     private int[] skillCooldownTimers = new int[5];                 // 스킬별 쿨다운 타이머
     private float[] skillDeltaTimeAccumulators = new float[5];
 
-    [Header("컴포넌트")]
+    [Header("★ 컴포넌트")]
     public Animator _animator;
     public PlayerInput _playerInput;
 
-    private void Update()
+    #region Property
+
+    public PlayerState State => _state;
+
+    public float MoveSpeed => _moveSpeed;
+
+    public bool CanShoot => _canShoot;
+
+    public float ShootCooldown => _shootCooldown;
+
+    public float ShootTimer => _shootTimer;
+
+
+    #endregion
+
+    #region Unity 생명주기
+
+    void Awake()
+    {
+        _currentHealth = _maxHealth;
+    }
+
+    void Update()
     {
         for (int i = 0; i < skillCooldownTimers.Length; i++)
         {
@@ -34,7 +72,46 @@ public class Player : MonoBehaviour
                 }
             }
         }
+
+        if (!_canShoot) // 발사 불가능 상태 (쿨다운 중)일 때
+        {
+            _shootTimer -= Time.deltaTime; // 타이머 감소
+            if (_shootTimer <= 0f)
+            {
+                _shootTimer = 0f; // 음수 방지
+                _canShoot = true; // 쿨다운 끝, 발사 가능
+            }
+        }
     }
+
+    #endregion
+
+
+    #region Public 함수
+
+    public void SetPlayerState(PlayerState newState)
+    {
+        if (_state == newState) return;
+
+        _state = newState;
+    }
+
+    public void ResetShootCooldown()
+    {
+        _canShoot = false;
+        _shootTimer = _shootCooldown;
+    }
+
+    public void SetCanShoot(bool _bool)
+    {
+        _canShoot = _bool;
+    }
+
+    public void SetShootTimer(float Time)
+    {
+        _shootTimer -= Time;
+    }
+
 
     public bool UseSkill(int skillIndex)
     {
@@ -51,4 +128,17 @@ public class Player : MonoBehaviour
         }
         return false; // 쿨다운 중일 경우
     }
+
+    public void TakeDamage(int amount)
+    {
+        _currentHealth -= amount;
+        if (_currentHealth <= 0)
+        {
+            _currentHealth = 0;
+            // 플레이어 사망 처리 로직
+            Debug.Log("플레이어 사망!");
+        }
+    }
+
+    #endregion
 }

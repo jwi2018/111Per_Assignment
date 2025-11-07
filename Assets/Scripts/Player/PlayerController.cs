@@ -1,7 +1,113 @@
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.InputSystem;
 
 [RequireComponent(typeof(Player))]
 public class PlayerController : MonoBehaviour
 {
+    [Header("★ 플레이어")]
     [SerializeField] Player _player;
+
+    [Header("★ 이동")]
+    [SerializeField] Vector2 _moveDirection { get; set; }
+
+    [Header("★ 공격")]
+    [SerializeField] Transform _firePoint;              // 화살 발사 위치 (빈 오브젝트)
+    [SerializeField] GameObject _arrowPrefab;           // 화살 프리팹
+
+    [Header("★ 컴포넌트")]
+    [SerializeField] Rigidbody2D _rigidbody2D;
+
+    #region Unity 생명주기
+
+    void Awake()
+    {
+        
+    }
+
+    void Update()
+    {
+        if (_player.State == PlayerState.Idle && _player.CanShoot)
+        {
+            ShootArrow();
+        }
+    }
+
+    void FixedUpdate()
+    {
+        Move();
+    }
+
+    #endregion
+
+    
+    #region Input Action 함수
+
+    public void OnMoveInput(InputAction.CallbackContext context)
+    {
+        _moveDirection = context.ReadValue<Vector2>();
+
+        if(_moveDirection.sqrMagnitude > 0.01f)
+        {
+            _player.SetPlayerState(PlayerState.Move);
+            Debug.Log("이동 중입니다.");
+        }
+        else // 이동 입력이 없다면 (키를 떼거나 아무것도 입력 안 할 때)
+        {
+            _player.SetPlayerState(PlayerState.Idle);
+            Debug.Log("이동 제외한 행동(Idle) 중입니다.");
+        }
+    }
+
+    #endregion
+
+    #region Public 함수
+
+    #endregion
+
+    #region Private 함수
+
+    private void Move()
+    {
+        _rigidbody2D.linearVelocity = _moveDirection * _player.MoveSpeed;
+    }
+
+    private void ShootArrow()
+    {
+        Debug.Log("발사 중 1");
+        if (_arrowPrefab == null || _firePoint == null) return;
+
+        Debug.Log("발사 중 2");
+        if (!_player.CanShoot) return; // 쿨다운 중이면 발사하지 않음
+
+        Debug.Log("발사 중 3");
+        PlayerState originalState = _player.State; // 원래 상태 기억
+        _player.SetPlayerState(PlayerState.Attack); // Attack 상태로 전환
+
+        Debug.Log("발사 중 4");
+        // 화살을 발사 위치에서 생성
+        GameObject arrowInstance = Instantiate(_arrowPrefab, _firePoint.position, _firePoint.rotation);
+
+        Debug.Log("발사 중 5");
+        //화살 스크립트에 발사 각도 및 속도 설정(예시, 화살에 Launch 함수 가정)
+        BasicArrow arrowScript = arrowInstance.GetComponent<BasicArrow>();
+        if (arrowScript != null)
+        {
+            Debug.Log("발사 중 6");
+            arrowScript.Launch(50f);   // 50도 각도로 발사, 런치 속도는 Arrow 스크립트 내에서 설정
+        }
+
+        _player.ResetShootCooldown();
+
+
+        // 스킬/공격 애니메이션 트리거 넣어도 좋음
+        if (_player._animator != null)
+        {
+            _player._animator.SetTrigger("Attack");
+        }
+
+        _player.SetPlayerState(originalState);
+    }
+
+    #endregion
 }
