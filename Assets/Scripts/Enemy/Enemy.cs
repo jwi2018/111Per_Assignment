@@ -34,7 +34,7 @@ public class Enemy : MonoBehaviour
     [Header("★ 컴포넌트")]
     public Animator _animator; // 적군 애니메이터
     // 적군이 발사하는 투사체 프리팹 (화살, 마법 등)
-    public GameObject _projectilePrefab;
+    public GameObject _enemyBasicArrow;
     public Transform _attackPoint; // 공격 발사 위치 (FirePoint와 유사)
 
 
