@@ -2,7 +2,7 @@ Using pre-set license
 Built from '6000.0/respin/6000.0.58f2-44b8bf3a32' branch; Version is '6000.0.58f2 (92dee566b325) revision 9625317'; Using compiler version '193933523'; Build Type 'Release'
 OS: 'Windows 11  (10.0.26100) 64bit Core' Language: 'ko' Physical Memory: 32158 MB
 BatchMode: 1, IsHumanControllingUs: 0, StartBugReporterOnCrash: 0, Is64bit: 1
-Date: 2025-11-07T04:11:09Z
+Date: 2025-11-07T04:38:30Z
 
 COMMAND LINE ARGUMENTS:
 C:\Program Files\Unity\Hub\Editor\6000.0.58f2\Editor\Unity.exe
@@ -16,7 +16,7 @@ C:/Git/111Per_Assignment
 -logFile
 Logs/AssetImportWorker1.log
 -srvPort
-59097
+53767
 -job-worker-count
 7
 -background-job-worker-count
@@ -62,12 +62,12 @@ C:/Git/111Per_Assignment
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gi-baking-worker=262144"
     "memorysetup-temp-allocator-size-gfx=262144"
-Player connection [27400]  Target information:
+Player connection [27468]  Target information:
 
-Player connection [27400]  * "[IP] 192.168.0.48 [Port] 0 [Flags] 2 [Guid] 1176123366 [EditorId] 1176123366 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-3F8TH0O) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
+Player connection [27468]  * "[IP] 192.168.0.48 [Port] 0 [Flags] 2 [Guid] 2640755640 [EditorId] 2640755640 [Version] 1048832 [Id] WindowsEditor(7,DESKTOP-3F8TH0O) [Debug] 1 [PackageName] WindowsEditor [ProjectName] Editor" 
 
-Player connection [27400] Host joined multi-casting on [225.0.0.222:54997]...
-Player connection [27400] Host joined alternative multi-casting on [225.0.0.222:34997]...
+Player connection [27468] Host joined multi-casting on [225.0.0.222:54997]...
+Player connection [27468] Host joined alternative multi-casting on [225.0.0.222:34997]...
 JobSystem: Creating JobQueue using job-worker-count value 7
 Input System module state changed to: Initialized.
 [Physics::Module] Initialized fallback backend.
@@ -79,7 +79,7 @@ Library Redirect Path: Library/
 [Physics::Module] SDK Version: 4.1.2
 [Physics::Module] Integration Version: 1.0.0
 [Physics::Module] Threading Mode: Multi-Threaded
-Refreshing native plugins compatible for Editor in 4.69 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 5.15 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Initialize engine version: 6000.0.58f2 (92dee566b325)
 [Subsystems] Discovering subsystems at path C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Resources/UnitySubsystems
@@ -95,43 +95,43 @@ Initialize mono
 Mono path[0] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/Managed'
 Mono path[1] = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/lib/mono/unityjit-win32'
 Mono config path = 'C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/MonoBleedingEdge/etc'
-Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56788
+Using monoOptions --debugger-agent=transport=dt_socket,embedding=1,server=y,suspend=n,address=127.0.0.1:56876
 Begin MonoManager ReloadAssembly
 Registering precompiled unity dll's ...
 Register platform support module: C:/Program Files/Unity/Hub/Editor/6000.0.58f2/Editor/Data/PlaybackEngines/WindowsStandaloneSupport/UnityEditor.WindowsStandalone.Extensions.dll
-Registered in 0.007919 seconds.
-- Loaded All Assemblies, in  0.475 seconds
+Registered in 0.004804 seconds.
+- Loaded All Assemblies, in  0.421 seconds
 Native extension for WindowsStandalone target not found
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.342 seconds
-Domain Reload Profiling: 811ms
-	BeginReloadAssembly (174ms)
+- Finished resetting the current domain, in  0.348 seconds
+Domain Reload Profiling: 764ms
+	BeginReloadAssembly (153ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (0ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
 		CreateAndSetChildDomain (1ms)
-	RebuildCommonClasses (44ms)
-	RebuildNativeTypeToScriptingClass (12ms)
-	initialDomainReloadingComplete (68ms)
-	LoadAllAssembliesAndSetupDomain (171ms)
-		LoadAssemblies (169ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (60ms)
+	LoadAllAssembliesAndSetupDomain (154ms)
+		LoadAssemblies (148ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (167ms)
-			TypeCache.Refresh (166ms)
-				TypeCache.ScanAssembly (152ms)
+		AnalyzeDomain (151ms)
+			TypeCache.Refresh (150ms)
+				TypeCache.ScanAssembly (137ms)
 			BuildScriptInfoCaches (0ms)
 			ResolveRequiredComponents (0ms)
-	FinalizeReload (342ms)
+	FinalizeReload (348ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (307ms)
+		SetupLoadedEditorAssemblies (298ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (24ms)
+			InitializePlatformSupportModulesInManaged (22ms)
 			SetLoadedEditorAssemblies (5ms)
-			BeforeProcessingInitializeOnLoad (63ms)
-			ProcessInitializeOnLoadAttributes (157ms)
-			ProcessInitializeOnLoadMethodAttributes (58ms)
+			BeforeProcessingInitializeOnLoad (60ms)
+			ProcessInitializeOnLoadAttributes (152ms)
+			ProcessInitializeOnLoadMethodAttributes (59ms)
 			AfterProcessingInitializeOnLoad (0ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
@@ -140,52 +140,2236 @@ Domain Reload Profiling: 811ms
 Worker process is ready to serve import requests
 Import Worker Mode flag is 0x00
 Begin MonoManager ReloadAssembly
-- Loaded All Assemblies, in  0.948 seconds
-Refreshing native plugins compatible for Editor in 3.34 ms, found 4 plugins.
+- Loaded All Assemblies, in  0.946 seconds
+Refreshing native plugins compatible for Editor in 3.00 ms, found 4 plugins.
 Native extension for WindowsStandalone target not found
 Package Manager log level set to [2]
 [Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
 [Package Manager] Unable to send message (not connected to server process).
 [Package Manager] Cannot connect to Unity Package Manager local server
 Mono: successfully reloaded assembly
-- Finished resetting the current domain, in  0.839 seconds
-Domain Reload Profiling: 1775ms
-	BeginReloadAssembly (218ms)
+- Finished resetting the current domain, in  0.820 seconds
+Domain Reload Profiling: 1756ms
+	BeginReloadAssembly (209ms)
 		ExecutionOrderSort (0ms)
 		DisableScriptedObjects (6ms)
 		BackupInstance (0ms)
 		ReleaseScriptingObjects (0ms)
-		CreateAndSetChildDomain (34ms)
-	RebuildCommonClasses (38ms)
+		CreateAndSetChildDomain (32ms)
+	RebuildCommonClasses (37ms)
 	RebuildNativeTypeToScriptingClass (11ms)
 	initialDomainReloadingComplete (49ms)
-	LoadAllAssembliesAndSetupDomain (619ms)
+	LoadAllAssembliesAndSetupDomain (628ms)
 		LoadAssemblies (487ms)
 		RebuildTransferFunctionScriptingTraits (0ms)
-		AnalyzeDomain (260ms)
-			TypeCache.Refresh (193ms)
-				TypeCache.ScanAssembly (176ms)
-			BuildScriptInfoCaches (53ms)
-			ResolveRequiredComponents (10ms)
-	FinalizeReload (839ms)
+		AnalyzeDomain (265ms)
+			TypeCache.Refresh (202ms)
+				TypeCache.ScanAssembly (188ms)
+			BuildScriptInfoCaches (51ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (821ms)
 		ReleaseScriptCaches (0ms)
 		RebuildScriptCaches (0ms)
-		SetupLoadedEditorAssemblies (685ms)
+		SetupLoadedEditorAssemblies (667ms)
 			LogAssemblyErrors (0ms)
-			InitializePlatformSupportModulesInManaged (3ms)
+			InitializePlatformSupportModulesInManaged (2ms)
 			SetLoadedEditorAssemblies (3ms)
 			BeforeProcessingInitializeOnLoad (150ms)
-			ProcessInitializeOnLoadAttributes (397ms)
-			ProcessInitializeOnLoadMethodAttributes (121ms)
+			ProcessInitializeOnLoadAttributes (389ms)
+			ProcessInitializeOnLoadMethodAttributes (111ms)
 			AfterProcessingInitializeOnLoad (11ms)
 			EditorAssembliesLoaded (0ms)
 		ExecutionOrderSort2 (0ms)
 		AwakeInstancesAfterBackupRestoration (12ms)
 Launched and connected shader compiler UnityShaderCompiler.exe after 0.01 seconds
-Refreshing native plugins compatible for Editor in 3.12 ms, found 4 plugins.
+Refreshing native plugins compatible for Editor in 3.07 ms, found 4 plugins.
 Preloading 0 native plugins for Editor in 0.00 ms.
 Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
-Unloading 6652 unused Assets / (4.6 MB). Loaded Objects now: 7358.
-Memory consumption went from 141.7 MB to 137.2 MB.
-Total: 9.452600 ms (FindLiveObjects: 0.816200 ms CreateObjectMapping: 1.114500 ms MarkObjects: 4.944500 ms  DeleteObjects: 2.576200 ms)
+Unloading 6663 unused Assets / (4.6 MB). Loaded Objects now: 7372.
+Memory consumption went from 142.0 MB to 137.4 MB.
+Total: 8.093600 ms (FindLiveObjects: 0.666700 ms CreateObjectMapping: 0.454200 ms MarkObjects: 4.646900 ms  DeleteObjects: 2.324600 ms)
 
+========================================================================
+Received Import Request.
+  Time since last request: 656.938170 seconds.
+  path: Assets/karsiori/Scenes/SampleScene - Woods Tileset and Background.unity
+  artifactKey: Guid(48c46572990edbc49ad6091e75f3e5b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/karsiori/Scenes/SampleScene - Woods Tileset and Background.unity using Guid(48c46572990edbc49ad6091e75f3e5b5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2f57b0b323f34f58540d2f83bff16534') in 0.0042914 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/karsiori/Scenes
+  artifactKey: Guid(f2721d0afe82b4443a3c34f4dac049b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/karsiori/Scenes using Guid(f2721d0afe82b4443a3c34f4dac049b3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b42335604ac8360bbfc9d09a74aa1184') in 0.0005367 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  4.152 seconds
+Refreshing native plugins compatible for Editor in 3.29 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.899 seconds
+Domain Reload Profiling: 5040ms
+	BeginReloadAssembly (546ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (17ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (73ms)
+	RebuildCommonClasses (151ms)
+	RebuildNativeTypeToScriptingClass (16ms)
+	initialDomainReloadingComplete (47ms)
+	LoadAllAssembliesAndSetupDomain (3380ms)
+		LoadAssemblies (3555ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (204ms)
+			TypeCache.Refresh (8ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (182ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (900ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (722ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (5ms)
+			BeforeProcessingInitializeOnLoad (198ms)
+			ProcessInitializeOnLoadAttributes (426ms)
+			ProcessInitializeOnLoadMethodAttributes (74ms)
+			AfterProcessingInitializeOnLoad (15ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (28ms)
+Refreshing native plugins compatible for Editor in 3.64 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6662 unused Assets / (4.6 MB). Loaded Objects now: 7379.
+Memory consumption went from 143.6 MB to 139.0 MB.
+Total: 8.709500 ms (FindLiveObjects: 0.655400 ms CreateObjectMapping: 0.607900 ms MarkObjects: 5.104200 ms  DeleteObjects: 2.340600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.866 seconds
+Refreshing native plugins compatible for Editor in 3.00 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.846 seconds
+Domain Reload Profiling: 1704ms
+	BeginReloadAssembly (243ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (18ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (48ms)
+	RebuildCommonClasses (35ms)
+	RebuildNativeTypeToScriptingClass (11ms)
+	initialDomainReloadingComplete (35ms)
+	LoadAllAssembliesAndSetupDomain (532ms)
+		LoadAssemblies (472ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (179ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (160ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (847ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (671ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (169ms)
+			ProcessInitializeOnLoadAttributes (410ms)
+			ProcessInitializeOnLoadMethodAttributes (73ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (23ms)
+Refreshing native plugins compatible for Editor in 3.69 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6662 unused Assets / (4.8 MB). Loaded Objects now: 7382.
+Memory consumption went from 143.7 MB to 138.9 MB.
+Total: 9.722300 ms (FindLiveObjects: 0.793300 ms CreateObjectMapping: 0.806800 ms MarkObjects: 5.343100 ms  DeleteObjects: 2.777800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 753.408228 seconds.
+  path: Assets/InputSystem_Actions.inputactions
+  artifactKey: Guid(2bcd2660ca9b64942af0de543d8d7100) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/InputSystem_Actions.inputactions using Guid(2bcd2660ca9b64942af0de543d8d7100) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b0ed4a2fa8f43d36fc8936e8d7f356f9') in 0.4096194 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 21
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0260.png
+  artifactKey: Guid(dbb868a4594e5504d9e1d82509a6ce30) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0260.png using Guid(dbb868a4594e5504d9e1d82509a6ce30) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '79ba41264d20576c3a5090ceff635284') in 0.0691385 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/Prefabs/Player.prefab
+  artifactKey: Guid(d2e8c52643280a14c836f4bd6db947b8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Prefabs/Player.prefab using Guid(d2e8c52643280a14c836f4bd6db947b8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e7bea89531d05a868662987cedf4568b') in 0.0224664 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0239.png
+  artifactKey: Guid(ce04e01a1df7a8040ae2c1154faee52c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0239.png using Guid(ce04e01a1df7a8040ae2c1154faee52c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'bccc0491b907604fad99f8011ab2a2a0') in 0.0227889 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0267.png
+  artifactKey: Guid(120a79cd33929c440939ef16c1476ce4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0267.png using Guid(120a79cd33929c440939ef16c1476ce4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ec0cb5b0c5fe4aa35f4fd3e225440205') in 0.0195935 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0231.png
+  artifactKey: Guid(882fefe0474749845bdd85520f6511d2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0231.png using Guid(882fefe0474749845bdd85520f6511d2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0b27194cb1ea798893de6ac06e4e78d9') in 0.0259201 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0160.png
+  artifactKey: Guid(673b1ca112fc93549860220c65607500) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0160.png using Guid(673b1ca112fc93549860220c65607500) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4fd0ae07f14989b2ef75bb320fcf5b6f') in 0.0233279 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SpritesArchers/Archer1/desktop.ini
+  artifactKey: Guid(1c5f0c9db0d55d5479e28e1957e94773) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/desktop.ini using Guid(1c5f0c9db0d55d5479e28e1957e94773) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ada914d04831293485fb073af198e933') in 0.0144626 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0263.png
+  artifactKey: Guid(12cfb88c41222974d9edf6bada835b69) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0263.png using Guid(12cfb88c41222974d9edf6bada835b69) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'dd46a9f540ff32d3a5c82df659c1ea16') in 0.0230988 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0236.png
+  artifactKey: Guid(1106f760d9a7bb14e8b328d24b4fc41c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0236.png using Guid(1106f760d9a7bb14e8b328d24b4fc41c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '7c5f41917c37b04fd93deb5cc9ae675d') in 0.0229684 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/Settings/UniversalRP.asset
+  artifactKey: Guid(681886c5eb7344803b6206f758bf0b1c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Settings/UniversalRP.asset using Guid(681886c5eb7344803b6206f758bf0b1c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '652186d856548c37a72116de052c0f6e') in 0.0874965 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0238.png
+  artifactKey: Guid(a6c44962e3e2ddd49b483b054b2911e2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0238.png using Guid(a6c44962e3e2ddd49b483b054b2911e2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3ecb78dcc2f863dff086546c582773c9') in 0.0245058 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Prefabs/Enemy.prefab
+  artifactKey: Guid(e52ebe86e348ed641b061f12b4f2d9dd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Prefabs/Enemy.prefab using Guid(e52ebe86e348ed641b061f12b4f2d9dd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '908e1d5e3570bd5a4b157cda497a3f05') in 0.0141879 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 4
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0159.png
+  artifactKey: Guid(014074eca7b51d84a8c6bee2b6399681) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0159.png using Guid(014074eca7b51d84a8c6bee2b6399681) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '7b6a1d387555b440b127068216a73706') in 0.0205684 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0161.png
+  artifactKey: Guid(f1d11c0289602654a91b3e8d13d10952) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0161.png using Guid(f1d11c0289602654a91b3e8d13d10952) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f26e62ecd43372355de19ad8b3184a8f') in 0.0244645 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0273.png
+  artifactKey: Guid(a49c7b9d66cc4a24386e403958b40a6c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0273.png using Guid(a49c7b9d66cc4a24386e403958b40a6c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f6bc09e03df058911240b3eb5d37727a') in 0.0215061 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0139.png
+  artifactKey: Guid(0b59018e8d6152741867c04e9445250c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0139.png using Guid(0b59018e8d6152741867c04e9445250c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1687a2d89609364616f7af040bd3e2b2') in 0.0267391 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0158.png
+  artifactKey: Guid(746613ba6a1ca37438ff172ea986f39f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0158.png using Guid(746613ba6a1ca37438ff172ea986f39f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9babb45aa879d0f879e6b65a38e84867') in 0.0220497 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0218.png
+  artifactKey: Guid(b1c55dcde62deac43a5d6f9d96f8330f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0218.png using Guid(b1c55dcde62deac43a5d6f9d96f8330f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ddd334857c3f2f0b867559fce1c397d0') in 0.021955 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0136.png
+  artifactKey: Guid(90ebc67d318bbf44898852a5c2e3aa61) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0136.png using Guid(90ebc67d318bbf44898852a5c2e3aa61) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0576a27fc663cd4d56387ed508ab7f74') in 0.0198776 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/GroundGrass01.png
+  artifactKey: Guid(80f147e572c2bc647a4f09b40ae8a8d3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/GroundGrass01.png using Guid(80f147e572c2bc647a4f09b40ae8a8d3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a36c3de2bc8a70f24b24dcc0bfa55461') in 0.0222286 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0002.png
+  artifactKey: Guid(11b7ddb7ab4cd144a9f993c6609c0d4a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0002.png using Guid(11b7ddb7ab4cd144a9f993c6609c0d4a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ac6c7ed57c5af90948b03111469c9467') in 0.0330758 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0281.png
+  artifactKey: Guid(b50be12be1080b8428d5498e98a050bf) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0281.png using Guid(b50be12be1080b8428d5498e98a050bf) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ed33aaf0945359275d695fd998d6059e') in 0.0268456 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0279.png
+  artifactKey: Guid(1e2bd20203046034aba4947e0a0097e3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0279.png using Guid(1e2bd20203046034aba4947e0a0097e3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '39b286c8abf0f36b8cb7d7f5c5fc455d') in 0.0209899 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0131.png
+  artifactKey: Guid(bfe1cbdfe148fa64ea2feddcdc1aa45b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0131.png using Guid(bfe1cbdfe148fa64ea2feddcdc1aa45b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1384cfd4a4fa40b4f377bf190be03ade') in 0.0215586 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0167.png
+  artifactKey: Guid(d36c18a556558b643a193e30a552c064) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0167.png using Guid(d36c18a556558b643a193e30a552c064) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1bd87c68165518e2255f594eaf6d8b8b') in 0.0232666 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0233.png
+  artifactKey: Guid(13f01d6957bc6fc4498ea74a7a20885c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0233.png using Guid(13f01d6957bc6fc4498ea74a7a20885c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b0174cc5959b0e9765ac3bc47086209f') in 0.0245772 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0014.png
+  artifactKey: Guid(0b2961ee4f40f8f45902b118e76b3dce) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0014.png using Guid(0b2961ee4f40f8f45902b118e76b3dce) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ed9e57f35f56aea73502b0383825b49e') in 0.0229892 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0009.png
+  artifactKey: Guid(265bc34ffc4648a4e8bc1ab6c3d73799) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0009.png using Guid(265bc34ffc4648a4e8bc1ab6c3d73799) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ebf3cf4b32ddfc1fdbc2b849189dc657') in 0.0228693 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0274.png
+  artifactKey: Guid(56ffaf6c93ba0254eb7e179b74c6a4d0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0274.png using Guid(56ffaf6c93ba0254eb7e179b74c6a4d0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '785fd0d8da9009c720ce39f888640038') in 0.0224546 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0006.png
+  artifactKey: Guid(84c719c827538044eabc6d67d350987d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0006.png using Guid(84c719c827538044eabc6d67d350987d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ef8f48c3dc84b0bcf82839007194a3fa') in 0.0272083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SpritesArchers/Ground.mat
+  artifactKey: Guid(7e005dc7cedc2564c9d28b98f1988b59) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Ground.mat using Guid(7e005dc7cedc2564c9d28b98f1988b59) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd21b142165c2b3fec14d21d4c306d950') in 0.189682 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000182 seconds.
+  path: Assets/SpritesArchers/Archer2/Archer2_Idle.anim
+  artifactKey: Guid(ed1e0e3a5ed85284ab3bb114e75de82f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/Archer2_Idle.anim using Guid(ed1e0e3a5ed85284ab3bb114e75de82f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8c4a55b09b6ac439802e09e09743d7da') in 0.3651426 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000068 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0213.png
+  artifactKey: Guid(fbcb6bbfa1f8ab841bcb125ca0357506) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0213.png using Guid(fbcb6bbfa1f8ab841bcb125ca0357506) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '040ef41dfa03dea21a9302b2dbe56754') in 0.0608909 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer2/Archer2_Attack2.anim
+  artifactKey: Guid(6bd2ba29d7c8d4b488e85644187a901c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/Archer2_Attack2.anim using Guid(6bd2ba29d7c8d4b488e85644187a901c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '48fd9739a43654feb5b42dc7d48fb141') in 0.0210768 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0210.png
+  artifactKey: Guid(c4ace4e63ea3d174f85f1a873e66612d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0210.png using Guid(c4ace4e63ea3d174f85f1a873e66612d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '56918d5248e34dda42719fe391b98919') in 0.0340729 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/SpritesArchers/Archer1/Archer1_Idle2.anim
+  artifactKey: Guid(9b9e88587fc9b6d49b4ed88b89b91912) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/Archer1_Idle2.anim using Guid(9b9e88587fc9b6d49b4ed88b89b91912) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '15634481ab2c81bca05fac0414d20e2a') in 0.0330779 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0253.png
+  artifactKey: Guid(56bc6502efee7d64c94ed2fae37338e2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0253.png using Guid(56bc6502efee7d64c94ed2fae37338e2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9b4ceaa6bc23db7b2a1405d61698abea') in 0.0278643 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0221.png
+  artifactKey: Guid(4404c58cb4a2523449892230336f542b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0221.png using Guid(4404c58cb4a2523449892230336f542b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ae542316ad87138b2eebaa89f6f48973') in 0.0253073 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0218.png
+  artifactKey: Guid(a6cb20c866788fc4d89186dfd7291284) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0218.png using Guid(a6cb20c866788fc4d89186dfd7291284) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'eb863a1bbde4b29cef3b5b67c495425a') in 0.0281442 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0223.png
+  artifactKey: Guid(415f74d07c8354643bae0ba1877f30e2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0223.png using Guid(415f74d07c8354643bae0ba1877f30e2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '063d1f75005113fae66b5f38b9323a74') in 0.0282084 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0214.png
+  artifactKey: Guid(d2f085d4fbe0a7740b0012b30f23a4f2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0214.png using Guid(d2f085d4fbe0a7740b0012b30f23a4f2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '32faec9400070b7636fda84c052f9ec0') in 0.0277696 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000036 seconds.
+  path: Assets/SpritesArchers/Archer1/Archer1_Idle.anim
+  artifactKey: Guid(3252ec4514ded0b4d9fa47f92dff971a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/Archer1_Idle.anim using Guid(3252ec4514ded0b4d9fa47f92dff971a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1e00adc4eb3e7bd2d7c9d97316c8fb64') in 0.0248209 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0231.png
+  artifactKey: Guid(acdcbaabf0a7c1b418d1754f0b0d0198) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0231.png using Guid(acdcbaabf0a7c1b418d1754f0b0d0198) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2498f2e19ccfa555375789e067bb7a7d') in 0.0411079 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0230.png
+  artifactKey: Guid(210782b04dfc14e45a494a696003d9aa) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0230.png using Guid(210782b04dfc14e45a494a696003d9aa) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'fb568cb48921809535e7264fb17d02fd') in 0.0291332 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0272.png
+  artifactKey: Guid(0bec58c0b20f56f48989c1bcaee75148) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0272.png using Guid(0bec58c0b20f56f48989c1bcaee75148) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '09eb0588d81d8b0ec2e7e2538199e24e') in 0.0280992 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/karsiori/Scenes/SampleScene - Woods Tileset and Background.unity
+  artifactKey: Guid(48c46572990edbc49ad6091e75f3e5b5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/Scenes/SampleScene - Woods Tileset and Background.unity using Guid(48c46572990edbc49ad6091e75f3e5b5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3500535df211f1bf11deb5b1dbae39ff') in 0.0422768 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0240.png
+  artifactKey: Guid(ae42c8a2584c234409841c7bfb71799c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0240.png using Guid(ae42c8a2584c234409841c7bfb71799c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '02db9699f910381efdcfeb7925a939c9') in 0.034522 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0236.png
+  artifactKey: Guid(0b82b09bf3bba1740882e6ae132c0ad5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0236.png using Guid(0b82b09bf3bba1740882e6ae132c0ad5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '36f44aa48e1223c2823a6628ad1353e8') in 0.0284778 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000043 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0238.png
+  artifactKey: Guid(81df0797139513b44816f2f56aa7f38b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0238.png using Guid(81df0797139513b44816f2f56aa7f38b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '52b59e8ac67b8c50980a27917cf3206b') in 0.024348 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0153.png
+  artifactKey: Guid(1a8c479bda250074ab4ff1dd03ef733e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0153.png using Guid(1a8c479bda250074ab4ff1dd03ef733e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c125733346de1fea217bcdc33ca4f732') in 0.0259237 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0004.png
+  artifactKey: Guid(b5b8aeb2ef00c7f4f896a701cd2616e4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0004.png using Guid(b5b8aeb2ef00c7f4f896a701cd2616e4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3b02476f4c413699123aad117f0222f6') in 0.0336935 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Death_0253.png
+  artifactKey: Guid(6f79f7e7e91308b47a43e9d229e11c21) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Death_0253.png using Guid(6f79f7e7e91308b47a43e9d229e11c21) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f33af46eca34cdafb58a1040954076da') in 0.0229963 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0216.png
+  artifactKey: Guid(d4ad7ee047b0f1345835b3bebcea86fd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0216.png using Guid(d4ad7ee047b0f1345835b3bebcea86fd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '114e22a3b6576f92fff5011c22ea80ee') in 0.0256656 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SpritesArchers/FantasyArcher_02.prefab
+  artifactKey: Guid(0614d333b314caf45a8bb78b23b36fb1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/FantasyArcher_02.prefab using Guid(0614d333b314caf45a8bb78b23b36fb1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'dd664f4a9bcf2edf1fffac47a37a26cd') in 0.0600777 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 35
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0137.png
+  artifactKey: Guid(d7775baff1c09dd48b821abffba231fc) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0137.png using Guid(d7775baff1c09dd48b821abffba231fc) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1ab617a433a50e66d6cba9e6517d2cbe') in 0.0250979 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0213.png
+  artifactKey: Guid(5685d44b950e2f74db9a2c5dc52983b6) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0213.png using Guid(5685d44b950e2f74db9a2c5dc52983b6) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'db898f24b14ba1ebc34b86bc5d224592') in 0.0285518 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000038 seconds.
+  path: Assets/SpritesArchers/desktop.ini
+  artifactKey: Guid(b4e91ea5960f28545935ab1b2c0d6686) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/desktop.ini using Guid(b4e91ea5960f28545935ab1b2c0d6686) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '580754a0295aeee8e82a5c21db1f415e') in 0.017724 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0232.png
+  artifactKey: Guid(8d4c4823383aafe4c81db4c4ee88b723) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0232.png using Guid(8d4c4823383aafe4c81db4c4ee88b723) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '54d17e8ebcb6a12380b9f98446be20e8') in 0.0218509 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0265.png
+  artifactKey: Guid(41121955f46992248bc9fc622ba12ac9) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0265.png using Guid(41121955f46992248bc9fc622ba12ac9) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '793bd3a3f1122ac2f0537a30afe898cd') in 0.0225811 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0229.png
+  artifactKey: Guid(5095b0837555db54eb66a8dc7ccb1d04) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack2_0229.png using Guid(5095b0837555db54eb66a8dc7ccb1d04) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6c9439beb313afa3c7b17198780ae155') in 0.0203128 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0156.png
+  artifactKey: Guid(f16941ec39293dd43aca10e584eaed45) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0156.png using Guid(f16941ec39293dd43aca10e584eaed45) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '34596aa84a30dcdb1228e9e5d6989ded') in 0.0198804 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0129.png
+  artifactKey: Guid(7408d94a597976c48b89b069650a453c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0129.png using Guid(7408d94a597976c48b89b069650a453c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '07441d20cfda72be0440c37d88fff6f3') in 0.021779 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0224.png
+  artifactKey: Guid(7caf5845530525b4ab59a1f9d3acfd94) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0224.png using Guid(7caf5845530525b4ab59a1f9d3acfd94) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '72754873e61221ba9d02e22b39c9dd69') in 0.0226988 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0217.png
+  artifactKey: Guid(23f761d201e47544fa4d7e27a166a8bd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Attack1_0217.png using Guid(23f761d201e47544fa4d7e27a166a8bd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1987ca90d574b4009d90d637d4a108e0') in 0.019574 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0270.png
+  artifactKey: Guid(46d6c3dca82b15e478b687fba5864511) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0270.png using Guid(46d6c3dca82b15e478b687fba5864511) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '04548b071fe55573b1cbf14a85433a8e') in 0.0199195 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0010.png
+  artifactKey: Guid(d526407bd6d8daf40a0092c5d9c32d25) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0010.png using Guid(d526407bd6d8daf40a0092c5d9c32d25) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '32983729d88b7a42ba303c26c18b034d') in 0.0197632 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Hit_0246.png
+  artifactKey: Guid(80051ac073d416844a9a56b6de0b40f2) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Hit_0246.png using Guid(80051ac073d416844a9a56b6de0b40f2) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c67c0afe02a2854d289326e6d8f10120') in 0.0216461 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0219.png
+  artifactKey: Guid(6df12c856daaf5246ad72d74f94168a7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0219.png using Guid(6df12c856daaf5246ad72d74f94168a7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'be5e1e83e1c7c3518692edae5348e9b4') in 0.0208219 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0278.png
+  artifactKey: Guid(549be546ce572774494f2397543dd2fc) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0278.png using Guid(549be546ce572774494f2397543dd2fc) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1173c4a82d928ae88d50531281245aca') in 0.0201814 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0254.png
+  artifactKey: Guid(0c25a650cd6c98b45b7a2e9045ba998a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0254.png using Guid(0c25a650cd6c98b45b7a2e9045ba998a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '59be2c3203d584f28cdd2c182847fcfe') in 0.0187763 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0147.png
+  artifactKey: Guid(022ba03b8cbfec14c97f693233d9d00b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0147.png using Guid(022ba03b8cbfec14c97f693233d9d00b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a4e95bbb986693910fc2a99230e99722') in 0.0206371 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0003.png
+  artifactKey: Guid(b08f1836cdad0b94b871800e0e636c9f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0003.png using Guid(b08f1836cdad0b94b871800e0e636c9f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0036602de59411853b652c047e32dd25') in 0.030888 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000612 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0257.png
+  artifactKey: Guid(10cb1d31694962d48ab4f27687f8985c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0257.png using Guid(10cb1d31694962d48ab4f27687f8985c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8ff74289c3395a9e2dda50dba9ea39cb') in 0.3076685 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000033 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Death_0256.png
+  artifactKey: Guid(373639e72700dcb4a948e4f62b8d64f7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Death_0256.png using Guid(373639e72700dcb4a948e4f62b8d64f7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '27d5555e97f319db5a55cb34ac24bf49') in 0.0485971 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0165.png
+  artifactKey: Guid(6f774e4703103844da2464d805ab9693) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0165.png using Guid(6f774e4703103844da2464d805ab9693) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e0231c6696bb920439287f8810327cdf') in 0.0213504 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0152.png
+  artifactKey: Guid(f80990ef61dc93e4992a8eec4d14be8f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0152.png using Guid(f80990ef61dc93e4992a8eec4d14be8f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e3c8ac2e2ec52101c7eda417eb593d22') in 0.0257077 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0160.png
+  artifactKey: Guid(b8f407b5dc697a64db0e7c1ab8d71b1b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0160.png using Guid(b8f407b5dc697a64db0e7c1ab8d71b1b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ef1943a8734e6b492c08f2530b34e06f') in 0.0220895 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Hit_0246.png
+  artifactKey: Guid(50a47f45e11368344bf4ae154cc77acf) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Hit_0246.png using Guid(50a47f45e11368344bf4ae154cc77acf) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '252eaeaad7a13ca9e846ce0f9f5d5753') in 0.022263 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0155.png
+  artifactKey: Guid(b9fc5929d0217074d8b450138171c69e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0155.png using Guid(b9fc5929d0217074d8b450138171c69e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4c99132901087643e0be3b1c7335b93c') in 0.0227587 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.169429 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0276.png
+  artifactKey: Guid(a373d45e91ef75744a04a217721240b0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0276.png using Guid(a373d45e91ef75744a04a217721240b0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0cd4a0edb3e3978b63188dfe5550b85a') in 0.0221477 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Jump_0276.png
+  artifactKey: Guid(69bcaf9846359e2418b704246b2b277f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Jump_0276.png using Guid(69bcaf9846359e2418b704246b2b277f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '302d5d713fd982c73f78419c507aaa82') in 0.0228703 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.323122 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Jump_0282.png
+  artifactKey: Guid(070c1a1d0ecdaa649bc9b5d2e285d9e3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Jump_0282.png using Guid(070c1a1d0ecdaa649bc9b5d2e285d9e3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e088b3079fecf78c7f80edc730e3a05f') in 0.0224357 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_walk_0001.png
+  artifactKey: Guid(fb413e9ab24025143af0bd5d40e7ffcf) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_walk_0001.png using Guid(fb413e9ab24025143af0bd5d40e7ffcf) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'fb77116154b20cb52c9385f160aa1880') in 0.0237653 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.317968 seconds.
+  path: Assets/SpritesArchers/Archer2/Archer2_Idle2.anim
+  artifactKey: Guid(9e6ad57051636ec4e8a2a1fb469b6213) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/Archer2_Idle2.anim using Guid(9e6ad57051636ec4e8a2a1fb469b6213) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '9992fc5c777623cc07caedc6513047cf') in 0.0203302 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_walk_0011.png
+  artifactKey: Guid(7e32d15504862084cb7ef945723d626f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_walk_0011.png using Guid(7e32d15504862084cb7ef945723d626f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '24e99ef4c3f87828cb73cdaf1e30f474') in 0.0219113 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_walk_0008.png
+  artifactKey: Guid(f8fc718819685154995e7bb47367e3ee) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_walk_0008.png using Guid(f8fc718819685154995e7bb47367e3ee) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c8be860d9d3f6174ec48ca39a881c19d') in 0.0202161 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.236465 seconds.
+  path: Assets/SpritesArchers/Archer3/Archer3_Death.anim
+  artifactKey: Guid(ec9d880f96e665d418725b77bf0cdd64) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/Archer3_Death.anim using Guid(ec9d880f96e665d418725b77bf0cdd64) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '363ea3bfd6628c1c82e2bd40ae558ab1') in 0.0195327 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack1_0212.png
+  artifactKey: Guid(b242bf3d0670bc74fae82117307dd4a5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack1_0212.png using Guid(b242bf3d0670bc74fae82117307dd4a5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6c544cb8d62bda7523336d1fe8cebb7a') in 0.0224648 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SpritesArchers/Archer3/Archer3_Idle2.anim
+  artifactKey: Guid(3c59c9342e7c22e4bb571e47f80dd2d1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/Archer3_Idle2.anim using Guid(3c59c9342e7c22e4bb571e47f80dd2d1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e5b5a9d2ef5b2abbe6c4bb26e8254475') in 0.0293267 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.233613 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack1_0215.png
+  artifactKey: Guid(375074717092e7046b947e9887e1415a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack1_0215.png using Guid(375074717092e7046b947e9887e1415a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '14e0dd5907b0575ecf020808091572e5') in 0.02602 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack1_0224.png
+  artifactKey: Guid(6b450396fd6ce7a4c9b8b00b31657fb9) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack1_0224.png using Guid(6b450396fd6ce7a4c9b8b00b31657fb9) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f00e6fd67d344fbb75bc01d6fa5595ea') in 0.0202664 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack1_0219.png
+  artifactKey: Guid(e290455dce6aca644a41c17c9dd04764) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack1_0219.png using Guid(e290455dce6aca644a41c17c9dd04764) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '26b6f9c3fa921aaa9d814f89dc07d032') in 0.0202177 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.232289 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack2_0230.png
+  artifactKey: Guid(ac506279c28945d4c871d636cb206a95) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack2_0230.png using Guid(ac506279c28945d4c871d636cb206a95) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '5de9cca08a75b266a3e06aace117dde9') in 0.0233154 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack2_0239.png
+  artifactKey: Guid(debca67764df49948ac77c14f32697cd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack2_0239.png using Guid(debca67764df49948ac77c14f32697cd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c68fe10781b0ed71326454d2db72d76a') in 0.023406 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack2_0232.png
+  artifactKey: Guid(3cb6d3996ec59f94d8156b131b289c25) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack2_0232.png using Guid(3cb6d3996ec59f94d8156b131b289c25) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '893b09203cde0c9c4283c730334d1e63') in 0.0262082 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.223246 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack2_0242.png
+  artifactKey: Guid(f07af972045b90c4c91b8f7697b46164) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Attack2_0242.png using Guid(f07af972045b90c4c91b8f7697b46164) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6f6705af1c1b403c4115081c6549ec04') in 0.0198166 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Death_0261.png
+  artifactKey: Guid(577f6c5853827984981ca66ca55e6234) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Death_0261.png using Guid(577f6c5853827984981ca66ca55e6234) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd7f3da6881a9f3494f198a95c8fd5218') in 0.0216341 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Death_0255.png
+  artifactKey: Guid(3c68723d04f119b419dd724872e4d318) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Death_0255.png using Guid(3c68723d04f119b419dd724872e4d318) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '94abb2fa0a118e20e15f92dc06c4dee5') in 0.023391 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.229480 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Death_0263.png
+  artifactKey: Guid(55b1a250069aa8c4d9a3818b80e430ac) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Death_0263.png using Guid(55b1a250069aa8c4d9a3818b80e430ac) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2dc72886caf7282738a065ea52bb217e') in 0.0260191 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Hit_0245.png
+  artifactKey: Guid(b72a0d0e7284b524581008ddff0ae3ed) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Hit_0245.png using Guid(b72a0d0e7284b524581008ddff0ae3ed) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '439138b25150c99aa9f7ba6f9a5bfc83') in 0.0202289 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Death_0266.png
+  artifactKey: Guid(a5451f6c869f0fe4bb9b7e699e5268b3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Death_0266.png using Guid(a5451f6c869f0fe4bb9b7e699e5268b3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b4c4b7b5a58f78b1af3e3c632f6c502b') in 0.0212959 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.232242 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0145.png
+  artifactKey: Guid(7a6ca5ed6702e8a43891622d85efd8ee) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0145.png using Guid(7a6ca5ed6702e8a43891622d85efd8ee) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1e86baa4838f5154710655852241d1df') in 0.0222481 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0154.png
+  artifactKey: Guid(d490c0265a5ba62429d2b456859ac201) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0154.png using Guid(d490c0265a5ba62429d2b456859ac201) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd2d4f316be1f052d9a8f86bc7b0ebe0c') in 0.0218297 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0148.png
+  artifactKey: Guid(16de5c35a46fc264782a9ee9cff916a0) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0148.png using Guid(16de5c35a46fc264782a9ee9cff916a0) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8f750f18f9106cb9ffa0e14f2f8971cc') in 0.0507217 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0152.png
+  artifactKey: Guid(4d39ae06b5fb3b745881141dacf747b1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0152.png using Guid(4d39ae06b5fb3b745881141dacf747b1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2e966bb1087a1139c893fab475b8fcfe') in 0.0232236 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.120911 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0158.png
+  artifactKey: Guid(3b86cb44e6e74964e8dd2c88768c3cfc) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0158.png using Guid(3b86cb44e6e74964e8dd2c88768c3cfc) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '09b2df54d1356ea6a546932e2da1e16c') in 0.022987 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0160.png
+  artifactKey: Guid(b1d27f1334334534abf7fb5dcc320bf3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0160.png using Guid(b1d27f1334334534abf7fb5dcc320bf3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6891fbca5c539ce24f37c24b36a0859a') in 0.0228881 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000013 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0169.png
+  artifactKey: Guid(ab5b4dd041ddb5549812d77a8a366579) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0169.png using Guid(ab5b4dd041ddb5549812d77a8a366579) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '16c887fe15f8cf95f36c0ff5e3ad7a8a') in 0.0223454 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0164.png
+  artifactKey: Guid(caaf144f887b6614c8a1d042452631a1) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Idle2_0164.png using Guid(caaf144f887b6614c8a1d042452631a1) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '962ebe974dd16a04204f745330c7b368') in 0.0220213 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.143851 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_idle_0125.png
+  artifactKey: Guid(481c92d4fcc538d47aa7e96ef949a66b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_idle_0125.png using Guid(481c92d4fcc538d47aa7e96ef949a66b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a325684f46d0d769ca32b59cfbd87f65') in 0.0220858 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_idle_0127.png
+  artifactKey: Guid(6688f019c13c09a448b22680aaeb4579) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_idle_0127.png using Guid(6688f019c13c09a448b22680aaeb4579) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '21f0b70f1dc61ab070e2a0c23f433c33') in 0.0209573 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_idle_0134.png
+  artifactKey: Guid(a122b68b711b7a148ade93e096ee9945) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_idle_0134.png using Guid(a122b68b711b7a148ade93e096ee9945) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4c315999a4f1d7c1b61eeb7c1edb0a78') in 0.022167 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.233223 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Jump_0270.png
+  artifactKey: Guid(0db7eae2efa163943806478dc19e8068) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Jump_0270.png using Guid(0db7eae2efa163943806478dc19e8068) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0a1088b6d93dbe05a7f6304e4de1cb50') in 0.0257757 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Jump_0278.png
+  artifactKey: Guid(c377f0a1e213f6b4a9e4c4801814259d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Jump_0278.png using Guid(c377f0a1e213f6b4a9e4c4801814259d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'de4fb00c37befd9c846b6195c2c8880d') in 0.0939077 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Jump_0276.png
+  artifactKey: Guid(6c8353c642d4da44db5b2b3a0d339659) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Jump_0276.png using Guid(6c8353c642d4da44db5b2b3a0d339659) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3d8cdc681476e88ecf6e2666c4449a71') in 0.0217057 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_Jump_0281.png
+  artifactKey: Guid(25b8c0f2e16208a4d8eea0db7ff2c6d4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_Jump_0281.png using Guid(25b8c0f2e16208a4d8eea0db7ff2c6d4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '64af7570102176abee5df20ed7ba1141') in 0.0231386 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.062403 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_walk_0002.png
+  artifactKey: Guid(870d9e20d680ce24a91c850d174c9f68) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_walk_0002.png using Guid(870d9e20d680ce24a91c850d174c9f68) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3ce49d089dca95ce19280cd1eece3f1b') in 0.0225083 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_walk_0014.png
+  artifactKey: Guid(33064a504e0fef945a05879937af23a5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_walk_0014.png using Guid(33064a504e0fef945a05879937af23a5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3f6f523e46074e50036f70461b5be915') in 0.0220265 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_walk_0004.png
+  artifactKey: Guid(59cd3a195bf555a4e87f6ea13216dc62) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_walk_0004.png using Guid(59cd3a195bf555a4e87f6ea13216dc62) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f4a1baa5b12e0460dbea0edfbb9056a3') in 0.0567046 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SpritesArchers/Archer3/FantasyArcher_03_walk_0010.png
+  artifactKey: Guid(0f253268f04e78a4fb293454e96d998b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer3/FantasyArcher_03_walk_0010.png using Guid(0f253268f04e78a4fb293454e96d998b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8173fa0b5cf4e81a7f4be05970e4188e') in 0.023149 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.116904 seconds.
+  path: Assets/karsiori/TileMap/Backgrounds/BACKGROUND.png
+  artifactKey: Guid(f44fd67bd73d546469d7c317fcd1d5ae) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Backgrounds/BACKGROUND.png using Guid(f44fd67bd73d546469d7c317fcd1d5ae) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0ee51568f54ec8906bd7f21be8be3069') in 0.0230477 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/karsiori/TileMap/Decorations/BUSH FOREGROUND 1-1.png
+  artifactKey: Guid(390501f7c18ef384eb17584a5b462691) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Decorations/BUSH FOREGROUND 1-1.png using Guid(390501f7c18ef384eb17584a5b462691) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e8f98a6ffbebad97ded519a20128058f') in 0.0288567 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/karsiori/TileMap/Decorations/BUSH FOREGROUND 1-2.png
+  artifactKey: Guid(172cec936be54c1419615eb2b96b32a5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Decorations/BUSH FOREGROUND 1-2.png using Guid(172cec936be54c1419615eb2b96b32a5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3ce1308f9bc8b414f32c6bb5b6fac30b') in 0.0558079 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/karsiori/TileMap/Decorations/BUSH FOREGROUND 1-5.png
+  artifactKey: Guid(441f0c2aca2fff545bc517e6f139dcd3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Decorations/BUSH FOREGROUND 1-5.png using Guid(441f0c2aca2fff545bc517e6f139dcd3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '1eb9ab8f5a7777b6e33c610bda844c6f') in 0.0327609 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.099063 seconds.
+  path: Assets/karsiori/TileMap/Decorations/GRASS 1-2.png
+  artifactKey: Guid(968fb733146be924a9feb390a617f3e5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Decorations/GRASS 1-2.png using Guid(968fb733146be924a9feb390a617f3e5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '642d55d1693d5d0b3f965b097468d6e3') in 0.0623359 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/karsiori/TileMap/Decorations/GRASS 3-1.png
+  artifactKey: Guid(99da83ba741f67f499ae9ac3544776b5) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Decorations/GRASS 3-1.png using Guid(99da83ba741f67f499ae9ac3544776b5) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '124f21f9c22307fc7aec5b7916b83322') in 0.0307576 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/karsiori/TileMap/Decorations/GRASS 2-2.png
+  artifactKey: Guid(1ee73367054f56241a4324eb7326adfa) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Decorations/GRASS 2-2.png using Guid(1ee73367054f56241a4324eb7326adfa) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4e666bd4f26adf71104292bb910cd93a') in 0.0307076 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Rectangular Palette.prefab
+  artifactKey: Guid(28bcf7a33d6ec764392ebb81ed9cf812) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Rectangular Palette.prefab using Guid(28bcf7a33d6ec764392ebb81ed9cf812) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'df1679a8d0656c83fdaf5289eff91712') in 0.0518727 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 10
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.057844 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_12.asset
+  artifactKey: Guid(8d6f378663f1a7448962dcdd727a4944) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_12.asset using Guid(8d6f378663f1a7448962dcdd727a4944) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cce593a7c33f761efdea06d7224d04e4') in 0.023338 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_18.asset
+  artifactKey: Guid(077ce259dc0997241be9e537bf5662dc) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_18.asset using Guid(077ce259dc0997241be9e537bf5662dc) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f4a859de9e2c50d7b40e1bd36fdc8597') in 0.0231291 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_16.asset
+  artifactKey: Guid(425ac411c33352a489e445a32f1d7a98) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_16.asset using Guid(425ac411c33352a489e445a32f1d7a98) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b8fbb9d37bd9fa684cb8f7bc4358b378') in 0.0272312 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_19.asset
+  artifactKey: Guid(f32d9e1260cb1dd4caa160ac17b4cafc) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_19.asset using Guid(f32d9e1260cb1dd4caa160ac17b4cafc) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'c386fbf89ec018e8fbc0677f39fd64fc') in 0.0310675 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.128412 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Death_0257.png
+  artifactKey: Guid(4e193612cd8413f43987c34d0c3dcf5b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Death_0257.png using Guid(4e193612cd8413f43987c34d0c3dcf5b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b0db97ef31ca20df31e8940fd735cd86') in 0.0226031 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0168.png
+  artifactKey: Guid(26a4d0190e0ad9e408f783c723f34296) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0168.png using Guid(26a4d0190e0ad9e408f783c723f34296) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f590bdf5904c0f2dd635b42c9f162e15') in 0.0211451 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_29.asset
+  artifactKey: Guid(53acc36a9e4920b41975dd31e092b62a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_29.asset using Guid(53acc36a9e4920b41975dd31e092b62a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '00b96cd03372121c4dfe008330d5a7ef') in 0.0267761 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_idle_0130.png
+  artifactKey: Guid(edfb42c2f48ba8a45986cc92beab9f98) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_idle_0130.png using Guid(edfb42c2f48ba8a45986cc92beab9f98) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '44c2ecd4afc3791894f6f60c6810b484') in 0.0530514 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_33.asset
+  artifactKey: Guid(0aa13be0b5503e44994aa2ccd46e3e8d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_33.asset using Guid(0aa13be0b5503e44994aa2ccd46e3e8d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'af67009d20a16d8d57afa8ef30509ff8') in 0.0171381 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0162.png
+  artifactKey: Guid(d86ee5e60c8a0d64fac4deb81219883a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0162.png using Guid(d86ee5e60c8a0d64fac4deb81219883a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4e55167b25f10e95cd61221b91e62b83') in 0.0259162 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_39.asset
+  artifactKey: Guid(81eca0ad7f8af514cbd33438ee4b4a46) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_39.asset using Guid(81eca0ad7f8af514cbd33438ee4b4a46) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'bd8da91d00098a99603b2c8b06d08d42') in 0.0167833 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_57.asset
+  artifactKey: Guid(3a2a73ee7d3ba0c4ebd81cde7c19fb83) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_57.asset using Guid(3a2a73ee7d3ba0c4ebd81cde7c19fb83) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '90e5e9e1941f996c25ec238d36c5a2a6') in 0.02482 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_50.asset
+  artifactKey: Guid(62436fafb1e405d46bb04f84d70c2d62) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_50.asset using Guid(62436fafb1e405d46bb04f84d70c2d62) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ed6ccff4f53ba5fa221054a1e6171775') in 0.0273773 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_49.asset
+  artifactKey: Guid(d5cf73983213bdf4ebdf6308692316fd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_49.asset using Guid(d5cf73983213bdf4ebdf6308692316fd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '291cf9a34c8e8e79b3e18941a3489314') in 0.0225581 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_idle_0128.png
+  artifactKey: Guid(a35624d203955d7469f4a5464a89f0c7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_idle_0128.png using Guid(a35624d203955d7469f4a5464a89f0c7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3c820e4dc3f54c39e28704d7cf2f427c') in 0.0242982 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0146.png
+  artifactKey: Guid(91df74f80dfdf9d4c9babb970189418a) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Idle2_0146.png using Guid(91df74f80dfdf9d4c9babb970189418a) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '5f8198b2c5d0a866bf01d2b1f9d2491b') in 0.0221448 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_63.asset
+  artifactKey: Guid(60ca663bf4893084c92a767875f28c26) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_63.asset using Guid(60ca663bf4893084c92a767875f28c26) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '34296cec9c7297e20e23bbfdc1544c34') in 0.0263647 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_65.asset
+  artifactKey: Guid(9a2c4bd459586f145acf8cedccb4af24) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_65.asset using Guid(9a2c4bd459586f145acf8cedccb4af24) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cb227141ecb8f96d9235e611d0496792') in 0.0185441 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_60.asset
+  artifactKey: Guid(71635bfc1cb53bd4c93add28d162422f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_60.asset using Guid(71635bfc1cb53bd4c93add28d162422f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd882eaec7f45584b6aaa80b051d35968') in 0.0274649 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_48.asset
+  artifactKey: Guid(922baf4a166a73d4ab3600ffe6c863ac) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_48.asset using Guid(922baf4a166a73d4ab3600ffe6c863ac) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '0fe21788c4c52b439e4a20463beb6f02') in 0.0266871 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Death_0263.png
+  artifactKey: Guid(66820f4328fff4f47bff8b8740429de3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Death_0263.png using Guid(66820f4328fff4f47bff8b8740429de3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e6e825a846bb06363db75431fd7be387') in 0.021335 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_7.asset
+  artifactKey: Guid(06a13e209e31d4e4783bef0cf85ff5e9) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_7.asset using Guid(06a13e209e31d4e4783bef0cf85ff5e9) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'df4b5eae78bb96085c35ebccc7f3f876') in 0.0510281 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_83.asset
+  artifactKey: Guid(588379265f4151348aae5b925970dc7f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_83.asset using Guid(588379265f4151348aae5b925970dc7f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6135e86db9cd2a43a4f661a838402ae1') in 0.0308616 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_80.asset
+  artifactKey: Guid(8def8cfde5111094ea46b150be16f999) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_80.asset using Guid(8def8cfde5111094ea46b150be16f999) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3aa359ccff1fe7b0717723a65293254a') in 0.023236 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/Plugins/Demigiant/DOTween/Editor/DOTweenUpgradeManager.dll.mdb
+  artifactKey: Guid(cee7901aa47968a46af805b3a7632bcc) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Plugins/Demigiant/DOTween/Editor/DOTweenUpgradeManager.dll.mdb using Guid(cee7901aa47968a46af805b3a7632bcc) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b1d38211fd8a137b0cea43375d8c23c7') in 0.0166846 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_85.asset
+  artifactKey: Guid(0d9ea76dc1b9df846b2dcb5ab1a61994) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_85.asset using Guid(0d9ea76dc1b9df846b2dcb5ab1a61994) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'd92ec0042284c86753bf3518d21f85e4') in 0.0281878 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_66.asset
+  artifactKey: Guid(e6b464b9871f4f545a44bd438bd57e12) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_66.asset using Guid(e6b464b9871f4f545a44bd438bd57e12) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cb7576ce0cab575ead3d02a86d98aea7') in 0.0174962 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000027 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_idle_0137.png
+  artifactKey: Guid(ad633ba7e2e26084c81a3007df491f79) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_idle_0137.png using Guid(ad633ba7e2e26084c81a3007df491f79) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '09e46c59f21825f83bcdb9aba91c9964') in 0.0226081 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/Plugins/Demigiant/DOTween/Editor/Imgs/DOTweenMiniIcon.png
+  artifactKey: Guid(61521df2e071645488ba3d05e49289ae) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Plugins/Demigiant/DOTween/Editor/Imgs/DOTweenMiniIcon.png using Guid(61521df2e071645488ba3d05e49289ae) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '76a63dfd9b6d5849a79cf5533a38d974') in 0.02702 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Footer.png
+  artifactKey: Guid(7051dba417b3d53409f2918f1ea4938d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Footer.png using Guid(7051dba417b3d53409f2918f1ea4938d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '27a38efff0a80fd78e290282675a2e5c') in 0.0204945 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Jump_0279.png
+  artifactKey: Guid(14d0b087043e47344922595d72430415) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Jump_0279.png using Guid(14d0b087043e47344922595d72430415) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'b4d0cbe10818373436f90c8cd0abd145') in 0.0226876 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Header.jpg
+  artifactKey: Guid(78a59ca99f8987941adb61f9e14a06a7) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Plugins/Demigiant/DOTween/Editor/Imgs/Header.jpg using Guid(78a59ca99f8987941adb61f9e14a06a7) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '8b03be6a20f4a360ceeda7c2d656a774') in 0.0609475 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer2/FantasyArcher_02_Jump_0270.png
+  artifactKey: Guid(f5d0d107dc0388e4ca152aff9dbceb80) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer2/FantasyArcher_02_Jump_0270.png using Guid(f5d0d107dc0388e4ca152aff9dbceb80) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e8dfc490ba79591d9443c71510be0c65') in 0.0230966 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_71.asset
+  artifactKey: Guid(36cbf8b8f9cc9014fb00c7ee7b59d85b) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_71.asset using Guid(36cbf8b8f9cc9014fb00c7ee7b59d85b) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '652eb69e8fc99a2da3982b90fc74f775') in 0.0284993 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_52.asset
+  artifactKey: Guid(e0776e8f174f6b640b7fa4e9bf1b9187) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_52.asset using Guid(e0776e8f174f6b640b7fa4e9bf1b9187) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '219f1b7aa397123daad4168df7743769') in 0.0177057 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000031 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_35.asset
+  artifactKey: Guid(82a0ff2832f81a6419401c36942e6ab4) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_35.asset using Guid(82a0ff2832f81a6419401c36942e6ab4) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'e72dec139fcc00079a0f69f118a56896') in 0.0184344 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/Archer1_Jump.anim
+  artifactKey: Guid(f1867d73a418c174b93254c6efed3377) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/Archer1_Jump.anim using Guid(f1867d73a418c174b93254c6efed3377) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '142e0b8b433c001e54d4412c40be2f0f') in 0.0178991 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0215.png
+  artifactKey: Guid(9b32e5a62ba085547a73d7c92e3f650e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0215.png using Guid(9b32e5a62ba085547a73d7c92e3f650e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f3846f739aff71ee57e68b9fb28de136') in 0.0225853 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000022 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0255.png
+  artifactKey: Guid(6b4fb6d43b1d65c44af8ae943315836e) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0255.png using Guid(6b4fb6d43b1d65c44af8ae943315836e) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f433f907d1b741c6921f9153e4679dbe') in 0.0227308 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Hit_0248.png
+  artifactKey: Guid(87c565eee4b5fa541879ce2c4fa91f7c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Hit_0248.png using Guid(87c565eee4b5fa541879ce2c4fa91f7c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '4e66df9f56794be6cf01379087923098') in 0.0272676 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0163.png
+  artifactKey: Guid(1b4d07e8497a86d4db25d5a089e5bf7f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0163.png using Guid(1b4d07e8497a86d4db25d5a089e5bf7f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6bf06041286d7aa996a83e4650d9115a') in 0.0237152 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0256.png
+  artifactKey: Guid(3af7a2b1b0587224cbd3c15fcd905ecd) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0256.png using Guid(3af7a2b1b0587224cbd3c15fcd905ecd) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '589e57681202b3091a0904922bedac0f') in 0.0209073 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_67.asset
+  artifactKey: Guid(4c5fe05048939be41b6d4df2062808b3) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_67.asset using Guid(4c5fe05048939be41b6d4df2062808b3) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'a68d48d20e1cd1d9fea7907b4717a900') in 0.0264581 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0125.png
+  artifactKey: Guid(84a80795df829b542a6b24734f5d8d97) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0125.png using Guid(84a80795df829b542a6b24734f5d8d97) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'ced3b805a0a1c018aa0ef6330b21a96d') in 0.0211166 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0154.png
+  artifactKey: Guid(91a94850b8f2709489f4bb8f61401a6c) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0154.png using Guid(91a94850b8f2709489f4bb8f61401a6c) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '3ad1a8afdadaa2f510044eb1ee5ca729') in 0.0264738 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0223.png
+  artifactKey: Guid(a7f4e5515fbb1d848bc060f0af8fdeb8) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0223.png using Guid(a7f4e5515fbb1d848bc060f0af8fdeb8) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '2fe463f449450d52e230043ddf876b88') in 0.0207672 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0128.png
+  artifactKey: Guid(f4837fcdf6e445d4d8f1bfdd2d88072f) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0128.png using Guid(f4837fcdf6e445d4d8f1bfdd2d88072f) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: '6c68ba2ee99afb9e24b9d4416ec8f370') in 0.0207422 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_82.asset
+  artifactKey: Guid(835b8a97f0f3e39488efffa1c3baeb14) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/karsiori/TileMap/Tiles/Tilesheet - WOODS_82.asset using Guid(835b8a97f0f3e39488efffa1c3baeb14) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'f8f65418fbc0e6d82c1a157e64561ac9') in 0.0178201 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 2
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.XML
+  artifactKey: Guid(2e2c6224d345d9249acfa6e8ef40bb2d) Importer(2089858483,192608db42251d675da83286b1cce702)
+Start importing Assets/Plugins/Demigiant/DOTween/Editor/DOTweenEditor.XML using Guid(2e2c6224d345d9249acfa6e8ef40bb2d) Importer(2089858483,192608db42251d675da83286b1cce702) (ScriptedImporter) -> (artifact id: 'cf52bd8666e982fcabb4339419c873b7') in 0.0257244 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 1
+
+========================================================================
+Received Import Request.
+  Time since last request: 2326.725034 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0215.png
+  artifactKey: Guid(9b32e5a62ba085547a73d7c92e3f650e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0215.png using Guid(9b32e5a62ba085547a73d7c92e3f650e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cb37a320a7e53ae29f12fd53b0a45730') in 0.12342 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0217.png
+  artifactKey: Guid(f6fe8cc9ccabc044f9005bf91c0eb410) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0217.png using Guid(f6fe8cc9ccabc044f9005bf91c0eb410) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '67c9b68eb9fd2d6f26985c0072b91d51') in 0.0234906 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0221.png
+  artifactKey: Guid(93dc0a75bcbdde046aa559054af144cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0221.png using Guid(93dc0a75bcbdde046aa559054af144cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4036ff614dc40293f47606fbb368fd31') in 0.024506 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0224.png
+  artifactKey: Guid(7caf5845530525b4ab59a1f9d3acfd94) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack1_0224.png using Guid(7caf5845530525b4ab59a1f9d3acfd94) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9b6d0cbbc7ea106589b6907afacbdb59') in 0.0213325 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0230.png
+  artifactKey: Guid(e73024effb4be704f9fc77e8e29a9c82) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0230.png using Guid(e73024effb4be704f9fc77e8e29a9c82) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1fdd25daca00aa6dc38251a6957555c2') in 0.0249549 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0231.png
+  artifactKey: Guid(882fefe0474749845bdd85520f6511d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0231.png using Guid(882fefe0474749845bdd85520f6511d2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ce4e5f9035ef71e65fd57d7727a75b3f') in 0.0219064 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0236.png
+  artifactKey: Guid(1106f760d9a7bb14e8b328d24b4fc41c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0236.png using Guid(1106f760d9a7bb14e8b328d24b4fc41c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '31c94fcef144581b4890e3165f8f7bc2') in 0.0222771 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0237.png
+  artifactKey: Guid(aee015ff47314854abfd3b406c2e3f35) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0237.png using Guid(aee015ff47314854abfd3b406c2e3f35) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '2565ed258c67cefd6ce77d058809dfc0') in 0.0265948 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0253.png
+  artifactKey: Guid(56bc6502efee7d64c94ed2fae37338e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0253.png using Guid(56bc6502efee7d64c94ed2fae37338e2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'dc4ef0a85732ed76dbe14de03c4279ed') in 0.0220534 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0254.png
+  artifactKey: Guid(0c25a650cd6c98b45b7a2e9045ba998a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0254.png using Guid(0c25a650cd6c98b45b7a2e9045ba998a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '635dd24559d6e5526a899f5bebfa2ffb') in 0.0217399 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000034 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0257.png
+  artifactKey: Guid(10cb1d31694962d48ab4f27687f8985c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0257.png using Guid(10cb1d31694962d48ab4f27687f8985c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '39ccbf3df356cd47ac97b1a411022f5a') in 0.0190295 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0258.png
+  artifactKey: Guid(67f87065905e4374b96a1949f0d59a31) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Death_0258.png using Guid(67f87065905e4374b96a1949f0d59a31) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'cf8fce6b3c3bd3aed84c9bedb4b0dbf7') in 0.0216648 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0241.png
+  artifactKey: Guid(2b151519882aabd49a24e7f3a4c7e7e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0241.png using Guid(2b151519882aabd49a24e7f3a4c7e7e0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'bd743c43c8ab0d938ac2da38a1aed6ea') in 0.0221985 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0235.png
+  artifactKey: Guid(4f596b576dbe56c429cec8f1c3233d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0235.png using Guid(4f596b576dbe56c429cec8f1c3233d7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6f650f67b8a7d6c04098d8cb43358894') in 0.0228233 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Hit_0246.png
+  artifactKey: Guid(80051ac073d416844a9a56b6de0b40f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Hit_0246.png using Guid(80051ac073d416844a9a56b6de0b40f2) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd6a9dfc1159530d120888a4abf6d3096') in 0.0215039 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Hit_0248.png
+  artifactKey: Guid(87c565eee4b5fa541879ce2c4fa91f7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Hit_0248.png using Guid(87c565eee4b5fa541879ce2c4fa91f7c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5aedd3f12f79e482aa2343d639e2d646') in 0.0199882 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0146.png
+  artifactKey: Guid(6dce9e7c655e735438099eefdb8bb6e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0146.png using Guid(6dce9e7c655e735438099eefdb8bb6e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'd83ac57059443730c386c41405e9360f') in 0.0219416 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0148.png
+  artifactKey: Guid(5671a5ddef79b064e8ec0a62b10a1105) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0148.png using Guid(5671a5ddef79b064e8ec0a62b10a1105) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c4424f949bac59b561901acba5f98aa3') in 0.0225759 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0150.png
+  artifactKey: Guid(dc840354cb24ee94cae3d749e6b39598) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0150.png using Guid(dc840354cb24ee94cae3d749e6b39598) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '81125d111456b7b33bf588ee6c92b6b1') in 0.0205245 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000096 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0153.png
+  artifactKey: Guid(1a8c479bda250074ab4ff1dd03ef733e) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0153.png using Guid(1a8c479bda250074ab4ff1dd03ef733e) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '224332f8ab5a9c5b2ad8a6d26d3cf49f') in 0.0236 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0158.png
+  artifactKey: Guid(746613ba6a1ca37438ff172ea986f39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0158.png using Guid(746613ba6a1ca37438ff172ea986f39f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '347496c470511f873b0f29a355cfff53') in 0.0248823 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0160.png
+  artifactKey: Guid(673b1ca112fc93549860220c65607500) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0160.png using Guid(673b1ca112fc93549860220c65607500) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'b7b57292ca044e5748385715240cf61e') in 0.0200078 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000029 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0165.png
+  artifactKey: Guid(5d81662c88505fd42b4cf3ebc9369de4) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0165.png using Guid(5d81662c88505fd42b4cf3ebc9369de4) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'ec91afb45f1e35f74bf600787386b7da') in 0.0199684 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0167.png
+  artifactKey: Guid(d36c18a556558b643a193e30a552c064) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0167.png using Guid(d36c18a556558b643a193e30a552c064) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '0b1f44d4c65d8587369b6a6ac4c545fd') in 0.0187695 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0163.png
+  artifactKey: Guid(1b4d07e8497a86d4db25d5a089e5bf7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0163.png using Guid(1b4d07e8497a86d4db25d5a089e5bf7f) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '425b2696509322c9886e51f756155001') in 0.0224579 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000030 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0171.png
+  artifactKey: Guid(6656895f90f6bc54091824771bcf6cbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0171.png using Guid(6656895f90f6bc54091824771bcf6cbb) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '4cb6114340e124734d22b580974de563') in 0.0228048 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0125.png
+  artifactKey: Guid(84a80795df829b542a6b24734f5d8d97) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0125.png using Guid(84a80795df829b542a6b24734f5d8d97) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5d4eba8cde7a8f47a1f74e89a27f8707') in 0.0243163 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000017 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0130.png
+  artifactKey: Guid(efc68c8a05f21ef4bbbe1bd1a30920d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0130.png using Guid(efc68c8a05f21ef4bbbe1bd1a30920d5) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '591df7d8fdd01856fefb60c3970f92d1') in 0.0222137 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0132.png
+  artifactKey: Guid(68bbf1abd08b0ef4584be210353353c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0132.png using Guid(68bbf1abd08b0ef4584be210353353c1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '94005440a6d025bf97511fcc59ad3715') in 0.0211443 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000025 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0134.png
+  artifactKey: Guid(265b764c96af9ea4386b878e2e86dccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0134.png using Guid(265b764c96af9ea4386b878e2e86dccd) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '9008b96498c19bb32c9d248d6cc83895') in 0.0251432 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0135.png
+  artifactKey: Guid(0247a982b034e9d49ab68fa12ef77bc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0135.png using Guid(0247a982b034e9d49ab68fa12ef77bc3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '44a6d8d5ae1d6af14f2ff8668a60163b') in 0.0237019 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0138.png
+  artifactKey: Guid(b2863d615f0b5e54c83058d39dcf10d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0138.png using Guid(b2863d615f0b5e54c83058d39dcf10d6) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '89c2bc54baf2f6c2f56930d8fbf73600') in 0.0225173 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000018 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0276.png
+  artifactKey: Guid(a373d45e91ef75744a04a217721240b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0276.png using Guid(a373d45e91ef75744a04a217721240b0) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'a9f0d9afb351ec853bd281b81294bd00') in 0.0586963 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000021 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0273.png
+  artifactKey: Guid(a49c7b9d66cc4a24386e403958b40a6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0273.png using Guid(a49c7b9d66cc4a24386e403958b40a6c) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '6ede088a1d9504d83278ab0a968ac1bb') in 0.0220488 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000023 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0000.png
+  artifactKey: Guid(cde09225081cf1a448aed98bd42fa838) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0000.png using Guid(cde09225081cf1a448aed98bd42fa838) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '35ec266e7bcd4d233661417f4839763b') in 0.0209164 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000015 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0002.png
+  artifactKey: Guid(11b7ddb7ab4cd144a9f993c6609c0d4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0002.png using Guid(11b7ddb7ab4cd144a9f993c6609c0d4a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '5560dd6f4f799a0fc3d680b11f9c0143') in 0.0213674 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0007.png
+  artifactKey: Guid(1ec962bef5f99f548a69c83cd5749f60) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0007.png using Guid(1ec962bef5f99f548a69c83cd5749f60) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c40a8a60efbfc0ee2adfe25a7403270e') in 0.0527273 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000024 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0011.png
+  artifactKey: Guid(c9d1c52195a2b9f4db3750d4a2aab0fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0011.png using Guid(c9d1c52195a2b9f4db3750d4a2aab0fa) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'f00232d7f22ef4f9ee716e3e3d2266e2') in 0.0235021 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000026 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0014.png
+  artifactKey: Guid(0b2961ee4f40f8f45902b118e76b3dce) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0014.png using Guid(0b2961ee4f40f8f45902b118e76b3dce) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'e81e2e7685f6a393d6fbd2251b6d1c42') in 0.0224114 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0280.png
+  artifactKey: Guid(28d4b0183c8745346896ff7926f44c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0280.png using Guid(28d4b0183c8745346896ff7926f44c01) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1f0b8e4e9ddef98be6c94a52d55a38f9') in 0.0194027 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000014 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0009.png
+  artifactKey: Guid(265bc34ffc4648a4e8bc1ab6c3d73799) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_walk_0009.png using Guid(265bc34ffc4648a4e8bc1ab6c3d73799) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8804843cc1f71d5215221fa1166a7e4c') in 0.0201378 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0127.png
+  artifactKey: Guid(3494c73894b5c4f4eac50b0b6f5cf9cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_idle_0127.png using Guid(3494c73894b5c4f4eac50b0b6f5cf9cf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'abf0e73972e89860ec0bb5fe08169850') in 0.0201786 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000028 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0275.png
+  artifactKey: Guid(b3da0091836809046b5d531e0b08a6c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0275.png using Guid(b3da0091836809046b5d531e0b08a6c7) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1935034c625ff35705f81b816d1de55f') in 0.0221112 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0155.png
+  artifactKey: Guid(2197795501d42f04589f6fdb32d990e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0155.png using Guid(2197795501d42f04589f6fdb32d990e1) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '1ad9b00a90169977ff6e151f9232539f') in 0.0201113 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0147.png
+  artifactKey: Guid(022ba03b8cbfec14c97f693233d9d00b) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0147.png using Guid(022ba03b8cbfec14c97f693233d9d00b) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '83c029661ba2daeed496f1b388c0ecaf') in 0.0200693 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000019 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0279.png
+  artifactKey: Guid(1e2bd20203046034aba4947e0a0097e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0279.png using Guid(1e2bd20203046034aba4947e0a0097e3) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '22c3d773ec14f02de5dfe340941df721') in 0.0179752 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000037 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0156.png
+  artifactKey: Guid(f16941ec39293dd43aca10e584eaed45) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Idle2_0156.png using Guid(f16941ec39293dd43aca10e584eaed45) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'c0bd641bd40e4047695e5e2002cdf42f') in 0.0198764 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000016 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0281.png
+  artifactKey: Guid(b50be12be1080b8428d5498e98a050bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Jump_0281.png using Guid(b50be12be1080b8428d5498e98a050bf) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: 'baef34be417604762c92c8fe78ba4458') in 0.0548566 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Import Request.
+  Time since last request: 0.000020 seconds.
+  path: Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0228.png
+  artifactKey: Guid(4dbb463a15753e74388d69c14268c95a) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/SpritesArchers/Archer1/FantasyArcher_01_Attack2_0228.png using Guid(4dbb463a15753e74388d69c14268c95a) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '200886964607e5b80a12c113a7a51dff') in 0.020006 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 3
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.994 seconds
+Refreshing native plugins compatible for Editor in 4.42 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.946 seconds
+Domain Reload Profiling: 1932ms
+	BeginReloadAssembly (291ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (14ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (76ms)
+	RebuildCommonClasses (45ms)
+	RebuildNativeTypeToScriptingClass (14ms)
+	initialDomainReloadingComplete (44ms)
+	LoadAllAssembliesAndSetupDomain (590ms)
+		LoadAssemblies (519ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (207ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (188ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (947ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (751ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (201ms)
+			ProcessInitializeOnLoadAttributes (448ms)
+			ProcessInitializeOnLoadMethodAttributes (80ms)
+			AfterProcessingInitializeOnLoad (14ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (27ms)
+Refreshing native plugins compatible for Editor in 5.44 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6662 unused Assets / (5.0 MB). Loaded Objects now: 7391.
+Memory consumption went from 150.5 MB to 145.5 MB.
+Total: 12.995500 ms (FindLiveObjects: 1.255500 ms CreateObjectMapping: 1.129800 ms MarkObjects: 6.847500 ms  DeleteObjects: 3.761000 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.888 seconds
+Refreshing native plugins compatible for Editor in 2.85 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.796 seconds
+Domain Reload Profiling: 1675ms
+	BeginReloadAssembly (244ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (15ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (48ms)
+	RebuildCommonClasses (37ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (36ms)
+	LoadAllAssembliesAndSetupDomain (550ms)
+		LoadAssemblies (486ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (187ms)
+			TypeCache.Refresh (6ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (168ms)
+			ResolveRequiredComponents (10ms)
+	FinalizeReload (796ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (628ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (2ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (154ms)
+			ProcessInitializeOnLoadAttributes (387ms)
+			ProcessInitializeOnLoadMethodAttributes (69ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (22ms)
+Refreshing native plugins compatible for Editor in 3.69 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6662 unused Assets / (5.1 MB). Loaded Objects now: 7394.
+Memory consumption went from 150.5 MB to 145.5 MB.
+Total: 10.146500 ms (FindLiveObjects: 0.723100 ms CreateObjectMapping: 0.716900 ms MarkObjects: 5.610100 ms  DeleteObjects: 3.095100 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 5.26 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6652 unused Assets / (4.3 MB). Loaded Objects now: 7395.
+Memory consumption went from 150.6 MB to 146.3 MB.
+Total: 25.929300 ms (FindLiveObjects: 1.331000 ms CreateObjectMapping: 1.526700 ms MarkObjects: 11.827400 ms  DeleteObjects: 11.242800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  1.109 seconds
+Refreshing native plugins compatible for Editor in 4.00 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.882 seconds
+Domain Reload Profiling: 1980ms
+	BeginReloadAssembly (304ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (15ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (51ms)
+	RebuildCommonClasses (49ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (48ms)
+	LoadAllAssembliesAndSetupDomain (684ms)
+		LoadAssemblies (632ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (223ms)
+			TypeCache.Refresh (9ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (194ms)
+			ResolveRequiredComponents (15ms)
+	FinalizeReload (883ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (714ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (4ms)
+			BeforeProcessingInitializeOnLoad (221ms)
+			ProcessInitializeOnLoadAttributes (402ms)
+			ProcessInitializeOnLoadMethodAttributes (71ms)
+			AfterProcessingInitializeOnLoad (13ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (21ms)
+Refreshing native plugins compatible for Editor in 3.97 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6663 unused Assets / (4.6 MB). Loaded Objects now: 7398.
+Memory consumption went from 150.5 MB to 145.9 MB.
+Total: 9.721800 ms (FindLiveObjects: 0.697000 ms CreateObjectMapping: 0.527500 ms MarkObjects: 5.607400 ms  DeleteObjects: 2.888900 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 4.65 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6653 unused Assets / (4.3 MB). Loaded Objects now: 7399.
+Memory consumption went from 150.6 MB to 146.3 MB.
+Total: 9.511700 ms (FindLiveObjects: 0.709200 ms CreateObjectMapping: 0.770100 ms MarkObjects: 5.484500 ms  DeleteObjects: 2.546600 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 384.751040 seconds.
+  path: Assets/Scripts/Player/PlayerController.cs
+  artifactKey: Guid(74ad5d20505223145be0eb2a0dc674b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Player/PlayerController.cs using Guid(74ad5d20505223145be0eb2a0dc674b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '559237f2e0fab9b7b62629837ba3c91a') in 0.033719 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Begin MonoManager ReloadAssembly
+- Loaded All Assemblies, in  0.944 seconds
+Refreshing native plugins compatible for Editor in 3.95 ms, found 4 plugins.
+Native extension for WindowsStandalone target not found
+[Package Manager] Failed to launch server process. Reason: Unity was launched with the -noUpm command-line argument
+[Package Manager] Unable to send message (not connected to server process).
+[Package Manager] Cannot connect to Unity Package Manager local server
+Mono: successfully reloaded assembly
+- Finished resetting the current domain, in  0.789 seconds
+Domain Reload Profiling: 1726ms
+	BeginReloadAssembly (265ms)
+		ExecutionOrderSort (0ms)
+		DisableScriptedObjects (15ms)
+		BackupInstance (0ms)
+		ReleaseScriptingObjects (0ms)
+		CreateAndSetChildDomain (52ms)
+	RebuildCommonClasses (38ms)
+	RebuildNativeTypeToScriptingClass (12ms)
+	initialDomainReloadingComplete (40ms)
+	LoadAllAssembliesAndSetupDomain (582ms)
+		LoadAssemblies (518ms)
+		RebuildTransferFunctionScriptingTraits (0ms)
+		AnalyzeDomain (199ms)
+			TypeCache.Refresh (9ms)
+				TypeCache.ScanAssembly (0ms)
+			BuildScriptInfoCaches (176ms)
+			ResolveRequiredComponents (9ms)
+	FinalizeReload (790ms)
+		ReleaseScriptCaches (0ms)
+		RebuildScriptCaches (0ms)
+		SetupLoadedEditorAssemblies (617ms)
+			LogAssemblyErrors (0ms)
+			InitializePlatformSupportModulesInManaged (3ms)
+			SetLoadedEditorAssemblies (3ms)
+			BeforeProcessingInitializeOnLoad (168ms)
+			ProcessInitializeOnLoadAttributes (363ms)
+			ProcessInitializeOnLoadMethodAttributes (66ms)
+			AfterProcessingInitializeOnLoad (14ms)
+			EditorAssembliesLoaded (0ms)
+		ExecutionOrderSort2 (0ms)
+		AwakeInstancesAfterBackupRestoration (21ms)
+Refreshing native plugins compatible for Editor in 3.65 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6664 unused Assets / (4.6 MB). Loaded Objects now: 7402.
+Memory consumption went from 150.6 MB to 146.0 MB.
+Total: 8.969100 ms (FindLiveObjects: 0.684900 ms CreateObjectMapping: 0.812500 ms MarkObjects: 4.974600 ms  DeleteObjects: 2.495800 ms)
+
+Prepare: number of updated asset objects reloaded= 0
+========================================================================
+Received Import Request.
+  Time since last request: 8.255885 seconds.
+  path: Assets/Scripts/Player/PlayerController.cs
+  artifactKey: Guid(74ad5d20505223145be0eb2a0dc674b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b)
+Start importing Assets/Scripts/Player/PlayerController.cs using Guid(74ad5d20505223145be0eb2a0dc674b8) Importer(815301076,1909f56bfc062723c751e8b465ee728b) (PreviewImporter) -> (artifact id: '8b38169ae2d741dd19d215741ab60534') in 0.005156 seconds
+Number of updated asset objects reloaded before import = 0Number of asset objects unloaded after import = 0
+
+========================================================================
+Received Prepare
+Refreshing native plugins compatible for Editor in 3.90 ms, found 4 plugins.
+Preloading 0 native plugins for Editor in 0.00 ms.
+Unloading 13 Unused Serialized files (Serialized files now loaded: 0)
+Unloading 6652 unused Assets / (4.7 MB). Loaded Objects now: 7401.
+Memory consumption went from 150.7 MB to 146.0 MB.
+Total: 8.925000 ms (FindLiveObjects: 0.767500 ms CreateObjectMapping: 0.686400 ms MarkObjects: 4.926400 ms  DeleteObjects: 2.543200 ms)
+
+Prepare: number of updated asset objects reloaded= 0
