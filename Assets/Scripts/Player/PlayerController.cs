@@ -23,6 +23,7 @@ public class PlayerController : MonoBehaviour
     [Header("★ 스킬 1 (속사)")]
     [SerializeField] private float _skill1Duration = 3.0f;          // 스킬 1 지속 시간
     // _skill1Cooldown은 Player.cs의 skillCooldowns 배열에 0번 인덱스로 관리됩니다.
+    [SerializeField] private float _skill1ShootInterval = 0.2f;     // <--- 스킬 발사 간격 (Inspector에서 조절)
     private Coroutine _skill1ActiveCoroutine;                       // 스킬 1 지속 코루틴 레퍼런스
     // --
 
@@ -31,10 +32,11 @@ public class PlayerController : MonoBehaviour
     void Awake()
     {
         _player.SetPlayerState(PlayerState.Attack);
-
+        /*
         _player._animator.SetBool("isAttack", true);
         _player._animator.SetBool("isMove", false);
         _player._animator.SetBool("Skill1", false); // 스킬 애니메이션 초기화
+        */
     }
 
     void Update()
@@ -62,10 +64,11 @@ public class PlayerController : MonoBehaviour
         if (context.performed)
         {
             _player.SetPlayerState(PlayerState.Move);
+            /*
             _player._animator.SetBool("isMove", true);
             _player._animator.SetBool("isAttack", false);
             _player._animator.SetBool("Skill1", false); // 스킬 1 사용 중이었으면 종료
-
+            */
             FlipSprite(_moveDirection.x);
 
             Debug.Log("이동 중입니다.");
@@ -73,9 +76,12 @@ public class PlayerController : MonoBehaviour
         else if(context.canceled)
         {
             _player.SetPlayerState(PlayerState.Attack);
+
+            /*
             _player._animator.SetBool("isAttack", true);
             _player._animator.SetBool("isMove", false);
             _player._animator.SetBool("Skill1", false); // 스킬 1 사용 중이었으면 종료
+            */
 
             // 멈춤 상태일 때는 무조건 오른쪽 기준 바라보도록 설정 (localScale.x 양수)
             Vector3 scale = transform.localScale;
@@ -161,13 +167,16 @@ public class PlayerController : MonoBehaviour
     private IEnumerator Skill1ActiveCoroutine()
     {
         // 스킬 사용 전 플레이어 상태를 기억해 두어 스킬 종료 후 복구할 때 사용
-        PlayerState previousState = _player.State;
+        //PlayerState previousState = _player.State;
 
         // 플레이어 상태를 Skill1Active로 변경 및 애니메이터 Bool 파라미터 설정
         _player.SetPlayerState(PlayerState.Skill1Active);
+
+        /*
         _player._animator.SetBool("isAttack", false);
         _player._animator.SetBool("isMove", false);
         _player._animator.SetBool("Skill1", true); // "Skill1" Bool 파라미터 활성화 (애니메이터에 이 이름으로 Bool이 있어야 함)
+        */
 
         // 현재 적용 중인 공격 쿨다운을 저장해두어 스킬 종료 후 원래대로 복구
         float originalCurrentShootCooldown = _player.ShootCooldown;
@@ -177,34 +186,43 @@ public class PlayerController : MonoBehaviour
         Debug.Log($"스킬 1(속사) 시작! 원래 공격 쿨다운: {originalCurrentShootCooldown:F2}초, 변경 후: {_player.ShootCooldown:F2}초");
 
         float skillTimer = _skill1Duration; // 스킬 지속 시간 타이머
-        while (skillTimer > 0f)
-        {
-            // 스킬 활성화 기간 동안, 빨라진 쿨다운에 맞춰 화살을 발사
-            if (_player.CanShoot)
-            {
-                ShootArrow(true); // 스킬 공격임을 알리는 플래그 전달
-            }
+        float timer = 0f; // 스킬 지속 시간 확인용 타이머 (skillTimer와 같은 역할)
 
-            skillTimer -= Time.deltaTime; // 타이머 감소
-            yield return null; // 다음 프레임까지 대기
+        while (timer < _skill1Duration) // 지정된 _skill1Duration 만큼 루프 반복
+        {
+            ShootArrow(true); // 스킬 공격 발사
+
+            yield return new WaitForSeconds(_skill1ShootInterval); // <--- 여기! _skill1ShootInterval 만큼 대기
+
+            timer += _skill1ShootInterval; // 타이머 업데이트 (정확도를 위해 대기 시간만큼 더함)
+            // 만약 _skill1ShootInterval보다 실제 지나간 시간이 더 정확하다면,
+            // timer += (yield return new WaitForSeconds(_skill1ShootInterval)의 실제 경과 시간); 
+            // 또는 timer += Time.deltaTime; 으로 계속 누적
+            // 하지만 이 경우는 _skill1ShootInterval이 fixed된 간격이므로 이렇게 하는 것이 명확합니다.
         }
 
         // --- 스킬 종료 ---
         _player.ShootCooldown = originalCurrentShootCooldown; // 공격 쿨다운 원래대로 복구
-        _player._animator.SetBool("Skill1", false); // 스킬 1 애니메이션 비활성화
 
-        // 스킬 종료 후 플레이어 상태 복구
-        // 스킬 사용 전 상태가 Move였다면 Idle로 복구, 아니면 원래 상태로 복구
-        if (previousState == PlayerState.Move)
-        {
-            _player.SetPlayerState(PlayerState.Idle);
-            // 이때 애니메이터도 Idle 상태로 돌아가도록 설정이 필요할 수 있습니다.
-            _player._animator.SetBool("isMove", false);
-        }
-        else
-        {
-            _player.SetPlayerState(previousState);
-        }
+        _player.SetPlayerState(PlayerState.Attack);
+
+        
+        //_player._animator.SetBool("Skill1", false); // 스킬 1 애니메이션 비활성화
+
+        //// 스킬 종료 후 플레이어 상태 복구
+        //// 스킬 사용 전 상태가 Move였다면 Idle로 복구, 아니면 원래 상태로 복구
+        //if (previousState == PlayerState.Move)
+        //{
+        //    _player.SetPlayerState(PlayerState.Attack);
+        //    // 이때 애니메이터도 Idle 상태로 돌아가도록 설정이 필요할 수 있습니다.
+        //    /*
+        //    _player._animator.SetBool("isMove", false);
+        //    */
+        //}
+        //else
+        //{
+        //    _player.SetPlayerState(previousState);
+        //}
 
         Debug.Log("스킬 1(속사) 종료.");
         _skill1ActiveCoroutine = null; // 코루틴 레퍼런스 초기화 (다음 스킬 사용을 위해)
@@ -226,7 +244,7 @@ public class PlayerController : MonoBehaviour
         if (arrowScript != null)
         {
             // 발사 속도 설정: 스킬 공격일 경우 Player.ArrowLaunchSpeed의 2배, 아니면 기본 속도 사용
-            float launchSpeed = isSkillAttack ? _player.ArrowLaunchSpeed * 2f : _player.ArrowLaunchSpeed;
+            float launchSpeed = isSkillAttack ? _player.ArrowLaunchSpeed * 1.2f : _player.ArrowLaunchSpeed;
             arrowScript.Launch(50f, launchSpeed); // BasicArrow의 Launch 함수 호출 (각도 50도 고정)
         }
 

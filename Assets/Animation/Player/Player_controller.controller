@@ -33,7 +33,7 @@ AnimatorState:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_Name: Player_Skill
-  m_Speed: 3.3
+  m_Speed: 1.65
   m_CycleOffset: 0
   m_Transitions:
   - {fileID: 3853190465440493195}

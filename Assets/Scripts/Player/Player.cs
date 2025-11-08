@@ -113,12 +113,13 @@ public class Player : MonoBehaviour
 
     #region Public 함수
 
+    /*
     public void SetPlayerState(PlayerState newState)
     {
         if (_state == newState) return;
 
         _state = newState;
-    }
+    }*/
 
     public void ResetShootCooldown()
     {
@@ -134,6 +135,49 @@ public class Player : MonoBehaviour
     public void SetShootTimer(float Time)
     {
         _shootTimer -= Time;
+    }
+
+    public void SetPlayerState(PlayerState newState)
+    {
+        // 동일한 상태로의 불필요한 전환 방지
+        if (_state == newState) return;
+
+        _state = newState;
+        // Debug.Log($"Player State changed to: {_state}"); // 상태 변경 확인용
+
+        // 애니메이터 파라미터 업데이트
+        if (_animator != null)
+        {
+            // 모든 관련 Bool 파라미터를 일단 false로 초기화하고,
+            // 현재 상태에 맞는 파라미터만 true로 설정합니다.
+            _animator.SetBool("isMove", false);
+            _animator.SetBool("isAttack", false);
+            _animator.SetBool("Skill1", false); // 스킬 관련 파라미터도 여기에 포함 (스킬 상태 전용 애니메이션은 별도)
+
+            switch (newState)
+            {
+                case PlayerState.Idle:
+                    // Idle 상태는 특별한 Bool 애니메이션이 없다고 가정 (모두 false면 기본 Idle 애니메이션으로 돌아감)
+                    // 만약 'isIdle'이라는 Bool 파라미터가 있다면: _animator.SetBool("isIdle", true);
+                    break;
+                case PlayerState.Move:
+                    _animator.SetBool("isMove", true);
+                    break;
+                case PlayerState.Attack:
+                    // Attack 상태는 Update에서 지속적으로 발사되므로, 애니메이션도 켜둠
+                    _animator.SetBool("isAttack", true);
+                    break;
+                case PlayerState.Skill1Active:
+                    // Skill1Active는 Skill1 Bool 파라미터를 사용합니다.
+                    _animator.SetBool("Skill1", true);
+                    // 스킬 중에도 Attack 애니메이션이 오버레이되기를 원하면 여기서 isAttack도 true
+                    // _animator.SetBool("isAttack", true); 
+                    break;
+                case PlayerState.None:
+                    // 아무 동작도 하지 않을 때 (예: 사망)
+                    break;
+            }
+        }
     }
 
 
