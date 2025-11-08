@@ -49,6 +49,15 @@ public class BasicArrow : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angleDegrees - 90f);
     }
 
+    public void LaunchSkill1(float minAngle, float maxAngle, float speed)
+    {
+        float randomAngle = Random.Range(minAngle, maxAngle);
+
+        // 생성된 무작위 각도로 Launch 함수 호출
+        Launch(randomAngle, speed);
+
+    }
+
     // 화살이 다른 오브젝트와 충돌했을 때 처리
     private void OnTriggerEnter2D(Collider2D collision)
     {

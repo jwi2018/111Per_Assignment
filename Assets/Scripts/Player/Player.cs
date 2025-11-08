@@ -7,7 +7,11 @@ public enum PlayerState
     Idle,
     Move,
     Attack,
-    Skill1Active
+    Skill1Active,
+    Skill2Active,
+    Skill3Active,
+    Skill4Active,
+    Skill5Active,
 }
 
 public class Player : MonoBehaviour
@@ -23,7 +27,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _baseShootCooldown = 0f; // 기본 공격 쿨다운 시간 (변하지 않는 고정값)
     private float _currentShootCooldown;                     // 현재 적용 중인 공격 쿨다운 (Skill1Active 시 변경됨)
     private float _shootTimer = 0f;                          // 공격 쿨다운 타이머
-    [SerializeField] private float _arrowLaunchSpeed = 15f;  // 화살 발사 기본 속도 (Inspector에서 조절)
+    [SerializeField] private float _arrowLaunchSpeed = 9.8f;  // 화살 발사 기본 속도 (Inspector에서 조절)
 
     [Header("★ 체력")]
     private int _maxHealth = 100;
@@ -160,6 +164,7 @@ public class Player : MonoBehaviour
             _animator.SetBool("isMove", false);
             _animator.SetBool("isAttack", false);
             _animator.SetBool("Skill1", false); // 스킬 관련 파라미터도 여기에 포함 (스킬 상태 전용 애니메이션은 별도)
+            _animator.SetBool("Skill2", false); // <-- 추가: Skill2 애니메이터 Bool 파라미터 초기화
 
             switch (newState)
             {
@@ -177,8 +182,13 @@ public class Player : MonoBehaviour
                 case PlayerState.Skill1Active:
                     // Skill1Active는 Skill1 Bool 파라미터를 사용합니다.
                     _animator.SetBool("Skill1", true);
+                    _animator.SetBool("isMove", false);
                     // 스킬 중에도 Attack 애니메이션이 오버레이되기를 원하면 여기서 isAttack도 true
                     // _animator.SetBool("isAttack", true); 
+                    break;
+                case PlayerState.Skill2Active: // <-- 추가: Skill2Active 상태 처리
+                    _animator.SetBool("Skill2", true); // "Skill2" Bool 파라미터 활성화
+                    _animator.SetBool("isMove", false);
                     break;
                 case PlayerState.None:
                     // 아무 동작도 하지 않을 때 (예: 사망)

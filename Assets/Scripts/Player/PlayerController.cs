@@ -12,6 +12,8 @@ public class PlayerController : MonoBehaviour
 
     [Header("★ 이동")]
     [SerializeField] Vector2 _moveDirection { get; set; }
+    [SerializeField] private float _attackTransitionDelay = 0.1f; // <-- 추가: Attack 상태 전환 딜레이
+    private Coroutine _attackStateTransitionCoroutine; // <-- 추가: 딜레이 코루틴 레퍼런스
 
     [Header("★ 공격")]
     [SerializeField] Transform _firePoint;              // 화살 발사 위치 (빈 오브젝트)
@@ -27,6 +29,14 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _skill1ShootInterval = 0.2f;     // <--- 스킬 발사 간격 (Inspector에서 조절)
     private Coroutine _skill1ActiveCoroutine;                       // 스킬 1 지속 코루틴 레퍼런스
     // --
+
+    // --- 스킬 2 (10발 동시 발사) 관련 변수 ---
+    [Header("★ 스킬 2 (동시 발사)")]
+    [SerializeField] private int _skill2ArrowCount = 10;            // 동시에 발사할 화살 개수
+    [SerializeField] private float _skill2SpreadAngle = 30f;        // 화살이 퍼지는 총 각도 (예: 30도)
+    [SerializeField] private float _skill2LaunchSpeedModifier = 1f; // 스킬 2 발사 속도 배율 (예: 0.8배)
+    // ------------------------------------
+
 
     #region Unity 생명주기
 
@@ -65,26 +75,25 @@ public class PlayerController : MonoBehaviour
 
     public void OnMoveInput(InputAction.CallbackContext context)
     {
+        if(_player.State == PlayerState.Skill1Active 
+            || _player.State == PlayerState.Skill2Active 
+            || _player.State == PlayerState.Skill3Active 
+            || _player.State == PlayerState.Skill4Active
+            || _player.State == PlayerState.Skill5Active)
+        {
+            return;
+        }
+
         _moveDirection = context.ReadValue<Vector2>();
 
         if (context.performed)
         {
-            StopCoroutine(TransitionToAttackStateAfterDelay());
-
             _player.SetPlayerState(PlayerState.Move);
 
             FlipSprite(_moveDirection.x);
         }
         else if(context.canceled)
         {
-            Debug.Log("캔슬");
-
-            //_player.SetCanShoot(false);
-
-            //_player.ResetShootCooldown();
-
-            //StartCoroutine(TransitionToAttackStateAfterDelay());
-
             _player.SetPlayerState(PlayerState.Attack);
 
             Vector3 scale = transform.localScale;
@@ -92,41 +101,7 @@ public class PlayerController : MonoBehaviour
             {
                 transform.localScale = new Vector3(Mathf.Abs(scale.x), scale.y, scale.z);
             }
-
-            //_player._animator.SetFloat("AttackSpeed", 2.0f);
-            //_player._animator.SetBool("isAttack", true);
         }
-        /*
-        _moveDirection = context.ReadValue<Vector2>();
-
-        if (_moveDirection.sqrMagnitude > 0.01f)
-        {
-            _player.SetPlayerState(PlayerState.Move);
-            _player._animator.SetBool("isMove", true);
-            _player._animator.SetBool("isAttack", false);
-            _player._animator.SetBool("Skill1", false); // 스킬 1 사용 중이었으면 종료
-
-            FlipSprite(_moveDirection.x);
-
-            Debug.Log("이동 중입니다.");
-        }
-        else // 이동 입력이 없다면 (키를 떼거나 아무것도 입력 안 할 때)
-        {
-            _player.SetPlayerState(PlayerState.Attack);
-
-            // 멈춤 상태일 때는 무조건 오른쪽 기준 바라보도록 설정 (localScale.x 양수)
-            Vector3 scale = transform.localScale;
-            if (scale.x < 0)
-            {
-                transform.localScale = new Vector3(Mathf.Abs(scale.x), scale.y, scale.z);
-            }
-
-            //_player._animator.SetFloat("AttackSpeed", 2.0f);
-            //_player._animator.SetBool("isAttack", true);
-
-            Debug.Log("이동 제외한 행동(Idle) 중입니다.");
-        }
-        */
     }
 
     // --- 스킬 1 (속사) 입력 처리 함수 추가 ---
@@ -138,6 +113,13 @@ public class PlayerController : MonoBehaviour
             // skillIndex 0번이 스킬 1이라고 가정합니다. (Inspector의 skillCooldowns 배열에서 첫 번째 스킬)
             if (_player.TryUseSkill(0) && _player.State != PlayerState.Skill1Active)
             {
+                _rigidbody2D.linearVelocity = Vector2.zero; // 캐릭터 속도 0
+                _moveDirection = Vector2.zero;       // 이동 입력 초기화
+
+                // --- 스프라이트 방향 오른쪽으로 고정 ---
+                Vector3 currentScale = transform.localScale;
+                transform.localScale = new Vector3(Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
+
                 // 기존의 스킬 1 코루틴이 있다면 중지 (중복 실행 방지)
                 if (_skill1ActiveCoroutine != null)
                 {
@@ -148,6 +130,44 @@ public class PlayerController : MonoBehaviour
                 Debug.Log("스킬 1(속사) 발동!");
             }
             // else 문은 Player.cs의 TryUseSkill에서 Debug.Log로 처리됨
+        }
+    }
+
+    // --- 스킬 2 (10발 동시 발사) 입력 처리 함수 ---
+    public void OnSkill2(InputAction.CallbackContext context)
+    {
+        if (context.performed) // 2번 키를 눌렀을 때
+        {
+            // _player.TryUseSkill(1)을 통해 쿨다운 체크 및 시작
+            // 현재 다른 스킬이 활성화 중이 아닐 때만 발동
+            if (_player.TryUseSkill(1) && _player.State != PlayerState.Skill1Active && _player.State != PlayerState.Skill2Active)
+            {
+                _rigidbody2D.linearVelocity = Vector2.zero; // 캐릭터 속도 0
+                _moveDirection = Vector2.zero;       // 이동 입력 초기화
+
+                // --- 스프라이트 방향 오른쪽으로 고정 ---
+                Vector3 currentScale = transform.localScale;
+                transform.localScale = new Vector3(Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
+
+                /*
+                // Attack 상태 전환 딜레이 코루틴이 실행 중이면 스킬 발동 시 중단
+                if (_attackStateTransitionCoroutine != null)
+                {
+                    StopCoroutine(_attackStateTransitionCoroutine);
+                    _attackStateTransitionCoroutine = null;
+                }*/
+
+                // 플레이어 상태를 Skill2Active로 변경 (애니메이션이 재생될 것)
+                _player.SetPlayerState(PlayerState.Skill2Active);
+                Debug.Log("스킬 2(10발 동시 발사) 발동! (애니메이션 이벤트 대기)");
+
+                // 단발성 스킬이므로 애니메이션 이벤트가 끝나면 원래 상태로 복구 (다음 스킬 발동 전까지 기다릴 필요 X)
+                // 현재 이동 중이면 Move, 아니면 Attack 상태로 복구
+                // 하지만 애니메이션이 끝나야 복구되므로, 스킬 애니메이션 클립의 마지막에 이벤트를 추가하는 게 좋습니다.
+                // 일단 여기서는 스킬 발동 후 바로 기본 상태로 돌려놓겠습니다.
+                // 더 정확한 복구를 위해 아래 `AnimationEvent_Skill2End()` 함수를 스킬 애니메이션 마지막에 연결하세요.
+                // RestorePlayerStateAfterSkill2(_moveDirection.sqrMagnitude > 0.01f ? PlayerState.Move : PlayerState.Attack);
+            }
         }
     }
 
@@ -163,7 +183,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody2D.linearVelocity = _moveDirection * _player.MoveSpeed;
     }
-
+    /*
     // 지정된 시간만큼 딜레이 주는 코루틴
     private IEnumerator TransitionToAttackStateAfterDelay()
     {
@@ -171,7 +191,7 @@ public class PlayerController : MonoBehaviour
 
         _player.SetCanShoot(true);
     }
-
+    */
     // --- 스킬 1 활성화 중 화살 발사 코루틴 ---
     private IEnumerator Skill1ActiveCoroutine()
     {
@@ -193,7 +213,7 @@ public class PlayerController : MonoBehaviour
 
 
         // 속사 스킬: 기본 공격 쿨다운을 2배 빠르게 (즉, 절반으로 줄임)
-        _player.ShootCooldown = _player.BaseShootCooldown / 2.0f;
+        //_player.ShootCooldown = _player.BaseShootCooldown / 2.0f;
 
         Debug.Log($"스킬 1(속사) 시작! 원래 공격 쿨다운: {originalCurrentShootCooldown:F2}초, 변경 후: {_player.ShootCooldown:F2}초");
 
@@ -216,7 +236,7 @@ public class PlayerController : MonoBehaviour
         }
 
         // --- 스킬 종료 ---
-        _player.ShootCooldown = originalCurrentShootCooldown; // 공격 쿨다운 원래대로 복구
+        //_player.ShootCooldown = originalCurrentShootCooldown; // 공격 쿨다운 원래대로 복구
 
         _player.SetPlayerState(PlayerState.Attack);
 
@@ -294,6 +314,71 @@ public class PlayerController : MonoBehaviour
             _player.ResetShootCooldown();
         }
     }
+
+    // 애니메이션에 직접 붙어있는 함수.... 매우 중요!!! 삭제 ㄴㄴㄴㄴㄴㄴㄴ
+    public void AnimationEvent_ShootArrow_Skill1()
+    {
+        if (_arrowPrefab == null || _firePoint == null) return;
+
+        // 일반 공격이면서 쿨다운 중이라면 발사하지 않음 (스킬 공격은 Player.cs에서 쿨다운이 이미 조절되었으므로 이곳에서 재체크 필요 없음)
+        if (!true && !_player.CanShoot) return;
+
+        // 화살 프리팹을 발사 위치에서 생성
+        GameObject arrowInstance = Instantiate(_arrowPrefab, _firePoint.position, _firePoint.rotation);
+
+        BasicArrow arrowScript = arrowInstance.GetComponent<BasicArrow>();
+        if (arrowScript != null)
+        {
+            // 발사 속도 설정: 스킬 공격일 경우 Player.ArrowLaunchSpeed의 2배, 아니면 기본 속도 사용
+            float launchSpeed = true ? _player.ArrowLaunchSpeed * 1.1f : _player.ArrowLaunchSpeed;
+            arrowScript.LaunchSkill1(30f, 65f, launchSpeed); // BasicArrow의 Launch 함수 호출 (각도 50도 고정)
+        }
+    }
+
+    // --- 스킬 2 애니메이션 이벤트 함수 (10발 동시 발사) ---
+    public void AnimationEvent_ShootArrow_Skill2()
+    {
+        if (_arrowPrefab == null || _firePoint == null) return;
+
+        // 현재 _player.State가 Skill2Active일 때만 발동되도록 안전장치
+        if (_player.State != PlayerState.Skill2Active) return;
+
+        float baseAngle = 50f; // 중심 발사 각도 (캐릭터가 오른쪽을 보고 있다고 가정)
+        float totalSpread = _skill2SpreadAngle; // 총 퍼지는 각도 (예: 30도)
+        int arrowCount = _skill2ArrowCount;     // 발사할 화살 개수 (예: 10개)
+        float launchSpeed = _player.ArrowLaunchSpeed * _skill2LaunchSpeedModifier; // 스킬 2 발사 속도 배율 적용
+
+        // 시작 각도 (퍼지는 각도의 중앙을 기준으로 - 절반만큼 이동)
+        float startAngle = baseAngle - (totalSpread / 2f);
+
+        // 화살이 1개일 경우 각도 간격은 0, 2개 이상일 경우 계산
+        float angleStep = (arrowCount > 1) ? totalSpread / (arrowCount - 1) : 0f;
+
+        for (int i = 0; i < arrowCount; i++)
+        {
+            float currentAngle = startAngle + (angleStep * i);
+
+            // 현재 캐릭터의 방향 (localScale.x)에 따라 발사 각도를 조절
+            // 캐릭터가 왼쪽을 보고 있다면 (X 스케일이 음수) 발사 각도를 수평 기준으로 반전
+            if (transform.localScale.x < 0)
+            {
+                currentAngle = 180f - currentAngle;
+            }
+
+            GameObject arrowInstance = Instantiate(_arrowPrefab, _firePoint.position, _firePoint.rotation);
+            BasicArrow arrowScript = arrowInstance.GetComponent<BasicArrow>();
+            if (arrowScript != null)
+            {
+                arrowScript.Launch(currentAngle, launchSpeed);
+            }
+        }
+        // 스킬 2는 단발성 발사이므로 ResetShootCooldown은 필요 없습니다.
+        // 스킬 애니메이션이 끝나면 원래 상태로 복구하는 함수를 호출합니다.
+        // 이 함수를 스킬 애니메이션의 마지막 프레임에 애니메이션 이벤트로 등록하는 것이 가장 이상적입니다.
+        // 여기에 직접 호출할 경우, 발사 후 즉시 상태가 복구되어 애니메이션이 제대로 끝까지 재생되지 않을 수 있습니다.
+        _player.SetPlayerState(PlayerState.Attack);
+    }
+
 
     // 스프라이트 좌우 반전 함수
     private void FlipSprite(float moveX)

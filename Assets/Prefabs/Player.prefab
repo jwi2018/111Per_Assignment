@@ -324,6 +324,34 @@ MonoBehaviour:
         m_CallState: 2
     m_ActionId: eef6491a-bb9e-49ac-b3b1-09bc59cffc2d
     m_ActionName: 'Player/Skill_1[/Keyboard/1]'
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2670025458513899131}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSkill2
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: 7dd6da3c-22ef-4a0f-85fd-0ea9739cfffb
+    m_ActionName: 'Player/Skill_2[/Keyboard/2]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 0da30f06-ab89-48fa-af6c-c2aa525152f0
+    m_ActionName: 'Player/Skill_3[/Keyboard/3]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: be297d45-51b6-4b6c-9e7e-97b7837ec3cf
+    m_ActionName: 'Player/Skill_4[/Keyboard/4]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 344ff7be-482c-4155-90eb-18080703b98a
+    m_ActionName: 'Player/Skill_5[/Keyboard/5]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -414,8 +442,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85bdbd8a6e054424a8def7654da72b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _arrowLaunchSpeed: 15
-  skillCooldowns: 020000000400000006000000080000000a000000
+  _canShoot: 1
+  _baseShootCooldown: 0.6
+  _arrowLaunchSpeed: 9.8
+  skillCooldowns: 060000000600000006000000080000000a000000
   _animator: {fileID: 5281167779498488628}
   _playerInput: {fileID: 2256980169110007714}
 --- !u!114 &2670025458513899131
@@ -431,7 +461,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _player: {fileID: 7229358453480706280}
+  _attackTransitionDelay: 0.1
   _firePoint: {fileID: 7224219694329797448}
   _arrowPrefab: {fileID: 2494143942712331772, guid: c983b9c25afa4a94e9ce262053fc560b, type: 3}
   _rigidbody2D: {fileID: 7414940053403582474}
   _skill1Duration: 3
+  _skill1ShootInterval: 0.2
+  _skill2ArrowCount: 10
+  _skill2SpreadAngle: 35
+  _skill2LaunchSpeedModifier: 1
