@@ -165,6 +165,7 @@ public class Player : MonoBehaviour
             _animator.SetBool("isAttack", false);
             _animator.SetBool("Skill1", false); // 스킬 관련 파라미터도 여기에 포함 (스킬 상태 전용 애니메이션은 별도)
             _animator.SetBool("Skill2", false); // <-- 추가: Skill2 애니메이터 Bool 파라미터 초기화
+            _animator.SetBool("Skill3", false); // <-- 추가: Skill2 애니메이터 Bool 파라미터 초기화
 
             switch (newState)
             {
@@ -188,6 +189,10 @@ public class Player : MonoBehaviour
                     break;
                 case PlayerState.Skill2Active: // <-- 추가: Skill2Active 상태 처리
                     _animator.SetBool("Skill2", true); // "Skill2" Bool 파라미터 활성화
+                    _animator.SetBool("isMove", false);
+                    break;
+                case PlayerState.Skill3Active: // <-- 추가: Skill2Active 상태 처리
+                    _animator.SetBool("Skill3", true); // "Skill2" Bool 파라미터 활성화
                     _animator.SetBool("isMove", false);
                     break;
                 case PlayerState.None:
@@ -217,7 +222,6 @@ public class Player : MonoBehaviour
             return false; // 쿨다운 중일 경우
         }
     }
-
 
     public void TakeDamage(int amount)
     {

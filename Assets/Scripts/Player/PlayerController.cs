@@ -37,30 +37,18 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _skill2LaunchSpeedModifier = 1f; // 스킬 2 발사 속도 배율 (예: 0.8배)
     // ------------------------------------
 
+    // --- 스킬 3 (불화살) 관련 변수 ---
+    [Header("★ 스킬 3 (불화살)")]
+    public GameObject fireArrowPrefab; // <-- 수정: 불화살 "타입" 프리팹 (Inspector에서 연결)
+    public GameObject groundFireEffectPrefab; // <-- 추가: 지면에 생성될 불길 이펙트 프리팹 (Inspector에서 연결)
+    [SerializeField] private float _skill3LaunchSpeedModifier = 1.0f; // 스킬 3 발사 속도 배율 (예: 1.0배)
+    // ------------------------------------
 
     #region Unity 생명주기
 
     void Awake()
     {
         _player.SetPlayerState(PlayerState.Attack);
-        /*
-        _player._animator.SetBool("isAttack", true);
-        _player._animator.SetBool("isMove", false);
-        _player._animator.SetBool("Skill1", false); // 스킬 애니메이션 초기화
-        */
-    }
-
-    void Update()
-    {
-        if (_player.State == PlayerState.Attack && _player.CanShoot)
-        {
-            Debug.Log("업데이트 공격중");
-
-            Debug.Log("업데이트 CanShoot  :  " + _player.State);
-
-            Debug.Log("업데이트 State  :  " + _player.CanShoot);
-            //ShootArrow(false); // 일반 공격으로 호출
-        }
     }
 
     void FixedUpdate()
@@ -171,6 +159,23 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    public void OnSkill3(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            if (_player.TryUseSkill(2) && _player.State != PlayerState.Skill1Active && _player.State != PlayerState.Skill2Active && _player.State != PlayerState.Skill3Active) // skillIndex 2번이 스킬 3
+            {
+                _rigidbody2D.linearVelocity = Vector2.zero;
+                _moveDirection = Vector2.zero;
+                Vector3 currentScale = transform.localScale;
+                transform.localScale = new Vector3(Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
+
+                _player.SetPlayerState(PlayerState.Skill3Active);
+                Debug.Log("스킬 3(불화살) 발동! (애니메이션 이벤트 대기)");
+            }
+        }
+    }
+
     #endregion
 
     #region Public 함수
@@ -183,15 +188,7 @@ public class PlayerController : MonoBehaviour
     {
         _rigidbody2D.linearVelocity = _moveDirection * _player.MoveSpeed;
     }
-    /*
-    // 지정된 시간만큼 딜레이 주는 코루틴
-    private IEnumerator TransitionToAttackStateAfterDelay()
-    {
-        yield return new WaitForSeconds(20f); // 지정된 시간만큼 대기
 
-        _player.SetCanShoot(true);
-    }
-    */
     // --- 스킬 1 활성화 중 화살 발사 코루틴 ---
     private IEnumerator Skill1ActiveCoroutine()
     {
@@ -378,6 +375,37 @@ public class PlayerController : MonoBehaviour
         // 여기에 직접 호출할 경우, 발사 후 즉시 상태가 복구되어 애니메이션이 제대로 끝까지 재생되지 않을 수 있습니다.
         _player.SetPlayerState(PlayerState.Attack);
     }
+
+    // --- 스킬 3 애니메이션 이벤트 함수 (불화살) 추가 ---
+    public void AnimationEvent_ShootArrow_Skill3()
+    {
+        if (fireArrowPrefab == null || _firePoint == null) return; // <-- fireArrowPrefab (불화살 전용 프리팹) 사용
+        if (_player.State != PlayerState.Skill3Active) return;
+
+        float launchSpeed = _player.ArrowLaunchSpeed * _skill3LaunchSpeedModifier; // 스킬 3 발사 속도 배율 적용
+        float baseAngle = 50f; // 불화살의 기본 발사 각도
+
+        // 현재 캐릭터의 방향에 따라 발사 각도를 조절
+        float currentAngle = baseAngle;
+        if (transform.localScale.x < 0) // 캐릭터가 왼쪽을 보고 있다면
+        {
+            currentAngle = 180f - currentAngle;
+        }
+
+        // 불화살 프리팹을 발사 위치에서 생성
+        GameObject arrowInstance = Instantiate(fireArrowPrefab, _firePoint.position, _firePoint.rotation); // <-- fireArrowPrefab 사용
+
+        FireArrow fireArrowScript = arrowInstance.GetComponent<FireArrow>(); // <-- BasicArrow 대신 FireArrow로 GetComponent
+        if (fireArrowScript != null)
+        {
+            // FireArrow 스크립트에 fireEffectPrefab 정보를 전달
+            fireArrowScript.fireEffectPrefab = groundFireEffectPrefab;
+            fireArrowScript.Launch(currentAngle, launchSpeed);
+        }
+
+        _player.SetPlayerState(PlayerState.Attack);
+    }
+    // ------------------------------------
 
 
     // 스프라이트 좌우 반전 함수

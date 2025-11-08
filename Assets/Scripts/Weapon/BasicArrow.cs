@@ -3,14 +3,19 @@ using UnityEngine;
 public class BasicArrow : MonoBehaviour
 {
     [Header("★ 화살 기본 설정")]
-    [SerializeField] float launchSpeed = 10f;       // 화살 발사 속도
-    [SerializeField] private float _arrowLifeTime = 3f;      // 화살 존재 시간
+    [SerializeField] protected  float launchSpeed = 10f;       // 화살 발사 속도
+    [SerializeField] protected float _arrowLifeTime = 3f;      // 화살 존재 시간
 
     [Header("★ 컴포넌트")]
-    [SerializeField] private Rigidbody2D _rigidbody2D;
+    [SerializeField] protected Rigidbody2D _rigidbody2D;
+
+    protected virtual void Start() // virtual로 변경
+    {
+        Destroy(gameObject, _arrowLifeTime);
+    }
 
     // FixedUpdate에서 Rigidbody의 현재 속도 방향을 따라 화살 스프라이트 회전
-    void FixedUpdate()
+    public virtual void FixedUpdate()
     {
         Vector2 velocity = _rigidbody2D.linearVelocity; // Rigidbody2D.linearVelocity 대신 Rigidbody2D.velocity 사용
 
@@ -32,7 +37,7 @@ public class BasicArrow : MonoBehaviour
     /// </summary>
     /// <param name="angleDegrees">발사 각도 (0°은 오른쪽 방향)</param>
     /// <param name="speed">발사 속도</param>
-    public void Launch(float angleDegrees, float speed)
+    public virtual void Launch(float angleDegrees, float speed)
     {
         // 각도를 라디안으로 변환 (삼각 함수 계산용)
         float angleRad = angleDegrees * Mathf.Deg2Rad;
@@ -49,7 +54,7 @@ public class BasicArrow : MonoBehaviour
         transform.rotation = Quaternion.Euler(0, 0, angleDegrees - 90f);
     }
 
-    public void LaunchSkill1(float minAngle, float maxAngle, float speed)
+    public virtual void LaunchSkill1(float minAngle, float maxAngle, float speed)
     {
         float randomAngle = Random.Range(minAngle, maxAngle);
 
@@ -59,15 +64,16 @@ public class BasicArrow : MonoBehaviour
     }
 
     // 화살이 다른 오브젝트와 충돌했을 때 처리
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D collision)
     {
-        // 충돌한 오브젝트의 태그가 "Enemy" 또는 "Ground"일 경우
-        if (collision.CompareTag("Enemy") || collision.CompareTag("Ground"))
+        if (collision.CompareTag("Enemy"))
         {
-            // 여기에 적에게 데미지를 주거나 다른 효과를 발생시키는 로직을 추가할 수 있습니다.
-            // 예: collision.GetComponent<Enemy>()?.TakeDamage(arrowDamage);
-
-            // 화살 오브젝트 파괴
+            // 여기에 적에게 데미지를 주는 로직을 추가할 수 있습니다.
+            Destroy(gameObject); // 적에게 닿으면 파괴
+        }
+        // BasicArrow는 Ground에 닿으면 기본적으로 파괴됩니다.
+        else if (collision.CompareTag("Ground"))
+        {
             Destroy(gameObject);
         }
     }

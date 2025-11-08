@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Enemy
   - Ground
+  - FireEffect
   layers:
   - Default
   - TransparentFX
@@ -72,6 +73,9 @@ TagManager:
     locked: 0
   - name: Arrow
     uniqueID: 3687867695
+    locked: 0
+  - name: FireEffect
+    uniqueID: 3748616003
     locked: 0
   m_RenderingLayers:
   - Default

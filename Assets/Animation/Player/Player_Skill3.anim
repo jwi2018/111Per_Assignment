@@ -113,7 +113,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.46666667
-    functionName: AnimationEvent_ShootArrow_Skill2
+    functionName: AnimationEvent_ShootArrow_Skill3
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
