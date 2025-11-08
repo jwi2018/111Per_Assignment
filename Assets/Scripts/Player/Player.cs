@@ -16,11 +16,11 @@ public class Player : MonoBehaviour
     private PlayerState _state = PlayerState.Idle;
 
     [Header("★ 이동")]
-    private float _moveSpeed = 8.0f;
+    private float _moveSpeed = 3.5f;
 
     [Header("★ 공격")]
     private bool _canShoot = true;
-    private float _shootCooldown = 0.5f;
+    private float _shootCooldown = 0.7f;
     private float _shootTimer = 0f;
 
     [Header("★ 체력")]

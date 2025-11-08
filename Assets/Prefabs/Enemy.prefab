@@ -191,7 +191,7 @@ Animator:
   m_GameObject: {fileID: 4947818426167526349}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 7b839cc7ebffe014d9826484cd1144dc, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0
@@ -288,8 +288,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229ad94455167a14a89ef1b1b03e1404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 6
-  _attackCooldown: 1.5
+  _moveSpeed: 1.75
+  _attackCooldown: 0.65
   _enemyBasicArrow: {fileID: 2494143942712331772, guid: e70ac0c8648f3fb47b3b9a0c2f00c964, type: 3}
   _fireAngle: 50
   _maxHealth: 50
@@ -320,8 +320,8 @@ MonoBehaviour:
   _edgeCheckDistance: 1
   _detectPlayerRange: 15
   _attackRange: 15
-  _attackStopDurationMin: 1
-  _attackStopDurationMax: 3
+  _attackDurationMin: 1
+  _attackDurationMax: 3
   _patrolDurationMin: 2
   _patrolDurationMax: 5
   _postAttackPatrolChance: 0.8

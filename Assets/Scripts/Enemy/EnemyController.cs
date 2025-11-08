@@ -137,6 +137,10 @@ public class EnemyController : MonoBehaviour
     IEnumerator AttackState()
     {
         _enemy.SetEnemyState(EnemyState.Attack);
+
+        _enemy._animator.SetBool("isMove", false);
+        _enemy._animator.SetBool("isAttack", true);
+
         // _isAttacking = true; // 디버그용
         float attackDuration = Random.Range(_attackDurationMin, _attackDurationMax);
         Debug.Log($"Enemy: 공격 시작! ({attackDuration:F2}초 동안)");
@@ -152,6 +156,10 @@ public class EnemyController : MonoBehaviour
     IEnumerator PatrolState()
     {
         _enemy.SetEnemyState(EnemyState.Move);
+
+        _enemy._animator.SetBool("isMove", true);
+        _enemy._animator.SetBool("isAttack", false);
+
         // _isPatrolling = true; // 디버그용
         float patrolDuration = Random.Range(_patrolDurationMin, _patrolDurationMax);
         Debug.Log($"Enemy: 순찰 시작! ({patrolDuration:F2}초 동안)");
@@ -295,26 +303,5 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    #endregion
-
-    #region 디버그 시각화 (선택 사항)
-    void OnDrawGizmosSelected()
-    {
-        Gizmos.color = Color.cyan;
-        Gizmos.DrawLine(new Vector3(_minXBound, transform.position.y - 1f, 0), new Vector3(_minXBound, transform.position.y + 1f, 0));
-        Gizmos.DrawLine(new Vector3(_maxXBound, transform.position.y - 1f, 0), new Vector3(_maxXBound, transform.position.y + 1f, 0));
-
-        Gizmos.color = Color.blue;
-        Gizmos.DrawWireSphere(transform.position, _detectPlayerRange);
-
-        Gizmos.color = Color.yellow;
-        Gizmos.DrawWireSphere(transform.position, _attackRange);
-
-        if (_edgeCheck != null)
-        {
-            Gizmos.color = Color.white;
-            Gizmos.DrawWireSphere(_edgeCheck.position, 0.1f);
-        }
-    }
     #endregion
 }

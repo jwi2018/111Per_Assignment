@@ -22,12 +22,14 @@ public class PlayerController : MonoBehaviour
 
     void Awake()
     {
-        
+        _player.SetPlayerState(PlayerState.Attack);
+        _player._animator.SetBool("isAttack", true);
+        _player._animator.SetBool("isMove", false);
     }
 
     void Update()
     {
-        if (_player.State == PlayerState.Idle && _player.CanShoot)
+        if (_player.State == PlayerState.Attack && _player.CanShoot)
         {
             ShootArrow();
         }
@@ -50,11 +52,28 @@ public class PlayerController : MonoBehaviour
         if(_moveDirection.sqrMagnitude > 0.01f)
         {
             _player.SetPlayerState(PlayerState.Move);
+            _player._animator.SetBool("isMove", true);
+            _player._animator.SetBool("isAttack", false);
+
+            FlipSprite(_moveDirection.x);
+
             Debug.Log("이동 중입니다.");
         }
         else // 이동 입력이 없다면 (키를 떼거나 아무것도 입력 안 할 때)
         {
-            _player.SetPlayerState(PlayerState.Idle);
+            
+            _player.SetPlayerState(PlayerState.Attack);
+
+            // 멈춤 상태일 때는 무조건 오른쪽 기준 바라보도록 설정 (localScale.x 양수)
+            Vector3 scale = transform.localScale;
+            if (scale.x < 0)
+            {
+                transform.localScale = new Vector3(Mathf.Abs(scale.x), scale.y, scale.z);
+            }
+
+            //_player._animator.SetFloat("AttackSpeed", 2.0f);
+            //_player._animator.SetBool("isAttack", true);
+
             Debug.Log("이동 제외한 행동(Idle) 중입니다.");
         }
     }
@@ -74,39 +93,40 @@ public class PlayerController : MonoBehaviour
 
     private void ShootArrow()
     {
-        Debug.Log("발사 중 1");
         if (_arrowPrefab == null || _firePoint == null) return;
 
-        Debug.Log("발사 중 2");
         if (!_player.CanShoot) return; // 쿨다운 중이면 발사하지 않음
 
-        Debug.Log("발사 중 3");
-        PlayerState originalState = _player.State; // 원래 상태 기억
-        _player.SetPlayerState(PlayerState.Attack); // Attack 상태로 전환
+        _player._animator.SetBool("isAttack", true);
+        _player._animator.SetBool("isMove", false);
 
-        Debug.Log("발사 중 4");
+        //PlayerState originalState = _player.State; // 원래 상태 기억
+        //_player.SetPlayerState(PlayerState.Attack); // Attack 상태로 전환
+
         // 화살을 발사 위치에서 생성
         GameObject arrowInstance = Instantiate(_arrowPrefab, _firePoint.position, _firePoint.rotation);
 
-        Debug.Log("발사 중 5");
         //화살 스크립트에 발사 각도 및 속도 설정(예시, 화살에 Launch 함수 가정)
         BasicArrow arrowScript = arrowInstance.GetComponent<BasicArrow>();
         if (arrowScript != null)
         {
-            Debug.Log("발사 중 6");
             arrowScript.Launch(50f);   // 50도 각도로 발사, 런치 속도는 Arrow 스크립트 내에서 설정
         }
 
         _player.ResetShootCooldown();
+    }
 
-
-        // 스킬/공격 애니메이션 트리거 넣어도 좋음
-        if (_player._animator != null)
+    // 스프라이트 좌우 반전 함수
+    private void FlipSprite(float moveX)
+    {
+        if (moveX > 0) // 오른쪽 이동
         {
-            _player._animator.SetTrigger("Attack");
+            transform.localScale = new Vector3(Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
         }
-
-        _player.SetPlayerState(originalState);
+        else if (moveX < 0) // 왼쪽 이동
+        {
+            transform.localScale = new Vector3(-Mathf.Abs(transform.localScale.x), transform.localScale.y, transform.localScale.z);
+        }
     }
 
     #endregion

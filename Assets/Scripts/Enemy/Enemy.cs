@@ -19,8 +19,10 @@ public class Enemy : MonoBehaviour
 
     [Header("★ 공격 (기본 공격)")]
     private bool _canAttack = true; // 현재 공격 가능한지 여부
-    [SerializeField] private float _attackCooldown = 1.5f; // 기본 공격 쿨다운
+    [SerializeField] private float _attackCooldown = 0.5f; // 기본 공격 쿨다운
     private float _attackTimer = 0f; // 기본 공격 쿨다운 타이머
+    public GameObject _enemyBasicArrow;
+    [SerializeField] private float _fireAngle = 50f;     // <--- 고정 발사 각도 추가 (Inspector에서 설정)
 
     [Header("★ 체력")]
     [SerializeField] private int _maxHealth = 50; // 최대 체력 (Inspector에서 조절)
@@ -33,8 +35,6 @@ public class Enemy : MonoBehaviour
 
     [Header("★ 컴포넌트")]
     public Animator _animator; // 적군 애니메이터
-    // 적군이 발사하는 투사체 프리팹 (화살, 마법 등)
-    public GameObject _enemyBasicArrow;
     public Transform _attackPoint; // 공격 발사 위치 (FirePoint와 유사)
 
 
@@ -47,6 +47,8 @@ public class Enemy : MonoBehaviour
     public float AttackTimer => _attackTimer;
     public int CurrentHealth => _currentHealth;
     public int MaxHealth => _maxHealth;
+    public GameObject EnemyBasicArrowPrefab => _enemyBasicArrow; // <--- 프리팹 Property 추가
+    public float FireAngle => _fireAngle;                       // <--- 발사 각도 Property 추가
 
     #endregion
 

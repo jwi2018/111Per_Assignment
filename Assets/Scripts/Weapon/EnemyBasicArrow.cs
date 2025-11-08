@@ -23,11 +23,11 @@ public class EnemyBasicArrow : MonoBehaviour
     /// </summary>
     /// <param name="angleDegrees">발사 각도 (0°은 오른쪽 방향)</param>
     /// <param name="speed">발사 속도</param>
-    public void Launch(float angleDegrees, float speed)
+    public void Launch(float angleDegrees)
     {
         float rad = angleDegrees * Mathf.Deg2Rad;
         Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
-        _rigidbody2D.linearVelocity = direction * speed;
+        _rigidbody2D.linearVelocity = direction * launchSpeed;
     }
 
     void FixedUpdate()

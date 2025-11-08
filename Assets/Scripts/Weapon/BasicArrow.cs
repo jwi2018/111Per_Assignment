@@ -14,7 +14,6 @@ public class BasicArrow : MonoBehaviour
     /// <param name="angleDegrees">발사 각도 (0°은 오른쪽 방향)</param>
     public void Launch(float angleDegrees)
     {
-        Debug.Log("발사 중 7");
         float rad = angleDegrees * Mathf.Deg2Rad;
         Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
 
