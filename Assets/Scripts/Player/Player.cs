@@ -20,7 +20,7 @@ public class Player : MonoBehaviour
 
     [Header("★ 공격")]
     [SerializeField] private bool _canShoot = true;          // 현재 발사 가능 여부
-    [SerializeField] private float _baseShootCooldown = 0.7f; // 기본 공격 쿨다운 시간 (변하지 않는 고정값)
+    [SerializeField] private float _baseShootCooldown = 0f; // 기본 공격 쿨다운 시간 (변하지 않는 고정값)
     private float _currentShootCooldown;                     // 현재 적용 중인 공격 쿨다운 (Skill1Active 시 변경됨)
     private float _shootTimer = 0f;                          // 공격 쿨다운 타이머
     [SerializeField] private float _arrowLaunchSpeed = 15f;  // 화살 발사 기본 속도 (Inspector에서 조절)
@@ -97,11 +97,15 @@ public class Player : MonoBehaviour
             }
         }
 
+       // Debug.Log("플레이어 업데이트 공격중 1 ");
+
         if (!_canShoot) // 발사 불가능 상태 (쿨다운 중)일 때
         {
+            //Debug.Log("플레이어 업데이트 공격중 2 ");
             _shootTimer -= Time.deltaTime; // 타이머 감소
             if (_shootTimer <= 0f)
             {
+               // Debug.Log("플레이어 업데이트 공격중 3 ");
                 _shootTimer = 0f; // 음수 방지
                 _canShoot = true; // 쿨다운 끝, 발사 가능
             }
@@ -129,7 +133,10 @@ public class Player : MonoBehaviour
 
     public void SetCanShoot(bool _bool)
     {
+        Debug.Log("SetCanShoot  :  " + _bool);
         _canShoot = _bool;
+
+        Debug.Log("SetCanShoot  _canShoot  :  " + _canShoot);
     }
 
     public void SetShootTimer(float Time)
