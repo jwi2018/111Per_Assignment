@@ -266,14 +266,6 @@ MonoBehaviour:
     m_ActionName: 'Player/Jump[/Keyboard/space]'
   - m_PersistentCalls:
       m_Calls: []
-    m_ActionId: 2776c80d-3c14-4091-8c56-d04ced07a2b0
-    m_ActionName: 'Player/Previous[/Keyboard/1]'
-  - m_PersistentCalls:
-      m_Calls: []
-    m_ActionId: b7230bb6-fc9b-4f52-8b25-f5e19cb2c2ba
-    m_ActionName: 'Player/Next[/Keyboard/2]'
-  - m_PersistentCalls:
-      m_Calls: []
     m_ActionId: 641cd816-40e6-41b4-8c3d-04687c349290
     m_ActionName: 'Player/Sprint[/Keyboard/leftShift]'
   - m_PersistentCalls:
@@ -316,6 +308,22 @@ MonoBehaviour:
       m_Calls: []
     m_ActionId: 9caa3d8a-6b2f-4e8e-8bad-6ede561bd9be
     m_ActionName: UI/TrackedDeviceOrientation
+  - m_PersistentCalls:
+      m_Calls:
+      - m_Target: {fileID: 2670025458513899131}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSkill1
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+    m_ActionId: eef6491a-bb9e-49ac-b3b1-09bc59cffc2d
+    m_ActionName: 'Player/Skill_1[/Keyboard/1]'
   m_NeverAutoSwitchControlSchemes: 0
   m_DefaultControlScheme: 
   m_DefaultActionMap: 
@@ -406,6 +414,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85bdbd8a6e054424a8def7654da72b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _arrowLaunchSpeed: 15
   skillCooldowns: 020000000400000006000000080000000a000000
   _animator: {fileID: 5281167779498488628}
   _playerInput: {fileID: 2256980169110007714}
@@ -425,3 +434,4 @@ MonoBehaviour:
   _firePoint: {fileID: 7224219694329797448}
   _arrowPrefab: {fileID: 2494143942712331772, guid: c983b9c25afa4a94e9ce262053fc560b, type: 3}
   _rigidbody2D: {fileID: 7414940053403582474}
+  _skill1Duration: 3

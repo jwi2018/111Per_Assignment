@@ -7,7 +7,7 @@ public enum PlayerState
     Idle,
     Move,
     Attack,
-    Skill
+    Skill1Active
 }
 
 public class Player : MonoBehaviour
@@ -19,9 +19,11 @@ public class Player : MonoBehaviour
     private float _moveSpeed = 3.5f;
 
     [Header("★ 공격")]
-    private bool _canShoot = true;
-    private float _shootCooldown = 0.7f;
-    private float _shootTimer = 0f;
+    [SerializeField] private bool _canShoot = true;          // 현재 발사 가능 여부
+    [SerializeField] private float _baseShootCooldown = 0.7f; // 기본 공격 쿨다운 시간 (변하지 않는 고정값)
+    private float _currentShootCooldown;                     // 현재 적용 중인 공격 쿨다운 (Skill1Active 시 변경됨)
+    private float _shootTimer = 0f;                          // 공격 쿨다운 타이머
+    [SerializeField] private float _arrowLaunchSpeed = 15f;  // 화살 발사 기본 속도 (Inspector에서 조절)
 
     [Header("★ 체력")]
     private int _maxHealth = 100;
@@ -39,14 +41,23 @@ public class Player : MonoBehaviour
     #region Property
 
     public PlayerState State => _state;
-
     public float MoveSpeed => _moveSpeed;
-
     public bool CanShoot => _canShoot;
 
-    public float ShootCooldown => _shootCooldown;
+    // 현재 적용 중인 공격 쿨다운 (ShootCooldown Property)
+    // Getter는 현재 적용된 _currentShootCooldown 값을 반환하며, Setter로 변경 가능
+    public float ShootCooldown
+    {
+        get => _currentShootCooldown;
+        set => _currentShootCooldown = value;
+    }
 
-    public float ShootTimer => _shootTimer;
+    // 변경되지 않는 기본 공격 쿨다운 값 (BaseShootCooldown Property)
+    public float BaseShootCooldown => _baseShootCooldown;
+
+    public float ShootTimer => _shootTimer; // 쿨다운 타이머의 남은 시간 (읽기 전용)
+    public int CurrentHealth => _currentHealth; // 현재 체력 (읽기 전용)
+    public float ArrowLaunchSpeed => _arrowLaunchSpeed; // 화살 발사 기본 속도 (읽기 전용)
 
 
     #endregion
@@ -56,6 +67,19 @@ public class Player : MonoBehaviour
     void Awake()
     {
         _currentHealth = _maxHealth;
+
+        _currentShootCooldown = _baseShootCooldown;
+
+        if (skillCooldownTimers == null || skillCooldownTimers.Length != skillCooldowns.Length)
+        {
+            skillCooldownTimers = new int[skillCooldowns.Length];
+            skillDeltaTimeAccumulators = new float[skillCooldowns.Length];
+        }
+        for (int i = 0; i < skillCooldowns.Length; i++)
+        {
+            skillCooldownTimers[i] = 0; // 시작 시 모든 스킬 쿨다운은 0
+            skillDeltaTimeAccumulators[i] = 0f;
+        }
     }
 
     void Update()
@@ -99,7 +123,7 @@ public class Player : MonoBehaviour
     public void ResetShootCooldown()
     {
         _canShoot = false;
-        _shootTimer = _shootCooldown;
+        _shootTimer = _currentShootCooldown;
     }
 
     public void SetCanShoot(bool _bool)
@@ -113,21 +137,26 @@ public class Player : MonoBehaviour
     }
 
 
-    public bool UseSkill(int skillIndex)
+    // 스킬 사용 가능 여부 확인 및 쿨다운 시작
+    public bool TryUseSkill(int skillIndex)
     {
         if (skillIndex < 0 || skillIndex >= skillCooldowns.Length) return false;
 
         if (skillCooldownTimers[skillIndex] <= 0)
         {
-            // 스킬 발동 처리 (프로젝트에 맞게 커스터마이징)
-            _animator.SetTrigger($"Skill{skillIndex + 1}");
+            // 스킬 쿨다운 시작
             skillCooldownTimers[skillIndex] = skillCooldowns[skillIndex];
             skillDeltaTimeAccumulators[skillIndex] = 0f;
-            // 데미지 처리 등 추가 코드 삽입 가능
+            Debug.Log($"Skill {skillIndex + 1} activated! Cooldown: {skillCooldowns[skillIndex]}s");
             return true;
         }
-        return false; // 쿨다운 중일 경우
+        else
+        {
+            Debug.Log($"Skill {skillIndex + 1} is on cooldown. {skillCooldownTimers[skillIndex]}s remaining.");
+            return false; // 쿨다운 중일 경우
+        }
     }
+
 
     public void TakeDamage(int amount)
     {
