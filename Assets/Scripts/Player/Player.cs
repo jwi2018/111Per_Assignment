@@ -242,5 +242,16 @@ public class Player : MonoBehaviour
         }
     }
 
+    // SkillCoolTime에서 스킬의 남은 쿨타임을 가져갈 수 있도록 함수 추가
+    public int GetSkillRemainingCoolTime(int skillIndex)
+    {
+        if (skillIndex < 0 || skillIndex >= skillCooldownTimers.Length)
+        {
+            Debug.LogError($"Invalid skillIndex: {skillIndex} in GetSkillRemainingCoolTime.");
+            return 0;
+        }
+        return skillCooldownTimers[skillIndex];
+    }
+
     #endregion
 }
