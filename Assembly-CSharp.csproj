@@ -64,8 +64,12 @@
     <Compile Include="Assets\Scripts\Weapon\FireArrow.cs" />
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\SpritesArchers\Scripts\Change_Sprite.cs" />
+    <Compile Include="Assets\Scripts\Weapon\Shield.cs" />
+    <Compile Include="Assets\Scripts\Weapon\EnemyFireEffect.cs" />
     <Compile Include="Assets\Scripts\Weapon\FireEffect.cs" />
     <Compile Include="Assets\Scripts\Weapon\EnemyBasicArrow.cs" />
+    <Compile Include="Assets\Scripts\Weapon\EnemyFireArrow.cs" />
+    <Compile Include="Assets\Scripts\Weapon\EnemyShield.cs" />
     <Compile Include="Assets\Scripts\Player\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Enemy\Enemy.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />

@@ -2,14 +2,46 @@ using UnityEngine;
 
 public class EnemyBasicArrow : MonoBehaviour
 {
-    [Header("★ 발사")]
-    float launchSpeed = 10f;       // 화살 발사 속도
+    [Header("★ 화살 기본 설정")]
+    [SerializeField] protected float _defaultLaunchSpeed = 10f;
+    [SerializeField] protected float _arrowLifeTime = 3f;
 
     [Header("★ 컴포넌트")]
-    [SerializeField] private Rigidbody2D _rigidbody2D;
+    [SerializeField] protected Rigidbody2D _rigidbody2D;
+
+    protected virtual void Start()
+    {
+        Destroy(gameObject, _arrowLifeTime);
+    }
+
+    public virtual void Launch(float angleDegrees, float speed)
+    {
+        float angleRad = angleDegrees * Mathf.Deg2Rad;
+        Vector2 launchDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
+        _rigidbody2D.linearVelocity = launchDirection.normalized * speed;
+        transform.rotation = Quaternion.Euler(0, 0, angleDegrees);
+    }
+
+    public virtual void LaunchSkill1(float minAngle, float maxAngle, float speed)
+    {
+        float randomAngle = Random.Range(minAngle, maxAngle);
+        Launch(randomAngle, speed);
+    }
+
+    protected virtual void FixedUpdate()
+    {
+        Vector2 velocity = _rigidbody2D.linearVelocity;
+        if (velocity.sqrMagnitude > 0.01f)
+        {
+            float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
+            transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
+        }
+    }
+
+
 
     /// <summary>
-    /// 방향 벡터와 속도를 받아 투사체를 발사하는 함수 (직선 발사 시)
+    /// 방향 벡터와 속도를 받아 투사체를 발사하는 함수 (직선 발사 시)    삭제 예정
     /// </summary>
     /// <param name="direction">발사 방향 벡터</param>
     /// <param name="speed">발사 속도</param>
@@ -19,7 +51,7 @@ public class EnemyBasicArrow : MonoBehaviour
     }
 
     /// <summary>
-    /// 각도를 받아 투사체를 발사하는 함수 (Degree 단위 입력, 포물선 발사 시)
+    /// 각도를 받아 투사체를 발사하는 함수 (Degree 단위 입력, 포물선 발사 시)    삭제 예정
     /// </summary>
     /// <param name="angleDegrees">발사 각도 (0°은 오른쪽 방향)</param>
     /// <param name="speed">발사 속도</param>
@@ -27,41 +59,29 @@ public class EnemyBasicArrow : MonoBehaviour
     {
         float rad = angleDegrees * Mathf.Deg2Rad;
         Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
-        _rigidbody2D.linearVelocity = direction * launchSpeed;
+        _rigidbody2D.linearVelocity = direction * _defaultLaunchSpeed;
     }
 
-    void FixedUpdate()
-    {
-        // 투사체 이동 방향에 맞춰 회전
-        Vector2 velocity = _rigidbody2D.linearVelocity;
-        if (velocity.sqrMagnitude > 0.01f) // 미세한 움직임이 아닐 때만 회전
-        {
-            float angle = Mathf.Atan2(velocity.y, velocity.x) * Mathf.Rad2Deg;
-            transform.rotation = Quaternion.Euler(0, 0, angle - 90f);
-        }
-    }
+
 
     // 충돌 처리
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected virtual void OnTriggerEnter2D(Collider2D other)
     {
-        if (collision.CompareTag("Player"))
+        if (other.CompareTag("Player")) // <-- 수정: 플레이어와 충돌 시
         {
-            // 플레이어에게 데미지 주기
-            Player player = collision.GetComponent<Player>();
-            if (player != null)
-            {
-                player.TakeDamage(10); // 예시 데미지
-            }
-            Destroy(gameObject); // 플레이어에게 맞으면 투사체 제거
-        }
-        else if (collision.CompareTag("Ground"))
-        {
-            // 땅에 닿으면 투사체 제거
+            Debug.Log($"적 화살이 플레이어 {other.name}와 충돌했습니다.");
+            // TODO: 플레이어에게 데미지를 주는 로직 추가
             Destroy(gameObject);
         }
-        // else if (collision.CompareTag("Wall")) // 벽에 닿았을 때
-        // {
-        //     Destroy(gameObject);
-        // }
+        else if (other.CompareTag("Ground"))
+        {
+            Debug.Log($"적 화살이 땅 {other.name}에 닿았습니다.");
+            Destroy(gameObject);
+        }
+        else if (other.CompareTag("Shield")) // <-- 수정: 플레이어 방패와 충돌했을 경우
+        {
+            Debug.Log($"적 화살이 플레이어 방패 {other.name}와 충돌했습니다.");
+            Destroy(gameObject);
+        }
     }
 }
