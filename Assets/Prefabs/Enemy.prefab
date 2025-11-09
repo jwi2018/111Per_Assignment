@@ -332,8 +332,8 @@ MonoBehaviour:
   _skill1ShootInterval: 0.2
   _skill1Probability: 0.3
   _skill2ArrowCount: 10
-  _skill2SpreadAngle: 30
-  _skill2LaunchSpeedModifier: 0.8
+  _skill2SpreadAngle: 35
+  _skill2LaunchSpeedModifier: 1
   _skill2Probability: 0.3
   enemyFireArrowPrefab: {fileID: 56874827525258348, guid: 33fdaf875dc80ef488ea882bc08996cb, type: 3}
   enemyGroundFireEffectPrefab: {fileID: 1028067068571875310, guid: a7d0cc5ba05db694e8aa05d17071dc27, type: 3}

@@ -81,11 +81,11 @@ TagManager:
   - name: Arrow
     uniqueID: 3687867695
     locked: 0
-  - name: FireEffect
-    uniqueID: 3748616003
-    locked: 0
   - name: Shield
     uniqueID: 2797915535
+    locked: 0
+  - name: FireEffect
+    uniqueID: 3748616003
     locked: 0
   m_RenderingLayers:
   - Default
