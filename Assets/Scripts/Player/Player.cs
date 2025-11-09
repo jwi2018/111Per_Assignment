@@ -34,7 +34,7 @@ public class Player : MonoBehaviour
     private int _currentHealth;
 
     [Header("★ 스킬")]
-    [SerializeField] private int[] skillCooldowns = new int[5];     // 스킬별 쿨다운 시간
+    [SerializeField] public int[] skillCooldowns = new int[5];     // 스킬별 쿨다운 시간
     private int[] skillCooldownTimers = new int[5];                 // 스킬별 쿨다운 타이머
     private float[] skillDeltaTimeAccumulators = new float[5];
 
