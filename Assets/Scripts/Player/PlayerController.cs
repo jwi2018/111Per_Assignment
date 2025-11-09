@@ -44,6 +44,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _skill3LaunchSpeedModifier = 1.0f; // 스킬 3 발사 속도 배율 (예: 1.0배)
     // ------------------------------------
 
+    // --- 스킬 4 (이동 속도 증가) 관련 변수 ---
+    [Header("★ 스킬 4 (이동 속도 증가)")]
+    [SerializeField] private float _skill4Duration = 6.0f;          // 스킬 4 지속 시간
+    [SerializeField] private float _skill4SpeedMultiplier = 1.5f;   // 이동 속도 배율
+    private Coroutine _skill4ActiveCoroutine;                       // 스킬 4 지속 코루틴 레퍼런스
+
     #region Unity 생명주기
 
     void Awake()
@@ -53,7 +59,7 @@ public class PlayerController : MonoBehaviour
 
     void FixedUpdate()
     {
-        Move();
+        Move(_moveDirection);
     }
 
     #endregion
@@ -66,7 +72,6 @@ public class PlayerController : MonoBehaviour
         if(_player.State == PlayerState.Skill1Active 
             || _player.State == PlayerState.Skill2Active 
             || _player.State == PlayerState.Skill3Active 
-            || _player.State == PlayerState.Skill4Active
             || _player.State == PlayerState.Skill5Active)
         {
             return;
@@ -176,6 +181,27 @@ public class PlayerController : MonoBehaviour
         }
     }
 
+    // --- 스킬 4 (이동 속도 증가) 입력 처리 함수 (상태 전환 없음) ---
+    public void OnSkill4(InputAction.CallbackContext context)
+    {
+        if (context.performed) // 4번 키가 눌렸을 때
+        {
+            // 다른 공격형 스킬(1,2,3)이 활성화 중이 아닐 때만 발동
+            if (_player.TryUseSkill(3) && _player.State != PlayerState.Skill1Active && _player.State != PlayerState.Skill2Active && _player.State != PlayerState.Skill3Active) // skillIndex 3번이 스킬 4
+            {
+                // 이동 속도 증가 스킬은 현재 행동(이동/공격)을 방해하지 않습니다.
+                // 따라서 움직임 중단이나 방향 고정 로직은 필요 없습니다.
+                // if (_rigidbody2D != null) _rigidbody2D.velocity = Vector2.zero; // <-- 필요없음
+                // _moveDirection = Vector2.zero; // <-- 필요없음
+
+                if (_skill4ActiveCoroutine != null) StopCoroutine(_skill4ActiveCoroutine); // 혹시 모를 이전 코루틴 중복 실행 방지
+
+                _skill4ActiveCoroutine = StartCoroutine(Skill4ActiveCoroutine()); // 스킬 4 활성화 코루틴 시작
+                Debug.Log("스킬 4(이동 속도 증가) 발동!");
+            }
+        }
+    }
+
     #endregion
 
     #region Public 함수
@@ -184,9 +210,9 @@ public class PlayerController : MonoBehaviour
 
     #region Private 함수
 
-    private void Move()
+    private void Move(Vector2 currentMoveDirection)
     {
-        _rigidbody2D.linearVelocity = _moveDirection * _player.MoveSpeed;
+        _rigidbody2D.linearVelocity = currentMoveDirection * _player.MoveSpeed;
     }
 
     // --- 스킬 1 활성화 중 화살 발사 코루틴 ---
@@ -258,6 +284,33 @@ public class PlayerController : MonoBehaviour
         Debug.Log("스킬 1(속사) 종료.");
         _skill1ActiveCoroutine = null; // 코루틴 레퍼런스 초기화 (다음 스킬 사용을 위해)
     }
+
+    // --- 스킬 4 (이동 속도 증가) 활성화 코루틴 (상태 전환 없음) ---
+    private IEnumerator Skill4ActiveCoroutine()
+    {
+        // 스킬 발동 전 상태는 기억할 필요 없습니다. (버프형 스킬)
+
+        float originalMoveSpeed = _player.MoveSpeed; // 현재 이동 속도 저장
+        _player.MoveSpeed = originalMoveSpeed * _skill4SpeedMultiplier; // 이동 속도 증가
+
+        Debug.Log($"스킬 4(이동 속도 증가) 시작! 원래 속도: {originalMoveSpeed:F2}, 변경 후: {_player.MoveSpeed:F2}");
+
+        float timer = 0f;
+        while (timer < _skill4Duration) // 스킬 지속 시간 동안 루프
+        {
+            yield return null; // 다음 프레임까지 대기
+            timer += Time.deltaTime;
+        }
+
+        _player.MoveSpeed = originalMoveSpeed; // 이동 속도 원래대로 복구
+
+        // 이 스킬은 플레이어 상태를 변경하지 않으므로, 이전 상태로 복구할 필요 없습니다.
+        // 다른 스킬들에 영향을 주지 않고 버프만 사라집니다.
+
+        _skill4ActiveCoroutine = null; // 코루틴 레퍼런스 초기화
+        Debug.Log("스킬 4(이동 속도 증가) 정상 종료.");
+    }
+
 
     // ShootArrow 함수를 오버로드하여 스킬 공격 여부 플래그를 받을 수 있게 수정
     // 이 함수는 플레이어 상태에 따라 호출될 수도 있고, 스킬 코루틴에서 직접 호출될 수도 있습니다.

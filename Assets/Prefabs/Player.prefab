@@ -357,7 +357,19 @@ MonoBehaviour:
     m_ActionId: 0da30f06-ab89-48fa-af6c-c2aa525152f0
     m_ActionName: 'Player/Skill_3[/Keyboard/3]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2670025458513899131}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSkill4
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: be297d45-51b6-4b6c-9e7e-97b7837ec3cf
     m_ActionName: 'Player/Skill_4[/Keyboard/4]'
   - m_PersistentCalls:
@@ -454,6 +466,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85bdbd8a6e054424a8def7654da72b6b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _baseMoveSpeed: 3.5
   _canShoot: 1
   _baseShootCooldown: 0.6
   _arrowLaunchSpeed: 9.8
@@ -485,3 +498,5 @@ MonoBehaviour:
   fireArrowPrefab: {fileID: 56874827525258348, guid: 13a6121c2560f8c448d23d13a8fbcd0e, type: 3}
   groundFireEffectPrefab: {fileID: 1028067068571875310, guid: e3dc82442ace24c439ca366b28d761a9, type: 3}
   _skill3LaunchSpeedModifier: 1
+  _skill4Duration: 6
+  _skill4SpeedMultiplier: 1.5

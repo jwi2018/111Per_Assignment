@@ -3,24 +3,23 @@ using UnityEngine.InputSystem;
 
 public enum PlayerState
 {
-    None,
-    Idle,
     Move,
     Attack,
     Skill1Active,
     Skill2Active,
     Skill3Active,
-    Skill4Active,
+    //Skill4Active, // 버프라서 필요 없을 듯
     Skill5Active,
 }
 
 public class Player : MonoBehaviour
 {
     [Header("★ 상태")]
-    private PlayerState _state = PlayerState.Idle;
+    private PlayerState _state = PlayerState.Attack;
 
     [Header("★ 이동")]
-    private float _moveSpeed = 3.5f;
+    [SerializeField] private float _baseMoveSpeed = 3.5f; // 기본 이동 속도 (Base 값으로)
+    private float _currentMoveSpeed;                      // 현재 적용되는 이동 속도
 
     [Header("★ 공격")]
     [SerializeField] private bool _canShoot = true;          // 현재 발사 가능 여부
@@ -45,7 +44,13 @@ public class Player : MonoBehaviour
     #region Property
 
     public PlayerState State => _state;
-    public float MoveSpeed => _moveSpeed;
+    public float MoveSpeed
+    {
+        get => _currentMoveSpeed;
+        set => _currentMoveSpeed = value; // currentMoveSpeed를 외부에서 변경 가능하게 함
+    }
+    public float BaseMoveSpeed => _baseMoveSpeed; // 기본 이동 속도를 얻기 위한 속성
+
     public bool CanShoot => _canShoot;
 
     // 현재 적용 중인 공격 쿨다운 (ShootCooldown Property)
@@ -71,7 +76,7 @@ public class Player : MonoBehaviour
     void Awake()
     {
         _currentHealth = _maxHealth;
-
+        _currentMoveSpeed = _baseMoveSpeed;
         _currentShootCooldown = _baseShootCooldown;
 
         if (skillCooldownTimers == null || skillCooldownTimers.Length != skillCooldowns.Length)
@@ -84,6 +89,8 @@ public class Player : MonoBehaviour
             skillCooldownTimers[i] = 0; // 시작 시 모든 스킬 쿨다운은 0
             skillDeltaTimeAccumulators[i] = 0f;
         }
+
+        SetPlayerState(_state);
     }
 
     void Update()
@@ -169,10 +176,6 @@ public class Player : MonoBehaviour
 
             switch (newState)
             {
-                case PlayerState.Idle:
-                    // Idle 상태는 특별한 Bool 애니메이션이 없다고 가정 (모두 false면 기본 Idle 애니메이션으로 돌아감)
-                    // 만약 'isIdle'이라는 Bool 파라미터가 있다면: _animator.SetBool("isIdle", true);
-                    break;
                 case PlayerState.Move:
                     _animator.SetBool("isMove", true);
                     break;
@@ -194,9 +197,6 @@ public class Player : MonoBehaviour
                 case PlayerState.Skill3Active: // <-- 추가: Skill2Active 상태 처리
                     _animator.SetBool("Skill3", true); // "Skill2" Bool 파라미터 활성화
                     _animator.SetBool("isMove", false);
-                    break;
-                case PlayerState.None:
-                    // 아무 동작도 하지 않을 때 (예: 사망)
                     break;
             }
         }

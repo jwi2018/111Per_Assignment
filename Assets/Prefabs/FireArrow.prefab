@@ -53,6 +53,7 @@ MonoBehaviour:
   fireEffectPrefab: {fileID: 1028067068571875310, guid: e3dc82442ace24c439ca366b28d761a9, type: 3}
   fireEffectDamage: 5
   fireEffectDuration: 2
+  groundFireEffectYPosition: -3
 --- !u!70 &3542841667445667451
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
