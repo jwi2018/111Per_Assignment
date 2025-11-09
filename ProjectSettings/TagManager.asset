@@ -11,6 +11,9 @@ TagManager:
   - Arrow
   - FireArrow
   - Shield
+  - EnemyFireArrow
+  - EnemyFireEffect
+  - EnemyShield
   layers:
   - Default
   - TransparentFX

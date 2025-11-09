@@ -293,9 +293,9 @@ MonoBehaviour:
   _moveSpeed: 3.5
   _attackDamage: 5
   _canAttack: 1
-  _baseAttackCooldown: 2
-  _arrowLaunchSpeed: 8
-  skillCooldowns: 0000000000000000000000000000000000000000
+  _baseAttackCooldown: 0.6
+  _arrowLaunchSpeed: 9.8
+  skillCooldowns: 060000000600000006000000080000000a000000
   _animator: {fileID: 5281167779498488628}
   _rigidbody2D: {fileID: 7414940053403582474}
 --- !u!114 &8778178895899558424
@@ -341,7 +341,7 @@ MonoBehaviour:
   _skill3GroundFireEffectYPosition: -3
   _skill3Probability: 0.3
   _skill4Duration: 3
-  _skill4SpeedMultiplier: 2
+  _skill4SpeedMultiplier: 1.7
   _skill4Probability: 0.3
   enemyShieldPrefab: {fileID: 2436029711634859141, guid: c952e33747ffef14bb981e7d22dca6af, type: 3}
   _skill5ShieldDuration: 6

@@ -76,5 +76,10 @@ public class BasicArrow : MonoBehaviour
         {
             Destroy(gameObject);
         }
+        else if (collision.CompareTag("EnemyShield")) // <-- 수정: 플레이어 방패와 충돌했을 경우
+        {
+            Debug.Log($"적 화살이 플레이어 방패 {collision.name}와 충돌했습니다.");
+            Destroy(gameObject);
+        }
     }
 }

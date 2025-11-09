@@ -511,7 +511,7 @@ MonoBehaviour:
   groundFireEffectPrefab: {fileID: 1028067068571875310, guid: e3dc82442ace24c439ca366b28d761a9, type: 3}
   _skill3LaunchSpeedModifier: 1
   _skill4Duration: 6
-  _skill4SpeedMultiplier: 1.5
+  _skill4SpeedMultiplier: 1.7
   shieldPrefab: {fileID: 2436029711634859141, guid: 5241e3f40df0e294d8cd14086e1ece83, type: 3}
   _skill5ShieldDuration: 6
   _skill5ShieldHealth: 5

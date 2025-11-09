@@ -15,7 +15,7 @@ public class EnemyFireArrow : EnemyBasicArrow
 
     protected override void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Ground"))
+        if (collision.CompareTag("Ground") || collision.CompareTag("Player") || collision.CompareTag("Shield"))
         {
             if (enemyFireEffectPrefab != null)
             {
@@ -34,12 +34,13 @@ public class EnemyFireArrow : EnemyBasicArrow
             Destroy(gameObject);
             return;
         }
+        /*
         else if (collision.CompareTag("Player") || collision.CompareTag("Shield")) // <-- 수정: 플레이어나 플레이어 방패와 충돌 시
         {
             Debug.Log($"적 불화살이 {collision.name}와 충돌했습니다.");
             Destroy(gameObject);
             return;
-        }
+        }*/
 
         // 지면, 플레이어, 방패가 아닌 다른 오브젝트와 충돌 시, 부모 클래스의 충돌 처리 로직 호출
         base.OnTriggerEnter2D(collision);

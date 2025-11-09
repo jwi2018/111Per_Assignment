@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 3045371419394291042}
   m_Layer: 0
   m_Name: EnemyFireEffect
-  m_TagString: FireEffect
+  m_TagString: EnemyFireEffect
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

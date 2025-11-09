@@ -16,7 +16,7 @@ public class FireArrow : BasicArrow
 
     protected override void OnTriggerEnter2D(Collider2D collision) // 부모의 OnTriggerEnter2D를 오버라이드합니다.
     {
-        if (collision.CompareTag("Ground") || collision.CompareTag("Enemy")) // 지면에 닿았을 때
+        if (collision.CompareTag("Ground") || collision.CompareTag("Enemy") || collision.CompareTag("EnemyShield")) // 지면에 닿았을 때
         {
             if (fireEffectPrefab != null)
             {

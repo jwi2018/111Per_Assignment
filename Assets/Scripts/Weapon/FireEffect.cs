@@ -55,7 +55,7 @@ public class FireEffect : MonoBehaviour
     void OnTriggerEnter2D(Collider2D other)
     {
         // TODO: 캐릭터 태그 확인 필요. "Enemy" 또는 "Player" 태그를 가진 오브젝트만 영향
-        if (other.CompareTag("Enemy") || other.CompareTag("Player"))
+        if (other.CompareTag("Enemy") || other.CompareTag("EnemyShield"))
         {
             _targetsInFire.Add(other.gameObject);
             Debug.Log($"불길에 {other.name} 진입. 현재 타겟 수: {_targetsInFire.Count}");
@@ -65,7 +65,7 @@ public class FireEffect : MonoBehaviour
     void OnTriggerExit2D(Collider2D other)
     {
         // TODO: 캐릭터 태그 확인 필요
-        if (other.CompareTag("Enemy") || other.CompareTag("Player"))
+        if (other.CompareTag("Enemy") || other.CompareTag("EnemyShield"))
         {
             if (_targetsInFire.Contains(other.gameObject))
             {
