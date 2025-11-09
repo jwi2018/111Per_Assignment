@@ -50,6 +50,12 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private float _skill4SpeedMultiplier = 1.5f;   // 이동 속도 배율
     private Coroutine _skill4ActiveCoroutine;                       // 스킬 4 지속 코루틴 레퍼런스
 
+    // --- 스킬 5 (방어막 생성) 관련 변수 ---
+    [Header("★ 스킬 5 (방어막 생성)")]
+    public GameObject shieldPrefab;         // <-- 방패 프리팹 (Shield.cs가 붙어있는)
+    [SerializeField] private float _skill5ShieldDuration = 6.0f; // 방패 지속 시간
+    [SerializeField] private int _skill5ShieldHealth = 5;      // 방패 체력
+
     #region Unity 생명주기
 
     void Awake()
@@ -198,6 +204,27 @@ public class PlayerController : MonoBehaviour
 
                 _skill4ActiveCoroutine = StartCoroutine(Skill4ActiveCoroutine()); // 스킬 4 활성화 코루틴 시작
                 Debug.Log("스킬 4(이동 속도 증가) 발동!");
+            }
+        }
+    }
+
+    // --- 스킬 5 (방어막 생성) 입력 처리 함수 추가 ---
+    public void OnSkill5(InputAction.CallbackContext context)
+    {
+        if (context.performed) // 5번 키가 눌렸을 때
+        {
+            // 스킬 1, 2, 3, 5가 활성화 중이 아니라면 발동 (Skill 4는 버프형)
+            if (_player.TryUseSkill(4) && _player.State != PlayerState.Skill1Active && _player.State != PlayerState.Skill2Active && _player.State != PlayerState.Skill3Active && _player.State != PlayerState.Skill5Active) // skillIndex 4번이 스킬 5
+            {
+                // --- 스킬 발동 시 즉시 움직임 중단 및 플레이어 방향 고정 ---
+                _rigidbody2D.linearVelocity = Vector2.zero;
+                _moveDirection = Vector2.zero;
+                Vector3 currentScale = transform.localScale;
+                transform.localScale = new Vector3(Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
+                // ----------------------------------------------------
+
+                _player.SetPlayerState(PlayerState.Skill5Active); // 플레이어 상태를 Skill5Active로 변경 (애니메이션 재생)
+                Debug.Log("스킬 5(방어막 생성) 발동! (애니메이션 이벤트 대기)");
             }
         }
     }
@@ -457,6 +484,36 @@ public class PlayerController : MonoBehaviour
         }
 
         _player.SetPlayerState(PlayerState.Attack);
+    }
+    // ------------------------------------
+
+    // --- 스킬 5 애니메이션 이벤트 함수 (방어막 생성) ---
+    public void AnimationEvent_SpawnShield()
+    {
+        if (shieldPrefab == null || _player == null) return; // 방패 프리팹과 플레이어 참조 확인
+        if (_player.State != PlayerState.Skill5Active) return; // 현재 스킬 5 활성화 상태일 때만 발동
+
+        // 플레이어의 현재 위치에 방패 생성 (캐릭터와 겹칠 수 있도록)
+        Vector3 spawnPosition = transform.position;
+        GameObject shieldInstance = Instantiate(shieldPrefab, spawnPosition, Quaternion.identity);
+
+        // 생성된 방패 오브젝트의 Shield 컴포넌트 가져오기
+        Shield shieldScript = shieldInstance.GetComponent<Shield>();
+        if (shieldScript != null)
+        {
+            // 방패의 체력 및 지속 시간 설정
+            shieldScript.SetShieldProperties(_skill5ShieldHealth, _skill5ShieldDuration);
+        }
+        // RestorePlayerStateAfterSkill5()는 스킬 애니메이션 끝에 연결됩니다.
+
+        if (_moveDirection.sqrMagnitude > 0.01f)
+        {
+            _player.SetPlayerState(PlayerState.Move);
+        }
+        else
+        {
+            _player.SetPlayerState(PlayerState.Attack);
+        }
     }
     // ------------------------------------
 

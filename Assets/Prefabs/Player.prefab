@@ -373,7 +373,19 @@ MonoBehaviour:
     m_ActionId: be297d45-51b6-4b6c-9e7e-97b7837ec3cf
     m_ActionName: 'Player/Skill_4[/Keyboard/4]'
   - m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 2670025458513899131}
+        m_TargetAssemblyTypeName: PlayerController, Assembly-CSharp
+        m_MethodName: OnSkill5
+        m_Mode: 0
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_ActionId: 344ff7be-482c-4155-90eb-18080703b98a
     m_ActionName: 'Player/Skill_5[/Keyboard/5]'
   m_NeverAutoSwitchControlSchemes: 0
@@ -500,3 +512,6 @@ MonoBehaviour:
   _skill3LaunchSpeedModifier: 1
   _skill4Duration: 6
   _skill4SpeedMultiplier: 1.5
+  shieldPrefab: {fileID: 2436029711634859141, guid: 5241e3f40df0e294d8cd14086e1ece83, type: 3}
+  _skill5ShieldDuration: 6
+  _skill5ShieldHealth: 5

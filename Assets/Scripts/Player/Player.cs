@@ -3,19 +3,20 @@ using UnityEngine.InputSystem;
 
 public enum PlayerState
 {
+    None,
     Move,
     Attack,
     Skill1Active,
     Skill2Active,
     Skill3Active,
     //Skill4Active, // 버프라서 필요 없을 듯
-    Skill5Active,
+    Skill5Active
 }
 
 public class Player : MonoBehaviour
 {
     [Header("★ 상태")]
-    private PlayerState _state = PlayerState.Attack;
+    private PlayerState _state = PlayerState.None;
 
     [Header("★ 이동")]
     [SerializeField] private float _baseMoveSpeed = 3.5f; // 기본 이동 속도 (Base 값으로)
@@ -142,6 +143,7 @@ public class Player : MonoBehaviour
         _shootTimer = _currentShootCooldown;
     }
 
+    /*
     public void SetCanShoot(bool _bool)
     {
         Debug.Log("SetCanShoot  :  " + _bool);
@@ -154,6 +156,7 @@ public class Player : MonoBehaviour
     {
         _shootTimer -= Time;
     }
+    */
 
     public void SetPlayerState(PlayerState newState)
     {
@@ -173,6 +176,7 @@ public class Player : MonoBehaviour
             _animator.SetBool("Skill1", false); // 스킬 관련 파라미터도 여기에 포함 (스킬 상태 전용 애니메이션은 별도)
             _animator.SetBool("Skill2", false); // <-- 추가: Skill2 애니메이터 Bool 파라미터 초기화
             _animator.SetBool("Skill3", false); // <-- 추가: Skill2 애니메이터 Bool 파라미터 초기화
+            _animator.SetBool("Skill5", false);
 
             switch (newState)
             {
@@ -197,6 +201,10 @@ public class Player : MonoBehaviour
                 case PlayerState.Skill3Active: // <-- 추가: Skill2Active 상태 처리
                     _animator.SetBool("Skill3", true); // "Skill2" Bool 파라미터 활성화
                     _animator.SetBool("isMove", false);
+                    break;
+                case PlayerState.Skill5Active: // <-- 추가: Skill5Active 상태 처리
+                    _animator.SetBool("Skill5", true);
+                    _animator.SetBool("isMove", false); // 방어막 생성 중에는 이동 애니메이션 중단
                     break;
             }
         }

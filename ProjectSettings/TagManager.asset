@@ -7,6 +7,10 @@ TagManager:
   - Enemy
   - Ground
   - FireEffect
+  - EnemyArrow
+  - Arrow
+  - FireArrow
+  - Shield
   layers:
   - Default
   - TransparentFX
@@ -76,6 +80,9 @@ TagManager:
     locked: 0
   - name: FireEffect
     uniqueID: 3748616003
+    locked: 0
+  - name: Shield
+    uniqueID: 2797915535
     locked: 0
   m_RenderingLayers:
   - Default
