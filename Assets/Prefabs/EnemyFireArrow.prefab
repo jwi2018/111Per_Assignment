@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6036526514820125361}
-  - component: {fileID: 787302857777417594}
   - component: {fileID: 3542841667445667451}
   - component: {fileID: -8307502890670146876}
   - component: {fileID: 3401221638966920918}
+  - component: {fileID: 7144280919034273888}
   m_Layer: 0
   m_Name: EnemyFireArrow
   m_TagString: FireArrow
@@ -35,25 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &787302857777417594
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 56874827525258348}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5e7d6582252812240bf7acb9e10d6529, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  launchSpeed: 10
-  _arrowLifeTime: 3
-  _rigidbody2D: {fileID: 3401221638966920918}
-  fireEffectPrefab: {fileID: 1028067068571875310, guid: e3dc82442ace24c439ca366b28d761a9, type: 3}
-  fireEffectDamage: 5
-  fireEffectDuration: 2
-  groundFireEffectYPosition: -3
 --- !u!70 &3542841667445667451
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -173,3 +154,22 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &7144280919034273888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 56874827525258348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e17a6c1487cc56244b4d49ce94fdc3b8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _defaultLaunchSpeed: 10
+  _arrowLifeTime: 3
+  _rigidbody2D: {fileID: 3401221638966920918}
+  enemyFireEffectPrefab: {fileID: 1028067068571875310, guid: a7d0cc5ba05db694e8aa05d17071dc27, type: 3}
+  fireEffectDamage: 5
+  fireEffectDuration: 2
+  groundFireEffectYPosition: -2.5

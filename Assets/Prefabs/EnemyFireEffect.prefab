@@ -9,10 +9,10 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6731284784642389417}
-  - component: {fileID: 7109675475155752215}
   - component: {fileID: -6934550384938165705}
   - component: {fileID: -8280211304090516166}
   - component: {fileID: -5127108906834162657}
+  - component: {fileID: 3045371419394291042}
   m_Layer: 0
   m_Name: EnemyFireEffect
   m_TagString: FireEffect
@@ -35,21 +35,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &7109675475155752215
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1028067068571875310}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 35b5ee592a2073c4ba466a747266574e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _damagePerTick: 5
-  _damageTickInterval: 1
-  _effectDuration: 2
 --- !u!212 &-6934550384938165705
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -178,3 +163,18 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &3045371419394291042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1028067068571875310}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 226ae2c4ea7b3994bb0ff84c96a12db4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _damagePerTick: 5
+  _damageTickInterval: 1
+  _effectDuration: 2

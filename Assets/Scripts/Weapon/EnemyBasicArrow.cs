@@ -19,7 +19,7 @@ public class EnemyBasicArrow : MonoBehaviour
         float angleRad = angleDegrees * Mathf.Deg2Rad;
         Vector2 launchDirection = new Vector2(Mathf.Cos(angleRad), Mathf.Sin(angleRad));
         _rigidbody2D.linearVelocity = launchDirection.normalized * speed;
-        transform.rotation = Quaternion.Euler(0, 0, angleDegrees);
+        transform.rotation = Quaternion.Euler(0, 0, angleDegrees - 90f);
     }
 
     public virtual void LaunchSkill1(float minAngle, float maxAngle, float speed)

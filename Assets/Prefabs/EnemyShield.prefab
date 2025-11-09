@@ -12,8 +12,8 @@ GameObject:
   - component: {fileID: 10473775848302073}
   - component: {fileID: 5532595024682349549}
   - component: {fileID: 4778467991866003484}
-  - component: {fileID: 5441260030132749135}
   - component: {fileID: 6232230192598354472}
+  - component: {fileID: 4540249548676592145}
   m_Layer: 0
   m_Name: EnemyShield
   m_TagString: Shield
@@ -82,7 +82,7 @@ SpriteRenderer:
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300264, guid: 15b2d2faaecad4bfb9edc6585d94f509, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 1
+  m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
   m_Size: {x: 0.48, y: 0.51}
@@ -155,22 +155,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0, y: 0}
   m_Size: {x: 0.47999996, y: 0.51}
   m_Direction: 0
---- !u!114 &5441260030132749135
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2436029711634859141}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 866b85581d13b3d478ac8d9210339468, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHealth: 10
-  _duration: 6
-  _collider2D: {fileID: 4778467991866003484}
-  _rigidbody: {fileID: 5532595024682349549}
 --- !u!222 &6232230192598354472
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -179,3 +163,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2436029711634859141}
   m_CullTransparentMesh: 1
+--- !u!114 &4540249548676592145
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2436029711634859141}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 32b74d05582c01743b922eaf254cab90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHealth: 10
+  _duration: 6

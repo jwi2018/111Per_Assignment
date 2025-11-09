@@ -288,14 +288,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 229ad94455167a14a89ef1b1b03e1404, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveSpeed: 1.75
-  _attackCooldown: 0.65
-  _enemyBasicArrow: {fileID: 2494143942712331772, guid: e70ac0c8648f3fb47b3b9a0c2f00c964, type: 3}
-  _fireAngle: 50
+  _state: 3
   _maxHealth: 50
-  _skillCooldowns: 020000000400000006000000080000000a000000
+  _moveSpeed: 3.5
+  _attackDamage: 5
+  _canAttack: 1
+  _baseAttackCooldown: 2
+  _arrowLaunchSpeed: 8
+  skillCooldowns: 0000000000000000000000000000000000000000
   _animator: {fileID: 5281167779498488628}
-  _attackPoint: {fileID: 7224219694329797448}
+  _rigidbody2D: {fileID: 7414940053403582474}
 --- !u!114 &8778178895899558424
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -309,22 +311,42 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _enemy: {fileID: 8368955393120873214}
-  _rigidbody2D: {fileID: 7414940053403582474}
-  _patrolMoveDirection: 1
+  _playerTransform: {fileID: 0}
+  _detectPlayerRange: 15
+  _attackRange: 15
+  _postAttackPatrolChance: 0.8
+  _patrolDurationMin: 2
+  _patrolDurationMax: 5
   _minXBound: -10
   _maxXBound: 10
+  _edgeCheck: {fileID: 7397943096405427405}
+  _edgeCheckDistance: 1
   _whatIsGround:
     serializedVersion: 2
     m_Bits: 8
-  _edgeCheck: {fileID: 7397943096405427405}
-  _edgeCheckDistance: 1
-  _detectPlayerRange: 15
-  _attackRange: 15
+  _firePoint: {fileID: 7224219694329797448}
+  enemyArrowPrefab: {fileID: 2494143942712331772, guid: e70ac0c8648f3fb47b3b9a0c2f00c964, type: 3}
   _attackDurationMin: 1
   _attackDurationMax: 3
-  _patrolDurationMin: 2
-  _patrolDurationMax: 5
-  _postAttackPatrolChance: 0.8
+  _skill1Duration: 3
+  _skill1ShootInterval: 0.2
+  _skill1Probability: 0.3
+  _skill2ArrowCount: 10
+  _skill2SpreadAngle: 30
+  _skill2LaunchSpeedModifier: 0.8
+  _skill2Probability: 0.3
+  enemyFireArrowPrefab: {fileID: 56874827525258348, guid: 33fdaf875dc80ef488ea882bc08996cb, type: 3}
+  enemyGroundFireEffectPrefab: {fileID: 1028067068571875310, guid: a7d0cc5ba05db694e8aa05d17071dc27, type: 3}
+  _skill3LaunchSpeedModifier: 1
+  _skill3GroundFireEffectYPosition: -3
+  _skill3Probability: 0.3
+  _skill4Duration: 3
+  _skill4SpeedMultiplier: 2
+  _skill4Probability: 0.3
+  enemyShieldPrefab: {fileID: 2436029711634859141, guid: c952e33747ffef14bb981e7d22dca6af, type: 3}
+  _skill5ShieldDuration: 6
+  _skill5ShieldHealth: 5
+  _skill5Probability: 0.3
 --- !u!1 &7840902256338302191
 GameObject:
   m_ObjectHideFlags: 0

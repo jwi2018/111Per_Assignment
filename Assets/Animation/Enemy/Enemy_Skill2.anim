@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: Enemy_Attack
+  m_Name: Enemy_Skill2
   serializedVersion: 7
   m_Legacy: 0
   m_Compressed: 0
@@ -113,7 +113,7 @@ AnimationClip:
   m_HasMotionFloatCurves: 0
   m_Events:
   - time: 0.53333336
-    functionName: AnimationEvent_EnemyAttack
+    functionName: EnemyAnimationEvent_ShootArrow_Skill2
     data: 
     objectReferenceParameter: {fileID: 0}
     floatParameter: 0
