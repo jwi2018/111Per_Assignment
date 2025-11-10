@@ -5,9 +5,9 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     [Header("★ 방패 설정")]
-    private int _maxHealth;       // 방패의 최대 체력
-    private float _duration;    // 방패의 지속 시간
-    private int _currentHealth;                         // 현재 체력
+    private int _maxHealth;     
+    private float _duration; 
+    private int _currentHealth;  
 
     public void SetShieldProperties(int health, float duration)
     {

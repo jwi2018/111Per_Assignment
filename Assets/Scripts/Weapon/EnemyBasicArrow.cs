@@ -10,9 +10,9 @@ public class EnemyBasicArrow : MonoBehaviour
     [SerializeField] protected Rigidbody2D _rigidbody2D;
 
     [Header("★ 타격 효과")]
-    [SerializeField] private GameObject hitEffectPrefab; // 타격 이펙트 프리팹 연결
-    [SerializeField] private AudioClip hitSoundClip;     // 타격 사운드
-    [SerializeField] private AudioSource audioSource;   // AudioSource 컴포넌트
+    [SerializeField] private GameObject hitEffectPrefab; 
+    [SerializeField] private AudioClip hitSoundClip; 
+    [SerializeField] private AudioSource audioSource; 
 
     protected virtual void Start()
     {

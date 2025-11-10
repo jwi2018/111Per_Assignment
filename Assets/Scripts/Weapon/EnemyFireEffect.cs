@@ -4,18 +4,18 @@ using UnityEngine;
 public class EnemyFireEffect : MonoBehaviour
 {
     [Header("★ 불길 효과 설정")]
-    [SerializeField] private int _damagePerTick = 5;          // 틱당 데미지
-    [SerializeField] private float _damageTickInterval = 1.0f; // 데미지 틱 간격 (1f초)
-    [SerializeField] private float _effectDuration = 2.0f;    // 불길 총 지속 시간 (2초)
+    [SerializeField] private int _damagePerTick = 5;
+    [SerializeField] private float _damageTickInterval = 1.0f; 
+    [SerializeField] private float _effectDuration = 2.0f;  
 
     private float _damageTimer = 0f;
     private HashSet<GameObject> _targetsInFire = new HashSet<GameObject>();
 
     [Header("★ 타격 효과")]
-    [SerializeField] private GameObject hitEffectPrefab; // 타격 이펙트 프리팹 연결
+    [SerializeField] private GameObject hitEffectPrefab; 
 
     [Header("★ 생성 효과")]
-    [SerializeField] private ParticleSystem createEffectPrefab; // 타격 이펙트 프리팹 연결
+    [SerializeField] private ParticleSystem createEffectPrefab;
 
     void Start()
     {

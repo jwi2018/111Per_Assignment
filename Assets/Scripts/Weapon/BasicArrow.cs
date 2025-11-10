@@ -3,16 +3,16 @@ using UnityEngine;
 public class BasicArrow : MonoBehaviour
 {
     [Header("★ 화살 기본 설정")]
-    [SerializeField] protected  float launchSpeed = 10f;       // 화살 발사 속도
-    [SerializeField] protected float _arrowLifeTime = 3f;      // 화살 존재 시간
+    [SerializeField] protected  float launchSpeed = 10f; 
+    [SerializeField] protected float _arrowLifeTime = 3f; 
 
     [Header("★ 컴포넌트")]
     [SerializeField] protected Rigidbody2D _rigidbody2D;
 
     [Header("★ 타격 효과")]
-    [SerializeField] private GameObject hitEffectPrefab; // 타격 이펙트 프리팹 연결
-    [SerializeField] private AudioClip hitSoundClip;     // 타격 사운드
-    [SerializeField] private AudioSource audioSource;   // AudioSource 컴포넌트
+    [SerializeField] private GameObject hitEffectPrefab; 
+    [SerializeField] private AudioClip hitSoundClip;
+    [SerializeField] private AudioSource audioSource; 
 
     protected virtual void Start()
     {
