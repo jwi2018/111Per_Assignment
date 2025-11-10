@@ -1,27 +1,36 @@
 using UnityEngine;
-using TMPro; // TextMeshPro를 사용한다고 가정합니다. (Unity 메뉴: Window > TextMeshPro > Import TMP Essential Resources)
+using UnityEngine.UI; // UI Image 컴포넌트를 사용하기 위해 추가
+using TMPro;
 
 public class SkillCoolTime : MonoBehaviour
 {
     [Header("★ 스킬 쿨타임 UI 설정")]
     [SerializeField] private int _skillIndex; // 이 UI가 담당할 스킬의 인덱스 (0: 스킬1, 1: 스킬2, ...)
+
+    [SerializeField] private Image _skillIconImage; // 스킬의 기본 아이콘 Image (Optional, 색상 조절용)
+    [SerializeField] private Image _cooldownFillImage; // <-- 추가: Fill Amount를 조절할 Image (Filled 타입)
     [SerializeField] private TextMeshProUGUI _coolTimeText; // 쿨타임을 표시할 TextMeshProUGUI 컴포넌트
-    [SerializeField] private GameObject _skillIconPanel; // 스킬 아이콘 전체 (쿨타임이 아닐 때 활성화, 쿨타임일 때 비활성화하거나 어둡게 처리 등)
+    // [SerializeField] private GameObject _skillIconPanel; // 제거 또는 다른 용도로 활용
 
     private Player _player; // 플레이어 컴포넌트 참조
 
     void Start()
     {
-        // PlayerManager 싱글톤을 통해 플레이어 데이터 가져오기
         _player = PlayerManager.Instance.GetPlayerData();
 
         if (_player == null)
         {
             Debug.LogError("SkillCoolTime: PlayerManager에서 Player 데이터를 찾을 수 없습니다.");
-            this.enabled = false; // 컴포넌트 비활성화
+            this.enabled = false;
             return;
         }
 
+        if (_cooldownFillImage == null)
+        {
+            Debug.LogError("SkillCoolTime: CooldownFillImage가 할당되지 않았습니다. Filled 타입의 Image를 연결해주세요.");
+            this.enabled = false;
+            return;
+        }
         if (_coolTimeText == null)
         {
             Debug.LogError("SkillCoolTime: CoolTimeText가 할당되지 않았습니다. TextMeshProUGUI를 연결해주세요.");
@@ -42,26 +51,39 @@ public class SkillCoolTime : MonoBehaviour
     {
         if (_player == null || _skillIndex < 0 || _skillIndex >= _player.skillCooldowns.Length)
         {
-            // Debug.LogWarning($"SkillCoolTime: Player 참조가 없거나 Skill Index가 유효하지 않습니다. Index: {_skillIndex}");
-            _coolTimeText.text = ""; // 에러 방지
-            if (_skillIconPanel != null) _skillIconPanel.SetActive(true); // 혹시 비활성화되어있다면 활성화
+            _coolTimeText.gameObject.SetActive(false);
+            _cooldownFillImage.gameObject.SetActive(false);
+
+            _coolTimeText.text = "";
+            _cooldownFillImage.fillAmount = 0f;
             return;
         }
 
-        // 플레이어의 현재 스킬 쿨다운 타이머 값 가져오기
-        int remainingCoolTime = _player.GetSkillRemainingCoolTime(_skillIndex); // 새로 추가할 함수 사용
+        int totalCoolTime = _player.skillCooldowns[_skillIndex]; // 해당 스킬의 전체 쿨타임 (정수)
 
-        if (remainingCoolTime > 0)
+        // 정밀한 남은 쿨타임 (float) 가져오기
+        float remainingCoolTimePrecise = _player.GetSkillRemainingCoolTime(_skillIndex);
+
+        if (remainingCoolTimePrecise > 0f) // 0보다 크면 쿨타임 중
         {
-            _coolTimeText.text = remainingCoolTime.ToString(); // 쿨타임 표시
-            // UI에 쿨타임 중임을 나타내는 처리 (예: 아이콘 어둡게, 쿨타임 숫자만 보이게 등)
-            // if (_skillIconPanel != null) _skillIconPanel.SetActive(false); // 또는 이미지의 Fill Amount 조절
+            _coolTimeText.gameObject.SetActive(true);
+            _cooldownFillImage.gameObject.SetActive(true);
+
+            // 남은 정수 시간만 텍스트로 표시
+            _coolTimeText.text = Mathf.CeilToInt(remainingCoolTimePrecise).ToString(); // 올림하여 정수로 표시
+
+            // Fill Amount 계산
+            // 남은 시간이 많을수록 Fill Amount가 1.0에 가까워지고, 시간이 줄어들면 0.0에 가까워집니다.
+            float fillAmount = remainingCoolTimePrecise / totalCoolTime;
+            _cooldownFillImage.fillAmount = fillAmount;
         }
         else
         {
-            _coolTimeText.text = ""; // 쿨타임 없으면 텍스트 비움
-            // UI에 쿨타임이 끝났음을 나타내는 처리 (예: 아이콘 밝게, 비활성된 UI 활성화 등)
-            // if (_skillIconPanel != null) _skillIconPanel.SetActive(true);
+            _coolTimeText.gameObject.SetActive(false);
+            _cooldownFillImage.gameObject.SetActive(false);
+
+            _coolTimeText.text = "";
+            _cooldownFillImage.fillAmount = 0f;
         }
     }
 }

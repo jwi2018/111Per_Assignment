@@ -253,5 +253,17 @@ public class Player : MonoBehaviour
         return skillCooldownTimers[skillIndex];
     }
 
+    // SkillCoolTime에서 스킬의 남은 쿨타임을 정밀하게 가져갈 수 있도록 함수 추가
+    public float GetSkillRemainingCoolTimePrecise(int skillIndex) // <-- Float 반환
+    {
+        if (skillIndex < 0 || skillIndex >= skillCooldownTimers.Length)
+        {
+            Debug.LogError($"Invalid skillIndex: {skillIndex} in GetSkillRemainingCoolTimePrecise.");
+            return 0f;
+        }
+        // 남은 정수 초 + 누적된 프레임 시간 (누적 시간은 다음 1초가 되기 전까지의 시간)
+        return skillCooldownTimers[skillIndex] + (1.0f - skillDeltaTimeAccumulators[skillIndex]);
+    }
+
     #endregion
 }
