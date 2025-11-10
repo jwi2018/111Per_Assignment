@@ -3976,6 +3976,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   timerText: {fileID: 1415145515}
   startTime: 100
+  resultPanel: {fileID: 0}
+  resultText: {fileID: 0}
 --- !u!1 &1422189692
 GameObject:
   m_ObjectHideFlags: 0
