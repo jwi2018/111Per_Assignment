@@ -61,29 +61,32 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
+        if (_enemy.State == EnemyState.Death) return;
+
         if (_isSkillActive)
         {
-            if (_enemy.State == EnemyState.Skill4Active)
-            {
-                CheckForBoundsAndEdges();
-                MoveEnemy();
-            }
+            _rigidbody2D.linearVelocity = Vector2.zero;
         }
-        else
+        else 
         {
             if (_enemy.State == EnemyState.Move || _enemy.State == EnemyState.Skill4Active)
             {
                 CheckForBoundsAndEdges();
+                MoveEnemy();
+                FlipEnemySprite();
             }
-            MoveEnemy();
-
-            if (_enemy.State == EnemyState.Attack && _playerTransform != null)
+            else if (_enemy.State == EnemyState.Attack)
             {
+                _rigidbody2D.linearVelocity = Vector2.zero;
                 FacePlayer();
+            }
+            else
+            {
+                _rigidbody2D.linearVelocity = Vector2.zero;
             }
         }
 
-        if (_playerTransform != null && (_enemy.State == EnemyState.Attack || _isSkillActive))
+        if (_playerTransform != null && (_enemy.State == EnemyState.Attack || _enemy.State == EnemyState.Skill1Active || _enemy.State == EnemyState.Skill2Active || _enemy.State == EnemyState.Skill3Active || _enemy.State == EnemyState.Skill5Active))
         {
             FacePlayer();
         }
@@ -159,8 +162,6 @@ public class EnemyController : MonoBehaviour
 
     private bool TryActivateSkill()
     {
-        _isSkillActive = true;
-
         List<int> availableSkills = new List<int>();
 
         for (int i = 0; i < _enemy.skillCooldowns.Length; i++)
@@ -173,7 +174,6 @@ public class EnemyController : MonoBehaviour
 
         if (availableSkills.Count == 0)
         {
-            _isSkillActive = false;
             return false;
         }
 
@@ -183,13 +183,12 @@ public class EnemyController : MonoBehaviour
         {
             if (selectedSkillIndex != 3)
             {
-                _rigidbody2D.linearVelocity = Vector2.zero;
+                _isSkillActive = true;
             }
             return true;
         }
         else
         {
-            _isSkillActive = false;
             return false;
         }
     }
@@ -279,11 +278,13 @@ public class EnemyController : MonoBehaviour
     void FlipEnemySprite()
     {
         Vector3 currentScale = transform.localScale;
-        if (_patrolMoveDirection > 0 && currentScale.x < 0)
+        float direction = _patrolMoveDirection;
+
+        if (direction > 0 && currentScale.x < 0)
         {
             transform.localScale = new Vector3(Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
         }
-        else if (_patrolMoveDirection < 0 && currentScale.x > 0)
+        else if (direction < 0 && currentScale.x > 0)
         {
             transform.localScale = new Vector3(-Mathf.Abs(currentScale.x), currentScale.y, currentScale.z);
         }

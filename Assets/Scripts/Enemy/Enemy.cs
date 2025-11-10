@@ -17,7 +17,7 @@ public enum EnemyState
 public class Enemy : MonoBehaviour
 {
     [Header("★ 상태")]
-    [SerializeField] private EnemyState _state = EnemyState.Idle;
+    [SerializeField] private EnemyState _state = EnemyState.None;
 
     [Header("★ 기본 능력치")]
     private int _maxHealth = 1000;

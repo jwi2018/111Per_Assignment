@@ -96,6 +96,7 @@
     <Compile Include="Assets\Scripts\Enemy\Skills\EnemySkill_FireArrow.cs" />
     <Compile Include="Assets\Scripts\Enemy\Skills\EnemySkill_Shield.cs" />
     <Compile Include="Assets\Scripts\Enemy\Skills\EnemySkill_SpeedBoost.cs" />
+    <Compile Include="Assets\Scripts\Manager\ObjectPoolManager.cs" />
     <Compile Include="Assets\Scripts\Player\Player.cs" />
     <Compile Include="Assets\Scripts\UI\Bottom\Skill\SkillCoolTime.cs" />
     <Compile Include="Assets\Scripts\Player\Skills\Skill_MultiShot.cs" />
