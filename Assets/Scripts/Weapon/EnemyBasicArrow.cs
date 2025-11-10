@@ -43,19 +43,6 @@ public class EnemyBasicArrow : MonoBehaviour
         }
     }
 
-    /*
-    public void Launch(Vector2 direction, float speed)
-    {
-        _rigidbody2D.linearVelocity = direction.normalized * speed;
-    }
-
-    public void Launch(float angleDegrees)
-    {
-        float rad = angleDegrees * Mathf.Deg2Rad;
-        Vector2 direction = new Vector2(Mathf.Cos(rad), Mathf.Sin(rad)).normalized;
-        _rigidbody2D.linearVelocity = direction * _defaultLaunchSpeed;
-    }
-    */
     protected virtual void OnTriggerEnter2D(Collider2D other)
     {
         if (other.CompareTag("Player"))

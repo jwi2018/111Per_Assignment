@@ -22,7 +22,6 @@ public class PlayerController : MonoBehaviour
     // --- 스킬 1 (속사) 관련 변수 추가 ---
     [Header("★ 스킬 1 (속사)")]
     [SerializeField] private float _skill1Duration = 3.0f;          // 스킬 1 지속 시간
-    // _skill1Cooldown은 Player.cs의 skillCooldowns 배열에 0번 인덱스로 관리됩니다.
     [SerializeField] private float _skill1ShootInterval = 0.2f;     // <--- 스킬 발사 간격 (Inspector에서 조절)
     private Coroutine _skill1ActiveCoroutine;                       // 스킬 1 지속 코루틴 레퍼런스
     // --
@@ -255,29 +254,6 @@ public class PlayerController : MonoBehaviour
 
         _skill4ActiveCoroutine = null;
     }
-
-    /*
-    public void ShootArrow(bool isSkillAttack = false)
-    {
-        if (_arrowPrefab == null || _firePoint == null) return;
-        if (!isSkillAttack && !_player.CanShoot) return;
-
-        GameObject arrowInstance = Instantiate(_arrowPrefab, _firePoint.position, _firePoint.rotation);
-
-        BasicArrow arrowScript = arrowInstance.GetComponent<BasicArrow>();
-        if (arrowScript != null)
-        {
-            float launchSpeed = isSkillAttack ? _player.ArrowLaunchSpeed * 1.2f : _player.ArrowLaunchSpeed;
-            arrowScript.Launch(50f, launchSpeed);
-        }
-
-        // 일반 공격일 경우에만 쿨다운 리셋 (스킬 공격은 스킬 활성화 기간 동안 Player.ShootCooldown이 자동으로 짧아져 있음)
-        if (!isSkillAttack)
-        {
-            _player.ResetShootCooldown();
-        }
-    }
-    */
 
     public void AnimationEvent_ShootArrow()
     {
