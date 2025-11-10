@@ -5,12 +5,12 @@ public enum EnemyState
     None,
     Idle,
     Move,
-    Attack, // 발사 또는 근접 공격
-    Skill1Active, // <-- 스킬 1 (속사) 활성화 상태
-    Skill2Active, // <-- 스킬 2 (샷건) 활성화 상태
-    Skill3Active, // <-- 스킬 3 (불화살) 활성화 상태
-    Skill4Active, // <-- 스킬 4 (이동 속도 증가) 활성화 상태 (AI도 상태를 가지고 시작과 종료를 알림)
-    Skill5Active,  // <-- 스킬 5 (방어막) 활성화 상태
+    Attack,
+    Skill1Active,
+    Skill2Active,
+    Skill3Active,
+    Skill4Active,
+    Skill5Active,
     Death
 }
 
@@ -26,39 +26,39 @@ public class Enemy : MonoBehaviour
     [SerializeField] private float _attackDamage = 5f;
 
     [Header("★ 공격")]
-    [SerializeField] private bool _canAttack = true; // 공격 가능 여부
-    [SerializeField] private float _baseAttackCooldown = 2.0f; // 기본 공격 쿨다운
-    private float _currentAttackCooldown; // 현재 적용되는 공격 쿨다운
-    private float _attackTimer = 0f; // 다음 공격까지 남은 시간
-    [SerializeField] private float _arrowLaunchSpeed = 8f; // 화살 발사 속도 (적용될 화살이 없으므로 주석 처리)
+    [SerializeField] private bool _canAttack = true;
+    [SerializeField] private float _baseAttackCooldown = 2.0f;
+    private float _currentAttackCooldown;
+    private float _attackTimer = 0f;
+    [SerializeField] private float _arrowLaunchSpeed = 8f;
 
     [Header("★ 스킬")]
-    [SerializeField] public int[] skillCooldowns = new int[5];     // 스킬별 쿨다운 시간
-    private int[] skillCooldownTimers = new int[5];                 // 현재 스킬별 남은 쿨다운 시간
-    private float[] skillDeltaTimeAccumulators = new float[5];      // 쿨다운 타이머 정밀도를 위한 누적 시간
+    [SerializeField] public int[] skillCooldowns = new int[5];
+    private int[] skillCooldownTimers = new int[5];
+    private float[] skillDeltaTimeAccumulators = new float[5];
 
     [Header("★ 컴포넌트")]
-    public Animator _animator;        // 애니메이터 컴포넌트
+    public Animator _animator;
     public Rigidbody2D _rigidbody2D;
 
     [Header("★ 타격 효과")]
-    public AudioClip attackSoundClip;     // 타격 사운드
-    public AudioSource audioSource;   // AudioSource 컴포넌트
+    public AudioClip attackSoundClip;
+    public AudioSource audioSource;
 
 
-    #region Property (읽기 전용)
+    #region Property
 
     public EnemyState State => _state;
     public int MaxHealth => _maxHealth;
     public int CurrentHealth => _currentHealth;
-    public float MoveSpeed // <-- 수정
+    public float MoveSpeed
     {
-        get => _moveSpeed; // 이제 _moveSpeed는 직접적인 필드 이름이므로 프로퍼티 이름과 다르게
-        set => _moveSpeed = value; // 값을 설정할 수 있도록 set 접근자 추가
+        get => _moveSpeed;
+        set => _moveSpeed = value;
     }
+    public float AttackDamage => _attackDamage;
     public bool CanAttack => _canAttack;
 
-    // 공격 쿨다운 관련 Property
     public float AttackCooldown
     {
         get => _currentAttackCooldown;
@@ -73,15 +73,17 @@ public class Enemy : MonoBehaviour
 
     void Awake()
     {
-        _currentHealth = _maxHealth;
-        _currentAttackCooldown = _baseAttackCooldown; // 공격 쿨다운 초기화
+        if (_animator == null) _animator = GetComponent<Animator>();
+        if (audioSource == null) audioSource = GetComponent<AudioSource>();
+        if (_rigidbody2D == null) _rigidbody2D = GetComponent<Rigidbody2D>();
 
-        // 스킬 쿨다운 타이머 초기화 (스킬 0~4까지 5개)
+        _currentHealth = _maxHealth;
+        _currentAttackCooldown = _baseAttackCooldown;
+
         if (skillCooldownTimers == null || skillCooldownTimers.Length != 5)
         {
             skillCooldownTimers = new int[5];
             skillDeltaTimeAccumulators = new float[5];
-            // skillCooldowns도 Inspector에서 설정된 값이 없으면 5개로 초기화
             if (skillCooldowns == null || skillCooldowns.Length != 5) skillCooldowns = new int[5];
         }
 
@@ -91,12 +93,11 @@ public class Enemy : MonoBehaviour
             skillDeltaTimeAccumulators[i] = 0f;
         }
 
-        SetEnemyState(_state); // 초기 상태 설정
+        SetEnemyState(_state);
     }
 
     void Update()
     {
-        // 스킬 쿨다운 타이머 업데이트
         for (int i = 0; i < skillCooldownTimers.Length; i++)
         {
             if (skillCooldownTimers[i] > 0)
@@ -110,7 +111,6 @@ public class Enemy : MonoBehaviour
             }
         }
 
-        // 공격 쿨다운 타이머 업데이트
         if (!_canAttack)
         {
             _attackTimer -= Time.deltaTime;
@@ -139,8 +139,9 @@ public class Enemy : MonoBehaviour
             _animator.SetBool("Skill1", false);
             _animator.SetBool("Skill2", false);
             _animator.SetBool("Skill3", false);
-            _animator.SetBool("Skill5", false); // <-- 추가: Skill5 애니메이터 Bool 파라미터 초기화
-            _animator.SetBool("Death", false); 
+            _animator.SetBool("Skill4", false);
+            _animator.SetBool("Skill5", false);
+            _animator.SetBool("Death", false);
 
             switch (newState)
             {
@@ -152,52 +153,43 @@ public class Enemy : MonoBehaviour
                     break;
                 case EnemyState.Skill1Active:
                     _animator.SetBool("Skill1", true);
-                    _animator.SetBool("isMove", false); // 스킬 발동 시 이동 애니메이션 중단
+                    _animator.SetBool("isMove", false);
                     break;
                 case EnemyState.Skill2Active:
                     _animator.SetBool("Skill2", true);
-                    _animator.SetBool("isMove", false); // 스킬 발동 시 이동 애니메이션 중단
+                    _animator.SetBool("isMove", false);
                     break;
                 case EnemyState.Skill3Active:
                     _animator.SetBool("Skill3", true);
-                    _animator.SetBool("isMove", false); // 스킬 발동 시 이동 애니메이션 중단
+                    _animator.SetBool("isMove", false);
                     break;
-                case EnemyState.Skill4Active: // <-- 수정: Skill4도 이제 상태를 가짐 (이동 속도 버프 이펙트 애니메이션 용)
+                case EnemyState.Skill4Active:
                     _animator.SetBool("Skill4", true);
-                    _animator.SetBool("isMove", true); // 이동 속도 버프 스킬이므로 isMove는 유지
                     break;
-                case EnemyState.Skill5Active: // <-- 추가: Skill5Active 상태 처리
+                case EnemyState.Skill5Active:
                     _animator.SetBool("Skill5", true);
-                    _animator.SetBool("isMove", false); // 방어막 생성 중에는 이동 애니메이션 중단
+                    _animator.SetBool("isMove", false);
                     break;
                 case EnemyState.Death:
                     _animator.SetBool("Death", true);
-                    _animator.SetBool("isMove", false);
-                    _animator.SetBool("isAttack", false);
-                    _animator.SetBool("Skill1", false);
-                    _animator.SetBool("Skill2", false);
-                    _animator.SetBool("Skill3", false);
-                    _animator.SetBool("Skill5", false);
                     break;
             }
         }
     }
 
-    /// 공격 쿨다운 리셋
     public void ResetAttackCooldown()
     {
         _canAttack = false;
         _attackTimer = _currentAttackCooldown;
     }
 
-    // 스킬 사용 시도 및 쿨다운 관리 (플레이어와 동일한 함수 재사용)
     public bool TryUseSkill(int skillIndex)
     {
         if (skillIndex < 0 || skillIndex >= skillCooldowns.Length) return false;
 
-        if (skillCooldownTimers[skillIndex] <= 0) // 쿨다운이 0 이하면 사용 가능
+        if (skillCooldownTimers[skillIndex] <= 0)
         {
-            skillCooldownTimers[skillIndex] = skillCooldowns[skillIndex]; // 쿨다운 리셋
+            skillCooldownTimers[skillIndex] = skillCooldowns[skillIndex];
             skillDeltaTimeAccumulators[skillIndex] = 0f;
             return true;
         }
@@ -209,7 +201,7 @@ public class Enemy : MonoBehaviour
 
     public void TakeDamage(int amount)
     {
-        if (_currentHealth <= 0) return; // 이미 죽었으면 데미지 받지 않음
+        if (_currentHealth <= 0) return;
 
         _currentHealth -= amount;
         if (_currentHealth <= 0)
@@ -225,6 +217,14 @@ public class Enemy : MonoBehaviour
             return false;
         }
         return skillCooldownTimers[skillIndex] <= 0;
+    }
+
+    public void PlayAttackSound()
+    {
+        if (audioSource != null && attackSoundClip != null)
+        {
+            audioSource.PlayOneShot(attackSoundClip);
+        }
     }
 
     #endregion
