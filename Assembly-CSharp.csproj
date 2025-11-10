@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\Enemy\EnemyController.cs" />
     <Compile Include="Assets\SpritesArchers\Scripts\Change_Sprite.cs" />
     <Compile Include="Assets\Scripts\Weapon\Shield.cs" />
+    <Compile Include="Assets\Scripts\Manager\GameManager.cs" />
     <Compile Include="Assets\Scripts\Weapon\EnemyFireEffect.cs" />
     <Compile Include="Assets\Scripts\Manager\PlayerManager.cs" />
     <Compile Include="Assets\Scripts\Singleton\Singleton.cs" />

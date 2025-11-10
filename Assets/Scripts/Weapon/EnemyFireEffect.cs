@@ -1,6 +1,7 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public class EnemyFireEffect : MonoBehaviour
 {
@@ -12,8 +13,16 @@ public class EnemyFireEffect : MonoBehaviour
     private float _damageTimer = 0f;
     private HashSet<GameObject> _targetsInFire = new HashSet<GameObject>();
 
+    [Header("★ 타격 효과")]
+    [SerializeField] private GameObject hitEffectPrefab; // 타격 이펙트 프리팹 연결
+
+    [Header("★ 생성 효과")]
+    [SerializeField] private ParticleSystem createEffectPrefab; // 타격 이펙트 프리팹 연결
+
     void Start()
     {
+        TestSpawnHitEffect();
+
         Destroy(gameObject, _effectDuration);
     }
 
@@ -43,12 +52,8 @@ public class EnemyFireEffect : MonoBehaviour
             {
                 if (target.CompareTag("Player")) // <-- 수정: 플레이어에게 데미지
                 {
-                    Player player = target.GetComponent<Player>();
-                    if (player != null)
-                    {
-                        player.TakeDamage(_damagePerTick);
-                        Debug.Log($"{target.name}이(가) 적 불길에 의해 {_damagePerTick}의 피해를 입었습니다. (남은 체력: {player.CurrentHealth})");
-                    }
+                    PlayerManager.Instance.GetPlayerData().TakeDamage(_damagePerTick);
+                    SpawnHitEffect();
                 }
             }
         }
@@ -72,6 +77,30 @@ public class EnemyFireEffect : MonoBehaviour
                 _targetsInFire.Remove(other.gameObject);
                 Debug.Log($"적 불길에서 {other.name} 이탈. 현재 타겟 수: {_targetsInFire.Count}");
             }
+        }
+    }
+
+    private void SpawnHitEffect()
+    {
+        if (hitEffectPrefab != null)
+        {
+            Vector3 spawnPosition = transform.position;
+            spawnPosition.y = -2f;  // Y축 고정
+
+            GameObject effect = Instantiate(hitEffectPrefab, spawnPosition, Quaternion.identity);
+            ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+            if (ps != null)
+            {
+                ps.Play(); // 파티클 시스템이 자동 재생 안될 경우 수동으로 호출
+            }
+        }
+    }
+
+    private void TestSpawnHitEffect()
+    {
+        if (createEffectPrefab != null)
+        {
+            createEffectPrefab.Play(); // 파티클 시스템이 자동 재생 안될 경우 수동으로 호출
         }
     }
 }

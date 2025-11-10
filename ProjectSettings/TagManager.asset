@@ -87,5 +87,11 @@ TagManager:
   - name: FireEffect
     uniqueID: 3748616003
     locked: 0
+  - name: FireGroundEffect
+    uniqueID: 4014142489
+    locked: 0
+  - name: FireHitEffect
+    uniqueID: 2671116369
+    locked: 0
   m_RenderingLayers:
   - Default
