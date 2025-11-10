@@ -30,7 +30,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _arrowLaunchSpeed = 9.8f;  // 화살 발사 기본 속도 (Inspector에서 조절)
 
     [Header("★ 체력")]
-    private int _maxHealth = 100;
+    private int _maxHealth = 800;
     private int _currentHealth;
 
     [Header("★ 스킬")]
@@ -66,6 +66,7 @@ public class Player : MonoBehaviour
     public float BaseShootCooldown => _baseShootCooldown;
 
     public float ShootTimer => _shootTimer; // 쿨다운 타이머의 남은 시간 (읽기 전용)
+    public int MaxHealth => _maxHealth; // 현재 체력 (읽기 전용)
     public int CurrentHealth => _currentHealth; // 현재 체력 (읽기 전용)
     public float ArrowLaunchSpeed => _arrowLaunchSpeed; // 화살 발사 기본 속도 (읽기 전용)
 

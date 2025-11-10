@@ -5,20 +5,9 @@ using UnityEngine;
 public class Shield : MonoBehaviour
 {
     [Header("★ 방패 설정")]
-    [SerializeField] private int _maxHealth = 10;       // 방패의 최대 체력
-    [SerializeField] private float _duration = 6.0f;    // 방패의 지속 시간
+    private int _maxHealth;       // 방패의 최대 체력
+    private float _duration;    // 방패의 지속 시간
     private int _currentHealth;                         // 현재 체력
-
-    void Awake()
-    {
-        _currentHealth = _maxHealth; // 시작 시 체력 초기화
-    }
-
-    void Start()
-    {
-        // 방패 지속 시간 후 스스로 파괴
-        Destroy(gameObject, _duration);
-    }
 
     /// <summary>
     /// 방패의 체력 및 지속 시간을 설정하는 함수 (PlayerController에서 호출)
@@ -29,6 +18,8 @@ public class Shield : MonoBehaviour
         _currentHealth = health;
         _duration = duration;
         // Destroy(gameObject, _duration); // Start에서 이미 호출되므로 여기서 호출하지 않아도 됨
+
+        Destroy(gameObject, _duration);
     }
 
     // 화살 오브젝트와의 충돌 처리

@@ -69,6 +69,8 @@ public class BasicArrow : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             // 여기에 적에게 데미지를 주는 로직을 추가할 수 있습니다.
+
+            PlayerManager.Instance.GetEnemyData().TakeDamage(10);
             Destroy(gameObject); // 적에게 닿으면 파괴
         }
         // BasicArrow는 Ground에 닿으면 기본적으로 파괴됩니다.

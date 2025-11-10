@@ -19,7 +19,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyState _state = EnemyState.Idle;
 
     [Header("★ 기본 능력치")]
-    [SerializeField] private int _maxHealth = 50;
+    private int _maxHealth = 800;
     private int _currentHealth;
     [SerializeField] private float _moveSpeed = 1.0f;
     [SerializeField] private float _attackDamage = 5f;
@@ -44,6 +44,7 @@ public class Enemy : MonoBehaviour
     #region Property (읽기 전용)
 
     public EnemyState State => _state;
+    public int MaxHealth => _maxHealth;
     public int CurrentHealth => _currentHealth;
     public float MoveSpeed // <-- 수정
     {

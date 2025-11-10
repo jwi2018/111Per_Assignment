@@ -54,7 +54,7 @@ public class PlayerController : MonoBehaviour
     [Header("★ 스킬 5 (방어막 생성)")]
     public GameObject shieldPrefab;         // <-- 방패 프리팹 (Shield.cs가 붙어있는)
     [SerializeField] private float _skill5ShieldDuration = 6.0f; // 방패 지속 시간
-    [SerializeField] private int _skill5ShieldHealth = 5;      // 방패 체력
+    [SerializeField] private int _skill5ShieldHealth = 100;      // 방패 체력
 
     #region Unity 생명주기
 

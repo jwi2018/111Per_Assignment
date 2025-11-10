@@ -71,6 +71,7 @@ public class EnemyBasicArrow : MonoBehaviour
         {
             Debug.Log($"적 화살이 플레이어 {other.name}와 충돌했습니다.");
             // TODO: 플레이어에게 데미지를 주는 로직 추가
+            PlayerManager.Instance.GetPlayerData().TakeDamage(10);
             Destroy(gameObject);
         }
         else if (other.CompareTag("Ground"))

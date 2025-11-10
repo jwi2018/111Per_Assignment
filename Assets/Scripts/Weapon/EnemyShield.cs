@@ -5,25 +5,17 @@ using UnityEngine;
 public class EnemyShield : MonoBehaviour
 {
     [Header("★ 방패 설정")]
-    [SerializeField] private int _maxHealth = 10;
-    [SerializeField] private float _duration = 6.0f;
+    private int _maxHealth;
+    private float _duration;
     private int _currentHealth;
-
-    void Awake()
-    {
-        _currentHealth = _maxHealth;
-    }
-
-    void Start()
-    {
-        Destroy(gameObject, _duration);
-    }
 
     public void SetShieldProperties(int health, float duration)
     {
         _maxHealth = health;
         _currentHealth = health;
         _duration = duration;
+
+        Destroy(gameObject, _duration);
     }
 
     void OnTriggerEnter2D(Collider2D other)

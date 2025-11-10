@@ -72,7 +72,7 @@ public class EnemyController : MonoBehaviour
     [Header("★ 스킬 5 (방어막 생성)")]
     public GameObject enemyShieldPrefab;            // 적군 방패 프리팹 (EnemyShield.cs)
     [SerializeField] private float _skill5ShieldDuration = 6.0f; // 방패 지속 시간
-    [SerializeField] private int _skill5ShieldHealth = 5;      // 방패 체력
+    [SerializeField] private int _skill5ShieldHealth = 100;      // 방패 체력
     [SerializeField] private float _skill5Probability = 0.3f;       // 스킬 5 발동 확률
 
     private bool _isSkillActive = false; // 현재 스킬이 발동 중인지 여부 (AI 행동 제어용)
