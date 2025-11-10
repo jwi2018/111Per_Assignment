@@ -42,6 +42,10 @@ public class Player : MonoBehaviour
     public Animator _animator;
     public PlayerInput _playerInput;
 
+    [Header("★ 타격 효과")]
+    public AudioClip attackSoundClip;     // 타격 사운드
+    public AudioSource audioSource;   // AudioSource 컴포넌트
+
     #region Property
 
     public PlayerState State => _state;
@@ -69,6 +73,7 @@ public class Player : MonoBehaviour
     public int MaxHealth => _maxHealth; // 현재 체력 (읽기 전용)
     public int CurrentHealth => _currentHealth; // 현재 체력 (읽기 전용)
     public float ArrowLaunchSpeed => _arrowLaunchSpeed; // 화살 발사 기본 속도 (읽기 전용)
+
 
 
     #endregion

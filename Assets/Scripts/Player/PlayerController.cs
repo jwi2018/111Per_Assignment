@@ -1,5 +1,6 @@
 using System.Collections;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 using static UnityEditor.Experimental.GraphView.GraphView;
@@ -137,6 +138,9 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed) // 2번 키를 눌렀을 때
         {
+            if (_player.State == PlayerState.Skill1Active)
+                return;
+
             // _player.TryUseSkill(1)을 통해 쿨다운 체크 및 시작
             // 현재 다른 스킬이 활성화 중이 아닐 때만 발동
             if (_player.TryUseSkill(1) && _player.State != PlayerState.Skill1Active && _player.State != PlayerState.Skill2Active)
@@ -174,6 +178,9 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed)
         {
+            if (_player.State == PlayerState.Skill1Active)
+                return;
+
             if (_player.TryUseSkill(2) && _player.State != PlayerState.Skill1Active && _player.State != PlayerState.Skill2Active && _player.State != PlayerState.Skill3Active) // skillIndex 2번이 스킬 3
             {
                 _rigidbody2D.linearVelocity = Vector2.zero;
@@ -192,6 +199,9 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed) // 4번 키가 눌렸을 때
         {
+            if (_player.State == PlayerState.Skill1Active)
+                return;
+
             // 다른 공격형 스킬(1,2,3)이 활성화 중이 아닐 때만 발동
             if (_player.TryUseSkill(3) && _player.State != PlayerState.Skill1Active && _player.State != PlayerState.Skill2Active && _player.State != PlayerState.Skill3Active) // skillIndex 3번이 스킬 4
             {
@@ -213,6 +223,9 @@ public class PlayerController : MonoBehaviour
     {
         if (context.performed) // 5번 키가 눌렸을 때
         {
+            if (_player.State == PlayerState.Skill1Active)
+                return;
+
             // 스킬 1, 2, 3, 5가 활성화 중이 아니라면 발동 (Skill 4는 버프형)
             if (_player.TryUseSkill(4) && _player.State != PlayerState.Skill1Active && _player.State != PlayerState.Skill2Active && _player.State != PlayerState.Skill3Active && _player.State != PlayerState.Skill5Active) // skillIndex 4번이 스킬 5
             {
@@ -232,6 +245,15 @@ public class PlayerController : MonoBehaviour
     #endregion
 
     #region Public 함수
+
+    private void PlayHitSound()
+    {
+        if (_player.audioSource != null && _player.attackSoundClip != null)
+        {
+            Debug.Log("사운드??");
+            _player.audioSource.PlayOneShot(_player.attackSoundClip);
+        }
+    }
 
     #endregion
 
@@ -383,6 +405,8 @@ public class PlayerController : MonoBehaviour
             // 발사 속도 설정: 스킬 공격일 경우 Player.ArrowLaunchSpeed의 2배, 아니면 기본 속도 사용
             float launchSpeed = false ? _player.ArrowLaunchSpeed * 1.2f : _player.ArrowLaunchSpeed;
             arrowScript.Launch(50f, launchSpeed); // BasicArrow의 Launch 함수 호출 (각도 50도 고정)
+
+            PlayHitSound();
         }
 
         // 일반 공격일 경우에만 쿨다운 리셋 (스킬 공격은 스킬 활성화 기간 동안 Player.ShootCooldown이 자동으로 짧아져 있음)
@@ -409,6 +433,8 @@ public class PlayerController : MonoBehaviour
             // 발사 속도 설정: 스킬 공격일 경우 Player.ArrowLaunchSpeed의 2배, 아니면 기본 속도 사용
             float launchSpeed = true ? _player.ArrowLaunchSpeed * 1.1f : _player.ArrowLaunchSpeed;
             arrowScript.LaunchSkill1(30f, 65f, launchSpeed); // BasicArrow의 Launch 함수 호출 (각도 50도 고정)
+
+            PlayHitSound();
         }
     }
 
@@ -447,6 +473,8 @@ public class PlayerController : MonoBehaviour
             if (arrowScript != null)
             {
                 arrowScript.Launch(currentAngle, launchSpeed);
+
+                PlayHitSound();
             }
         }
         // 스킬 2는 단발성 발사이므로 ResetShootCooldown은 필요 없습니다.
@@ -481,6 +509,8 @@ public class PlayerController : MonoBehaviour
             // FireArrow 스크립트에 fireEffectPrefab 정보를 전달
             fireArrowScript.fireEffectPrefab = groundFireEffectPrefab;
             fireArrowScript.Launch(currentAngle, launchSpeed);
+
+            PlayHitSound();
         }
 
         _player.SetPlayerState(PlayerState.Attack);

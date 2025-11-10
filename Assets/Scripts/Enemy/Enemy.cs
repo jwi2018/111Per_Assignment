@@ -40,6 +40,10 @@ public class Enemy : MonoBehaviour
     public Animator _animator;        // 애니메이터 컴포넌트
     public Rigidbody2D _rigidbody2D;
 
+    [Header("★ 타격 효과")]
+    public AudioClip attackSoundClip;     // 타격 사운드
+    public AudioSource audioSource;   // AudioSource 컴포넌트
+
 
     #region Property (읽기 전용)
 

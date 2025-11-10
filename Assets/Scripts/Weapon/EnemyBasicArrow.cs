@@ -9,6 +9,11 @@ public class EnemyBasicArrow : MonoBehaviour
     [Header("★ 컴포넌트")]
     [SerializeField] protected Rigidbody2D _rigidbody2D;
 
+    [Header("★ 타격 효과")]
+    [SerializeField] private GameObject hitEffectPrefab; // 타격 이펙트 프리팹 연결
+    [SerializeField] private AudioClip hitSoundClip;     // 타격 사운드
+    [SerializeField] private AudioSource audioSource;   // AudioSource 컴포넌트
+
     protected virtual void Start()
     {
         Destroy(gameObject, _arrowLifeTime);
@@ -72,6 +77,12 @@ public class EnemyBasicArrow : MonoBehaviour
             Debug.Log($"적 화살이 플레이어 {other.name}와 충돌했습니다.");
             // TODO: 플레이어에게 데미지를 주는 로직 추가
             PlayerManager.Instance.GetPlayerData().TakeDamage(10);
+
+            SpawnHitEffect();
+
+            // 타격 사운드 재생
+            PlayHitSound();
+
             Destroy(gameObject);
         }
         else if (other.CompareTag("Ground"))
@@ -82,7 +93,44 @@ public class EnemyBasicArrow : MonoBehaviour
         else if (other.CompareTag("Shield")) // <-- 수정: 플레이어 방패와 충돌했을 경우
         {
             Debug.Log($"적 화살이 플레이어 방패 {other.name}와 충돌했습니다.");
+            
+            SpawnHitEffect();
+
+            // 타격 사운드 재생
+            PlayHitSound();
+
             Destroy(gameObject);
+        }
+    }
+
+    private void SpawnHitEffect()
+    {
+        if (hitEffectPrefab != null)
+        {
+            GameObject effect = Instantiate(hitEffectPrefab, transform.position, Quaternion.identity);
+            ParticleSystem ps = effect.GetComponent<ParticleSystem>();
+            if (ps != null)
+            {
+                ps.Play(); // 파티클 시스템이 자동 재생 안될 경우 수동으로 호출
+            }
+        }
+    }
+
+    private void PlayHitSound()
+    {
+        if (hitSoundClip != null)
+        {
+            // 임시 오디오 오브젝트 생성
+            GameObject tempAudioObject = new GameObject("TempAudio");
+            tempAudioObject.transform.position = transform.position;
+
+            AudioSource tempAudioSource = tempAudioObject.AddComponent<AudioSource>();
+            tempAudioSource.clip = hitSoundClip;
+            tempAudioSource.volume = 1f;
+            tempAudioSource.spatialBlend = 0f; // 2D 사운드로 설정
+
+            tempAudioSource.Play();
+            Destroy(tempAudioObject, hitSoundClip.length); // 사운드가 끝난 후에 오브젝트 파괴
         }
     }
 }

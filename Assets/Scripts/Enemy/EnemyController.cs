@@ -1,6 +1,7 @@
-using UnityEngine;
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(Enemy))]
 public class EnemyController : MonoBehaviour
@@ -317,6 +318,15 @@ public class EnemyController : MonoBehaviour
         return false; // 스킬 발동 실패 (쿨다운이거나 확률 실패)
     }
 
+    private void PlayHitSound()
+    {
+        if (_enemy.audioSource != null && _enemy.attackSoundClip != null)
+        {
+            Debug.Log("사운드??");
+            _enemy.audioSource.PlayOneShot(_enemy.attackSoundClip);
+        }
+    }
+
 
     // --- 적군 스킬 1 (속사) 활성화 코루틴 ---
     private IEnumerator Skill1ActiveCoroutine()
@@ -500,6 +510,8 @@ public class EnemyController : MonoBehaviour
         if (arrowScript != null)
         {
             arrowScript.Launch(currentAngle, _enemy.ArrowLaunchSpeed);
+
+            PlayHitSound();
         }
 
         _enemy.ResetAttackCooldown();
@@ -525,6 +537,8 @@ public class EnemyController : MonoBehaviour
         {
             float launchSpeed = _enemy.ArrowLaunchSpeed * 1.2f;
             arrowScript.LaunchSkill1(minAngle, maxAngle, launchSpeed);
+
+            PlayHitSound();
         }
         _enemy.ResetAttackCooldown();
     }
@@ -555,6 +569,8 @@ public class EnemyController : MonoBehaviour
             if (arrowScript != null)
             {
                 arrowScript.Launch(currentAngle, launchSpeed);
+
+                PlayHitSound();
             }
         }
         RestoreEnemyStateAfterSkillEnd();
@@ -582,6 +598,8 @@ public class EnemyController : MonoBehaviour
             fireArrowScript.enemyFireEffectPrefab = enemyGroundFireEffectPrefab;
             fireArrowScript.groundFireEffectYPosition = _skill3GroundFireEffectYPosition;
             fireArrowScript.Launch(currentAngle, launchSpeed);
+
+            PlayHitSound();
         }
         RestoreEnemyStateAfterSkillEnd();
     }
