@@ -446,7 +446,7 @@ MonoBehaviour:
   <SkillID>k__BackingField: 0
   _skill1Duration: 3
   _skill1ShootInterval: 0.2
-  _skill1ArrowSpeedModifier: 1.2
+  _skill1ArrowSpeedModifier: 1
 --- !u!114 &8915075605851874956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -462,7 +462,7 @@ MonoBehaviour:
   <SkillID>k__BackingField: 1
   _skill2ArrowCount: 10
   _skill2SpreadAngle: 30
-  _skill2LaunchSpeedModifier: 0.8
+  _skill2LaunchSpeedModifier: 1
 --- !u!114 &285803797522571902
 MonoBehaviour:
   m_ObjectHideFlags: 0

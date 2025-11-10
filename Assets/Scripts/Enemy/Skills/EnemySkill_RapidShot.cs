@@ -50,13 +50,9 @@ public class EnemySkill_RapidShot : EnemySkillBase
         if (_enemyArrowPrefab == null || _firePoint == null) return;
         if (!_enemy.CanAttack && _enemy.State != EnemyState.Skill1Active) return;
 
-        float minAngle = 40f;
-        float maxAngle = 60f;
-        if (_enemy.transform.localScale.x < 0)
-        {
-            minAngle = 180f - maxAngle;
-            maxAngle = 180f - minAngle;
-        }
+        float minAngle = 130f; 
+        float maxAngle = 150f; 
+
 
         GameObject arrowInstance = Instantiate(_enemyArrowPrefab, _firePoint.position, _firePoint.rotation);
 
