@@ -484,11 +484,11 @@ MonoBehaviour:
   _baseShootCooldown: 0.6
   _arrowLaunchSpeed: 9.8
   skillBaseCooldowns:
-  - 6
-  - 6
+  - 10
   - 6
   - 6
   - 10
+  - 12
   _animator: {fileID: 5281167779498488628}
   _playerInput: {fileID: 2256980169110007714}
   attackSoundClip: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}

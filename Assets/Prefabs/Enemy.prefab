@@ -295,7 +295,7 @@ MonoBehaviour:
   _canAttack: 1
   _baseAttackCooldown: 0.6
   _arrowLaunchSpeed: 9.8
-  skillCooldowns: 060000000600000006000000080000000a000000
+  skillCooldowns: 0a00000006000000060000000a0000000c000000
   _animator: {fileID: 5281167779498488628}
   _rigidbody2D: {fileID: 7414940053403582474}
   attackSoundClip: {fileID: 8300000, guid: 323e15cfe809e114ab92c9f4b25e8bc2, type: 3}

@@ -1,5 +1,4 @@
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
 
 public class PlayerManager : Singleton<PlayerManager>
 {
@@ -32,6 +31,11 @@ public class PlayerManager : Singleton<PlayerManager>
                 enemy = playerObject.GetComponent<Enemy>();
             }
         }
+    }
+
+    private void Start()
+    {
+        GameManager.Instance.CheckEndCondition();
     }
 
     #region Player 관련 함수

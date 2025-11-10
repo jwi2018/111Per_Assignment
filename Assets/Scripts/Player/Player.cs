@@ -10,7 +10,8 @@ public enum PlayerState
     Skill2Active,
     Skill3Active,
     //Skill4Active, // 버프라서 필요 없을 듯
-    Skill5Active
+    Skill5Active,
+    Death
 }
 
 public class Player : MonoBehaviour
@@ -30,7 +31,7 @@ public class Player : MonoBehaviour
     [SerializeField] private float _arrowLaunchSpeed = 9.8f;  // 화살 발사 기본 속도 (Inspector에서 조절)
 
     [Header("★ 체력")]
-    private int _maxHealth = 800;
+    private int _maxHealth = 1000;
     private int _currentHealth;
 
     [Header("★ 스킬")]
@@ -185,6 +186,8 @@ public class Player : MonoBehaviour
             _animator.SetBool("Skill2", false); // <-- 추가: Skill2 애니메이터 Bool 파라미터 초기화
             _animator.SetBool("Skill3", false); // <-- 추가: Skill2 애니메이터 Bool 파라미터 초기화
             _animator.SetBool("Skill5", false);
+            _animator.SetBool("Death", false);
+            
 
             switch (newState)
             {
@@ -213,6 +216,16 @@ public class Player : MonoBehaviour
                 case PlayerState.Skill5Active: // <-- 추가: Skill5Active 상태 처리
                     _animator.SetBool("Skill5", true);
                     _animator.SetBool("isMove", false); // 방어막 생성 중에는 이동 애니메이션 중단
+                    break;
+
+                case PlayerState.Death: // <-- 추가: Skill5Active 상태 처리
+                    _animator.SetBool("Death", true);
+                    _animator.SetBool("isMove", false);
+                    _animator.SetBool("isAttack", false);
+                    _animator.SetBool("Skill1", false); // 스킬 관련 파라미터도 여기에 포함 (스킬 상태 전용 애니메이션은 별도)
+                    _animator.SetBool("Skill2", false); // <-- 추가: Skill2 애니메이터 Bool 파라미터 초기화
+                    _animator.SetBool("Skill3", false); // <-- 추가: Skill2 애니메이터 Bool 파라미터 초기화
+                    _animator.SetBool("Skill5", false);
                     break;
             }
         }
@@ -244,6 +257,10 @@ public class Player : MonoBehaviour
         {
             _currentHealth = 0;
             // 플레이어 사망 처리 로직
+
+            SetPlayerState(PlayerState.Death);
+
+
             Debug.Log("플레이어 사망!");
         }
     }

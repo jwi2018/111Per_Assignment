@@ -10,7 +10,8 @@ public enum EnemyState
     Skill2Active, // <-- 스킬 2 (샷건) 활성화 상태
     Skill3Active, // <-- 스킬 3 (불화살) 활성화 상태
     Skill4Active, // <-- 스킬 4 (이동 속도 증가) 활성화 상태 (AI도 상태를 가지고 시작과 종료를 알림)
-    Skill5Active  // <-- 스킬 5 (방어막) 활성화 상태
+    Skill5Active,  // <-- 스킬 5 (방어막) 활성화 상태
+    Death
 }
 
 public class Enemy : MonoBehaviour
@@ -19,7 +20,7 @@ public class Enemy : MonoBehaviour
     [SerializeField] private EnemyState _state = EnemyState.Idle;
 
     [Header("★ 기본 능력치")]
-    private int _maxHealth = 800;
+    private int _maxHealth = 1000;
     private int _currentHealth;
     [SerializeField] private float _moveSpeed = 1.0f;
     [SerializeField] private float _attackDamage = 5f;
@@ -142,8 +143,8 @@ public class Enemy : MonoBehaviour
             _animator.SetBool("Skill1", false);
             _animator.SetBool("Skill2", false);
             _animator.SetBool("Skill3", false);
-            _animator.SetBool("Skill4", false); // 스킬 4도 애니메이션 상태가 됩니다.
             _animator.SetBool("Skill5", false); // <-- 추가: Skill5 애니메이터 Bool 파라미터 초기화
+            _animator.SetBool("Death", false); 
 
             switch (newState)
             {
@@ -173,8 +174,14 @@ public class Enemy : MonoBehaviour
                     _animator.SetBool("Skill5", true);
                     _animator.SetBool("isMove", false); // 방어막 생성 중에는 이동 애니메이션 중단
                     break;
-                case EnemyState.Idle:
-                case EnemyState.None:
+                case EnemyState.Death:
+                    _animator.SetBool("Death", true);
+                    _animator.SetBool("isMove", false);
+                    _animator.SetBool("isAttack", false);
+                    _animator.SetBool("Skill1", false);
+                    _animator.SetBool("Skill2", false);
+                    _animator.SetBool("Skill3", false);
+                    _animator.SetBool("Skill5", false);
                     break;
             }
         }
@@ -215,6 +222,8 @@ public class Enemy : MonoBehaviour
         if (_currentHealth <= 0)
         {
             _currentHealth = 0;
+            SetEnemyState(EnemyState.Death);
+
             Debug.Log("적 사망!");
             // TODO: 적 사망 처리 로직 (애니메이션, 파티클, 오브젝트 비활성화 등)
         }

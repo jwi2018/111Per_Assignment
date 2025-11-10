@@ -12,11 +12,9 @@ public class GameManager : Singleton<GameManager>
 
         if (this != Instance)
         {
-            Destroy(gameObject);
             return;
         }
 
-        // 태그로 UIController를 찾아 참조
         GameObject uiObj = GameObject.FindGameObjectWithTag("UIController");
         if (uiObj != null)
         {
@@ -30,12 +28,12 @@ public class GameManager : Singleton<GameManager>
 
     void Update()
     {
-        if (gameEnded) return;
+        if (gameEnded) return; // 이미 게임 종료됐으면 체크 안 함
 
         CheckEndCondition();
     }
 
-    private void CheckEndCondition()
+    public void CheckEndCondition()
     {
         int playerHP = PlayerManager.Instance.GetPlayerData().CurrentHealth;
         int enemyHP = PlayerManager.Instance.GetEnemyData().CurrentHealth;
