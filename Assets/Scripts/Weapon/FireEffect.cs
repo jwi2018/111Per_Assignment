@@ -1,5 +1,4 @@
 using UnityEngine;
-using System.Collections;
 using System.Collections.Generic;
 
 public class FireEffect : MonoBehaviour
@@ -43,8 +42,6 @@ public class FireEffect : MonoBehaviour
 
     private void ApplyDamageToTargets()
     {
-        // Debug.Log($"불길이 {Time.time}에 데미지를 적용합니다. 타겟 수: {_targetsInFire.Count}");
-        // null인 타겟을 미리 제거하여 오류 방지
         _targetsInFire.RemoveWhere(item => item == null);
 
         SpawnHitEffect();
@@ -55,31 +52,25 @@ public class FireEffect : MonoBehaviour
             {
                 PlayerManager.Instance.GetEnemyData().TakeDamage(_damagePerTick);
                 SpawnHitEffect();
-
-                Debug.Log($"{target.name}이(가) 불길에 의해 {_damagePerTick}의 피해를 입었습니다.");
             }
         }
     }
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        // TODO: 캐릭터 태그 확인 필요. "Enemy" 또는 "Player" 태그를 가진 오브젝트만 영향
         if (other.CompareTag("Enemy") || other.CompareTag("EnemyShield"))
         {
             _targetsInFire.Add(other.gameObject);
-            Debug.Log($"불길에 {other.name} 진입. 현재 타겟 수: {_targetsInFire.Count}");
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        // TODO: 캐릭터 태그 확인 필요
         if (other.CompareTag("Enemy") || other.CompareTag("EnemyShield"))
         {
             if (_targetsInFire.Contains(other.gameObject))
             {
                 _targetsInFire.Remove(other.gameObject);
-                Debug.Log($"불길에서 {other.name} 이탈. 현재 타겟 수: {_targetsInFire.Count}");
             }
         }
     }
@@ -89,13 +80,13 @@ public class FireEffect : MonoBehaviour
         if (hitEffectPrefab != null)
         {
             Vector3 spawnPosition = transform.position;
-            spawnPosition.y = -2f;  // Y축 고정
+            spawnPosition.y = -2f;
 
             GameObject effect = Instantiate(hitEffectPrefab, spawnPosition, Quaternion.identity);
             ParticleSystem ps = effect.GetComponent<ParticleSystem>();
             if (ps != null)
             {
-                ps.Play(); // 파티클 시스템이 자동 재생 안될 경우 수동으로 호출
+                ps.Play();
             }
         }
     }
@@ -104,7 +95,7 @@ public class FireEffect : MonoBehaviour
     {
         if (createEffectPrefab != null)
         {
-            createEffectPrefab.Play(); // 파티클 시스템이 자동 재생 안될 경우 수동으로 호출
+            createEffectPrefab.Play();
         }
     }
 }

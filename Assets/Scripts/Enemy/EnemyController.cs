@@ -1,8 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Experimental.GraphView.GraphView;
-
 [RequireComponent(typeof(Enemy))]
 public class EnemyController : MonoBehaviour
 {
@@ -18,11 +16,6 @@ public class EnemyController : MonoBehaviour
     [Header("★ 순찰 설정")]
     [SerializeField] private float _patrolDurationMin = 2f; // 최소 순찰 시간
     [SerializeField] private float _patrolDurationMax = 5f; // 최대 순찰 시간
-    // [SerializeField] private float _minWallDetectDistance = 0.5f; // 이전 코드의 벽 감지 변수 (삭제)
-    // [SerializeField] private float _edgeDetectDistance = 0.2f; // 이전 코드의 낭떠러지 감지 변수 (삭제)
-    // [SerializeField] private LayerMask _groundLayer; // 이전 코드의 땅 레이어 변수 (삭제)
-
-    // 하늘열매님의 이전 CheckForBoundsAndEdges()에 필요한 변수들 (다시 추가)
     [SerializeField] private float _minXBound = -10f; // 맵 좌측 X축 경계
     [SerializeField] private float _maxXBound = 10f;  // 맵 우측 X축 경계
     [SerializeField] private Transform _edgeCheck;     // 낭떠러지 감지용 오브젝트 (Enemy 발 아래에 자식 오브젝트로 생성)
@@ -84,7 +77,6 @@ public class EnemyController : MonoBehaviour
         if (_enemy == null) _enemy = GetComponent<Enemy>();
         _rigidbody2D = GetComponent<Rigidbody2D>();
 
-        // 플레이어 트랜스폼 찾기 (플레이어가 태그로 "Player"를 가지고 있다고 가정)
         GameObject playerObj = GameObject.FindGameObjectWithTag("Player");
         if (playerObj != null)
         {
@@ -97,7 +89,6 @@ public class EnemyController : MonoBehaviour
 
     void FixedUpdate()
     {
-        // 적군이 죽은 상태면 모든 행동 중단
         if (_enemy.CurrentHealth <= 0)
         {
             if (_aiBehaviorCoroutine != null) StopCoroutine(_aiBehaviorCoroutine);
@@ -108,41 +99,33 @@ public class EnemyController : MonoBehaviour
             return;
         }
 
-        // 현재 스킬이 활성화 중인 동안은 AI의 일반적인 Move/Attack 상태 전환 로직을 건너뜁니다.
-        // 스킬이 끝날 때 EnemyState를 다시 설정하여 일반 AI 행동으로 복귀시킵니다.
-        // _enemy.State != EnemyState.Skill4Active 조건은 스킬 4가 이동형 버프이므로 제외됩니다.
         if (_enemy.State != EnemyState.Skill1Active && _enemy.State != EnemyState.Skill2Active &&
             _enemy.State != EnemyState.Skill3Active && _enemy.State != EnemyState.Skill5Active)
         {
-            // 경계 감지는 이동 관련 상태에서만
-            if (_enemy.State == EnemyState.Move || _enemy.State == EnemyState.Skill4Active) // Skill4Active 추가: 이 상태에서도 이동 가능
+            if (_enemy.State == EnemyState.Move || _enemy.State == EnemyState.Skill4Active)
             {
                 CheckForBoundsAndEdges();
             }
 
-            MoveEnemy(); // 이동 상태에 따라 실제로 움직임 (AIBehaviorCoroutine에서 설정된 _patrolMoveDirection 사용)
+            MoveEnemy(); 
 
-            // 공격 상태일 때 플레이어 바라보며 자동 공격
             if (_enemy.State == EnemyState.Attack)
             {
                 if (_playerTransform != null)
                 {
                     FacePlayer();
                 }
-                // AnimationEvent_EnemyAttack()에서 발사를 담당합니다.
             }
         }
-        else if (_enemy.State == EnemyState.Skill4Active) // 스킬 4는 별도의 이동 처리 (상태에 따라 이동 버프 지속)
+        else if (_enemy.State == EnemyState.Skill4Active)
         {
             CheckForBoundsAndEdges();
             MoveEnemy();
         }
 
-
-        // 모든 FixedUpdate에서 플레이어의 현재 위치를 업데이트 (FacePlayer를 위해)
         if (_playerTransform != null && (_enemy.State == EnemyState.Attack || _enemy.State == EnemyState.Skill1Active || _enemy.State == EnemyState.Skill2Active || _enemy.State == EnemyState.Skill3Active || _enemy.State == EnemyState.Skill5Active))
         {
-            FacePlayer(); // 공격/스킬 상태일 때는 플레이어를 바라보도록
+            FacePlayer();
         }
     }
 
@@ -152,8 +135,6 @@ public class EnemyController : MonoBehaviour
     {
         while (true)
         {
-            // 이미 다른 스킬이 활성화 중이면 AI 행동을 기다립니다.
-            // _isSkillActive가 true인 동안은 일반 AI 행동을 하지 않고 대기
             while (_isSkillActive)
             {
                 yield return null;
@@ -162,35 +143,30 @@ public class EnemyController : MonoBehaviour
             bool isPlayerDetected = (_playerTransform != null && Vector2.Distance(transform.position, _playerTransform.position) <= _detectPlayerRange);
             bool isPlayerInAttackRange = (_playerTransform != null && Vector2.Distance(transform.position, _playerTransform.position) <= _attackRange);
 
-            // 우선 순위 1: 플레이어가 공격 범위 내에 있으면 공격 또는 스킬 발동 시도
             if (isPlayerDetected && isPlayerInAttackRange)
             {
-                // 스킬 발동 시도
                 if (TryActivateSkill())
                 {
-                    // 스킬이 발동되었으면, 스킬 애니메이션이 끝나고 _isSkillActive가 false가 될 때까지 기다립니다.
                     while (_isSkillActive)
                     {
                         yield return null;
                     }
-                    // 스킬 사용 후 일정 확률로 강제 순찰 (스킬만 계속 쓰는 것을 방지)
                     if (Random.value < _postAttackPatrolChance)
                     {
                         yield return StartCoroutine(PatrolState());
                     }
                 }
-                else // 스킬 발동에 실패했거나 쿨다운이라면 일반 공격
+                else
                 {
                     yield return StartCoroutine(AttackState());
 
-                    // 공격 후 일정 확률로 강제 순찰
                     if (Random.value < _postAttackPatrolChance)
                     {
                         yield return StartCoroutine(PatrolState());
                     }
                 }
             }
-            else // 우선 순위 2: 플레이어가 감지되지 않거나 공격 범위 밖에 있으면 순찰
+            else 
             {
                 yield return StartCoroutine(PatrolState());
             }
@@ -199,42 +175,32 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    // 공격 상태 코루틴
     IEnumerator AttackState()
     {
-        _enemy.SetEnemyState(EnemyState.Attack); // Attack 상태로 전환
+        _enemy.SetEnemyState(EnemyState.Attack);
 
-        float attackDuration = Random.Range(_attackDurationMin, _attackDurationMax); // 공격 상태 지속 시간
-        Debug.Log($"Enemy: 일반 공격 시작! ({attackDuration:F2}초 동안)");
+        float attackDuration = Random.Range(_attackDurationMin, _attackDurationMax);
 
-        yield return new WaitForSeconds(attackDuration); // 공격 상태 지속 시간만큼 대기
-
-        Debug.Log("Enemy: 일반 공격 종료.");
+        yield return new WaitForSeconds(attackDuration);
     }
 
-    // 순찰 상태 코루틴
     IEnumerator PatrolState()
     {
-        _enemy.SetEnemyState(EnemyState.Move); // Move 상태로 전환
-        _isPatrolling = true; // 순찰 중임을 표시
+        _enemy.SetEnemyState(EnemyState.Move);
+        _isPatrolling = true;
 
         float patrolDuration = Random.Range(_patrolDurationMin, _patrolDurationMax);
-        Debug.Log($"Enemy: 순찰 시작! ({patrolDuration:F2}초 동안)");
 
-        // 순찰 방향 랜덤으로 설정
         _patrolMoveDirection = (Random.value > 0.5f) ? 1f : -1f;
-        FlipEnemySprite(); // 스프라이트 반전
+        FlipEnemySprite();
 
-        yield return new WaitForSeconds(patrolDuration); // 순찰 상태 지속 시간만큼 대기
+        yield return new WaitForSeconds(patrolDuration);
 
-        Debug.Log("Enemy: 순찰 종료.");
-        _isPatrolling = false; // 순찰 종료
+        _isPatrolling = false;
     }
 
-    // --- 스킬 발동 시도 로직 (AIBehaviorCoroutine에서 호출) ---
     private bool TryActivateSkill()
     {
-        // 사용 가능한 스킬 목록과 확률을 기반으로 선택
         List<int> availableSkills = new List<int>();
         float totalProbability = 0f;
 
@@ -249,9 +215,8 @@ public class EnemyController : MonoBehaviour
         // 스킬 5
         if (_enemy.IsSkillReady(4)) { availableSkills.Add(4); totalProbability += _skill5Probability; }
 
-        if (availableSkills.Count == 0 || totalProbability == 0) return false; // 사용할 수 있는 스킬 없음
+        if (availableSkills.Count == 0 || totalProbability == 0) return false;
 
-        // 확률적으로 스킬 선택
         float randomValue = Random.Range(0f, totalProbability);
         int selectedSkillIndex = -1;
 
@@ -280,13 +245,11 @@ public class EnemyController : MonoBehaviour
         {
             if (_enemy.TryUseSkill(selectedSkillIndex))
             {
-                // 스킬 발동 시 즉시 움직임 중단 (Skill4는 예외)
-                if (selectedSkillIndex != 3) // Skill4 (이동 속도 증가)가 아닐 경우만
+                if (selectedSkillIndex != 3)
                 {
-                    _rigidbody2D.linearVelocity = Vector2.zero; // 캐릭터 물리적 이동 즉시 중단
+                    _rigidbody2D.linearVelocity = Vector2.zero;
                 }
 
-                // 스킬 발동 애니메이션을 위해 상태 변경 (PlayerController와 동일)
                 switch (selectedSkillIndex)
                 {
                     case 0: // Skill 1: 속사
@@ -295,43 +258,40 @@ public class EnemyController : MonoBehaviour
                         break;
                     case 1: // Skill 2: 동시 발사
                         _enemy.SetEnemyState(EnemyState.Skill2Active);
-                        _isSkillActive = true; // 단발성 스킬 애니메이션 재생 동안 AI 행동 대기
+                        _isSkillActive = true; 
                         break;
                     case 2: // Skill 3: 불화살
                         _enemy.SetEnemyState(EnemyState.Skill3Active);
-                        _isSkillActive = true; // 단발성 스킬 애니메이션 재생 동안 AI 행동 대기
+                        _isSkillActive = true; 
                         break;
                     case 3: // Skill 4: 이동 속도 증가 (버프형)
-                        _enemy.SetEnemyState(EnemyState.Skill4Active); // Skill4Active 상태로 진입 (이펙트 애니메이션용)
+                        _enemy.SetEnemyState(EnemyState.Skill4Active); 
                         if (_skill4ActiveCoroutine != null) StopCoroutine(_skill4ActiveCoroutine);
                         _skill4ActiveCoroutine = StartCoroutine(Skill4ActiveCoroutine());
                         break;
                     case 4: // Skill 5: 방어막 생성
                         _enemy.SetEnemyState(EnemyState.Skill5Active);
-                        _isSkillActive = true; // 단발성 스킬 애니메이션 재생 동안 AI 행동 대기
+                        _isSkillActive = true;
                         break;
                 }
 
-                return true; // 스킬 발동 성공
+                return true;
             }
         }
-        return false; // 스킬 발동 실패 (쿨다운이거나 확률 실패)
+        return false;
     }
 
     private void PlayHitSound()
     {
         if (_enemy.audioSource != null && _enemy.attackSoundClip != null)
         {
-            Debug.Log("사운드??");
             _enemy.audioSource.PlayOneShot(_enemy.attackSoundClip);
         }
     }
 
-
-    // --- 적군 스킬 1 (속사) 활성화 코루틴 ---
     private IEnumerator Skill1ActiveCoroutine()
     {
-        _isSkillActive = true; // 스킬이 활성화 중임을 표시
+        _isSkillActive = true;
 
         float previousAttackCooldown = _enemy.AttackCooldown;
         _enemy.AttackCooldown = _enemy.BaseAttackCooldown / 2.0f;
@@ -345,18 +305,15 @@ public class EnemyController : MonoBehaviour
             timer += Time.deltaTime;
         }
 
-        // --- 스킬 정상 종료 시 ---
         _enemy.AttackCooldown = previousAttackCooldown;
-        Debug.Log("Enemy Skill 1(속사) 정상 종료.");
-        RestoreEnemyStateAfterSkillEnd(); // 스킬 종료 후 AI 상태 복구
+        
+        RestoreEnemyStateAfterSkillEnd();
         _skill1ActiveCoroutine = null;
     }
 
-
-    // --- 적군 스킬 4 (이동 속도 증가) 활성화 코루틴 ---
     private IEnumerator Skill4ActiveCoroutine()
     {
-        _isSkillActive = true; // 스킬이 활성화 중임을 표시 (버프 지속 시간 동안)
+        _isSkillActive = true;
 
         float originalMoveSpeed = _enemy.MoveSpeed;
         _enemy.MoveSpeed = originalMoveSpeed * _skill4SpeedMultiplier;
@@ -370,22 +327,16 @@ public class EnemyController : MonoBehaviour
             timer += Time.deltaTime;
         }
 
-        // --- 스킬 정상 종료 시 ---
         _enemy.MoveSpeed = originalMoveSpeed;
-        Debug.Log("Enemy Skill 4(이동 속도 증가) 정상 종료.");
-        RestoreEnemyStateAfterSkillEnd(); // 스킬 종료 후 AI 상태 복구 (이펙트 애니메이션 종료)
+        RestoreEnemyStateAfterSkillEnd();
         _skill4ActiveCoroutine = null;
     }
 
-
-    // --- 스킬 종료 후 AI 상태 복구 함수 (단발성 스킬 애니메이션 끝에 이벤트로 연결) ---
     public void RestoreEnemyStateAfterSkillEnd()
     {
-        Debug.Log("Enemy: 스킬 종료 후 상태 복구 시도.");
-        _isSkillActive = false; // 스킬이 끝났음을 표시 (AIBehaviorCoroutine 재개)
-        _rigidbody2D.linearVelocity = Vector2.zero; // 상태 복구 시 이동 강제 중단
+        _isSkillActive = false; 
+        _rigidbody2D.linearVelocity = Vector2.zero; 
 
-        // 플레이어 탐지 여부에 따라 Attack 또는 Patrol 상태로 복귀
         if (_playerTransform != null && Vector2.Distance(transform.position, _playerTransform.position) <= _attackRange)
         {
             _enemy.SetEnemyState(EnemyState.Attack);
@@ -395,7 +346,6 @@ public class EnemyController : MonoBehaviour
             _enemy.SetEnemyState(EnemyState.Move);
         }
     }
-
 
     #endregion
 
@@ -428,49 +378,39 @@ public class EnemyController : MonoBehaviour
         }
     }
 
-    void AttackPlayer()
-    {
-        // AnimationEvent_EnemyAttack()에서 발사를 담당합니다.
-    }
 
-    private void CheckForBoundsAndEdges() // 하늘열매님의 이전 완료된 함수
+    private void CheckForBoundsAndEdges()
     {
-        // 1. 맵 가장자리 X축 좌표 제한 검사
         float targetNextPosX = transform.position.x + _patrolMoveDirection * _enemy.MoveSpeed * Time.fixedDeltaTime;
 
         if (targetNextPosX < _minXBound || targetNextPosX > _maxXBound)
         {
-            _patrolMoveDirection *= -1f; // 이동 방향 반전
-            FlipEnemySprite(); // 스프라이트도 반전
+            _patrolMoveDirection *= -1f;
+            FlipEnemySprite(); 
             return;
         }
 
-        // 2. 낭떠러지 감지 (이동 방향 앞의 발밑에 바닥이 없는지 검사)
         if (_edgeCheck != null)
         {
-            // RayOrigin을 Vector2로 명확히 캐스팅
             Vector2 rayOrigin = (Vector2)_edgeCheck.position;
-            // 적군의 collider 범위 계산
             Collider2D enemyCollider = GetComponent<Collider2D>();
-            float colliderExtentsX = enemyCollider != null ? enemyCollider.bounds.extents.x : 0.5f; // Collider 없으면 기본값
+            float colliderExtentsX = enemyCollider != null ? enemyCollider.bounds.extents.x : 0.5f;
 
-            if (transform.localScale.x > 0) // 현재 오른쪽을 보고 있음
+            if (transform.localScale.x > 0)
             {
                 rayOrigin.x = transform.position.x + (Mathf.Abs(transform.localScale.x) * colliderExtentsX) + 0.1f;
             }
-            else // 현재 왼쪽을 보고 있음
+            else
             {
                 rayOrigin.x = transform.position.x - (Mathf.Abs(transform.localScale.x) * colliderExtentsX) - 0.1f;
             }
 
             bool isNearEdge = !Physics2D.Raycast(rayOrigin, Vector2.down, _edgeCheckDistance, _whatIsGround);
 
-            Debug.DrawRay(rayOrigin, Vector2.down * _edgeCheckDistance, isNearEdge ? Color.red : Color.green);
-
             if (isNearEdge)
             {
-                _patrolMoveDirection *= -1f; // 이동 방향 반전
-                FlipEnemySprite(); // 스프라이트도 반전
+                _patrolMoveDirection *= -1f; 
+                FlipEnemySprite();
             }
         }
     }

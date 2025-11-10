@@ -9,7 +9,6 @@ public enum PlayerState
     Skill1Active,
     Skill2Active,
     Skill3Active,
-    //Skill4Active, // 버프라서 필요 없을 듯
     Skill5Active,
     Death
 }
@@ -59,15 +58,12 @@ public class Player : MonoBehaviour
 
     public bool CanShoot => _canShoot;
 
-    // 현재 적용 중인 공격 쿨다운 (ShootCooldown Property)
-    // Getter는 현재 적용된 _currentShootCooldown 값을 반환하며, Setter로 변경 가능
     public float ShootCooldown
     {
         get => _currentShootCooldown;
         set => _currentShootCooldown = value;
     }
 
-    // 변경되지 않는 기본 공격 쿨다운 값 (BaseShootCooldown Property)
     public float BaseShootCooldown => _baseShootCooldown;
 
     public float ShootTimer => _shootTimer; // 쿨다운 타이머의 남은 시간 (읽기 전용)
@@ -87,7 +83,6 @@ public class Player : MonoBehaviour
         _currentMoveSpeed = _baseMoveSpeed;
         _currentShootCooldown = _baseShootCooldown;
 
-        // 스킬 쿨다운 타이머 초기화 (float으로)
         if (skillBaseCooldowns == null || skillBaseCooldowns.Length != 5)
         {
             skillBaseCooldowns = new float[5]; // 5개 스킬 기준으로 초기화
@@ -118,15 +113,11 @@ public class Player : MonoBehaviour
             }
         }
 
-        // Debug.Log("플레이어 업데이트 공격중 1 ");
-
         if (!_canShoot) // 발사 불가능 상태 (쿨다운 중)일 때
         {
-            //Debug.Log("플레이어 업데이트 공격중 2 ");
             _shootTimer -= Time.deltaTime; // 타이머 감소
             if (_shootTimer <= 0f)
             {
-               // Debug.Log("플레이어 업데이트 공격중 3 ");
                 _shootTimer = 0f; // 음수 방지
                 _canShoot = true; // 쿨다운 끝, 발사 가능
             }
@@ -138,48 +129,20 @@ public class Player : MonoBehaviour
 
     #region Public 함수
 
-    /*
-    public void SetPlayerState(PlayerState newState)
-    {
-        if (_state == newState) return;
-
-        _state = newState;
-    }*/
-
     public void ResetShootCooldown()
     {
         _canShoot = false;
         _shootTimer = _currentShootCooldown;
     }
 
-    /*
-    public void SetCanShoot(bool _bool)
-    {
-        Debug.Log("SetCanShoot  :  " + _bool);
-        _canShoot = _bool;
-
-        Debug.Log("SetCanShoot  _canShoot  :  " + _canShoot);
-    }
-
-    public void SetShootTimer(float Time)
-    {
-        _shootTimer -= Time;
-    }
-    */
-
     public void SetPlayerState(PlayerState newState)
     {
-        // 동일한 상태로의 불필요한 전환 방지
         if (_state == newState) return;
 
         _state = newState;
-        // Debug.Log($"Player State changed to: {_state}"); // 상태 변경 확인용
 
-        // 애니메이터 파라미터 업데이트
         if (_animator != null)
         {
-            // 모든 관련 Bool 파라미터를 일단 false로 초기화하고,
-            // 현재 상태에 맞는 파라미터만 true로 설정합니다.
             _animator.SetBool("isMove", false);
             _animator.SetBool("isAttack", false);
             _animator.SetBool("Skill1", false); // 스킬 관련 파라미터도 여기에 포함 (스킬 상태 전용 애니메이션은 별도)
@@ -240,12 +203,10 @@ public class Player : MonoBehaviour
         if (currentSkillCooldowns[skillIndex] <= 0f) // 쿨다운이 0 이하면 사용 가능 (float 비교)
         {
             currentSkillCooldowns[skillIndex] = skillBaseCooldowns[skillIndex]; // 쿨다운 리셋
-            Debug.Log($"Skill {skillIndex + 1} activated! Cooldown: {skillBaseCooldowns[skillIndex]:F2}s"); // F2로 소수점 표시
             return true;
         }
         else
         {
-            Debug.Log($"Skill {skillIndex + 1} is on cooldown. {currentSkillCooldowns[skillIndex]:F2}s remaining.");
             return false;
         }
     }
@@ -256,21 +217,15 @@ public class Player : MonoBehaviour
         if (_currentHealth <= 0)
         {
             _currentHealth = 0;
-            // 플레이어 사망 처리 로직
 
             SetPlayerState(PlayerState.Death);
-
-
-            Debug.Log("플레이어 사망!");
         }
     }
 
-    // SkillCoolTime에서 스킬의 남은 쿨타임을 가져갈 수 있도록 함수 추가
     public float GetSkillRemainingCoolTime(int skillIndex)
     {
         if (skillIndex < 0 || skillIndex >= currentSkillCooldowns.Length)
         {
-            Debug.LogError($"Invalid skillIndex: {skillIndex} in GetSkillRemainingCoolTime.");
             return 0;
         }
         return currentSkillCooldowns[skillIndex];

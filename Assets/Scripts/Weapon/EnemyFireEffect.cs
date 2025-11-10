@@ -1,7 +1,5 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public class EnemyFireEffect : MonoBehaviour
 {
@@ -50,7 +48,7 @@ public class EnemyFireEffect : MonoBehaviour
         {
             if (target != null)
             {
-                if (target.CompareTag("Player")) // <-- 수정: 플레이어에게 데미지
+                if (target.CompareTag("Player"))
                 {
                     PlayerManager.Instance.GetPlayerData().TakeDamage(_damagePerTick);
                     SpawnHitEffect();
@@ -61,21 +59,19 @@ public class EnemyFireEffect : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Shield")) // <-- 수정: 플레이어만 감지
+        if (other.CompareTag("Player") || other.CompareTag("Shield"))
         {
             _targetsInFire.Add(other.gameObject);
-            Debug.Log($"적 불길에 {other.name} 진입. 현재 타겟 수: {_targetsInFire.Count}");
         }
     }
 
     void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Player") || other.CompareTag("Shield")) // <-- 수정: 플레이어만 감지
+        if (other.CompareTag("Player") || other.CompareTag("Shield"))
         {
             if (_targetsInFire.Contains(other.gameObject))
             {
                 _targetsInFire.Remove(other.gameObject);
-                Debug.Log($"적 불길에서 {other.name} 이탈. 현재 타겟 수: {_targetsInFire.Count}");
             }
         }
     }
@@ -85,13 +81,13 @@ public class EnemyFireEffect : MonoBehaviour
         if (hitEffectPrefab != null)
         {
             Vector3 spawnPosition = transform.position;
-            spawnPosition.y = -2f;  // Y축 고정
+            spawnPosition.y = -2f;
 
             GameObject effect = Instantiate(hitEffectPrefab, spawnPosition, Quaternion.identity);
             ParticleSystem ps = effect.GetComponent<ParticleSystem>();
             if (ps != null)
             {
-                ps.Play(); // 파티클 시스템이 자동 재생 안될 경우 수동으로 호출
+                ps.Play();
             }
         }
     }
@@ -100,7 +96,7 @@ public class EnemyFireEffect : MonoBehaviour
     {
         if (createEffectPrefab != null)
         {
-            createEffectPrefab.Play(); // 파티클 시스템이 자동 재생 안될 경우 수동으로 호출
+            createEffectPrefab.Play();
         }
     }
 }

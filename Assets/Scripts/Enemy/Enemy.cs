@@ -74,9 +74,6 @@ public class Enemy : MonoBehaviour
     void Awake()
     {
         _currentHealth = _maxHealth;
-        if (_animator == null) _animator = GetComponent<Animator>();
-        if (_rigidbody2D == null) _rigidbody2D = GetComponent<Rigidbody2D>();
-
         _currentAttackCooldown = _baseAttackCooldown; // 공격 쿨다운 초기화
 
         // 스킬 쿨다운 타이머 초기화 (스킬 0~4까지 5개)
@@ -134,7 +131,6 @@ public class Enemy : MonoBehaviour
         if (_state == newState) return;
 
         _state = newState;
-        Debug.Log($"Enemy State changed to: {_state}");
 
         if (_animator != null)
         {
@@ -203,12 +199,10 @@ public class Enemy : MonoBehaviour
         {
             skillCooldownTimers[skillIndex] = skillCooldowns[skillIndex]; // 쿨다운 리셋
             skillDeltaTimeAccumulators[skillIndex] = 0f;
-            Debug.Log($"Enemy Skill {skillIndex + 1} activated! Cooldown: {skillCooldowns[skillIndex]}s");
             return true;
         }
         else
         {
-            Debug.Log($"Enemy Skill {skillIndex + 1} is on cooldown. {skillCooldownTimers[skillIndex]}s remaining.");
             return false;
         }
     }
@@ -218,23 +212,16 @@ public class Enemy : MonoBehaviour
         if (_currentHealth <= 0) return; // 이미 죽었으면 데미지 받지 않음
 
         _currentHealth -= amount;
-        Debug.Log($"Enemy takes {amount} damage. Current Health: {_currentHealth}");
         if (_currentHealth <= 0)
         {
             _currentHealth = 0;
             SetEnemyState(EnemyState.Death);
-
-            Debug.Log("적 사망!");
-            // TODO: 적 사망 처리 로직 (애니메이션, 파티클, 오브젝트 비활성화 등)
         }
     }
-
-    // 스킬이 현재 쿨다운 상태인지 여부를 반환하는 함수 (EnemyController에서 호출)
     public bool IsSkillReady(int skillIndex)
     {
         if (skillIndex < 0 || skillIndex >= skillCooldownTimers.Length)
         {
-            Debug.LogError($"Invalid skillIndex: {skillIndex} in IsSkillReady.");
             return false;
         }
         return skillCooldownTimers[skillIndex] <= 0;

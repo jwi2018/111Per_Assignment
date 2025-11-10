@@ -10,8 +10,8 @@ public class PlayerHPCheck : MonoBehaviour
 
     void Start()
     {
-        sliderHP.maxValue = player.MaxHealth; // <-- 중요: 슬라이더의 최대값을 적의 최대 체력으로 설정
-        sliderHP.minValue = 0;              // <-- 최소값은 0으로 설정
+        sliderHP.maxValue = player.MaxHealth; 
+        sliderHP.minValue = 0; 
 
         UpdateHPUI();
     }

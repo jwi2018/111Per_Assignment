@@ -1,5 +1,5 @@
 using UnityEngine;
-using UnityEngine.UI; // UI Image 컴포넌트를 사용하기 위해 추가
+using UnityEngine.UI;
 using TMPro;
 
 public class SkillCoolTime : MonoBehaviour
@@ -10,7 +10,6 @@ public class SkillCoolTime : MonoBehaviour
     [SerializeField] private Image _skillIconImage; // 스킬의 기본 아이콘 Image (Optional, 색상 조절용)
     [SerializeField] private Image _cooldownFillImage; // <-- 추가: Fill Amount를 조절할 Image (Filled 타입)
     [SerializeField] private TextMeshProUGUI _coolTimeText; // 쿨타임을 표시할 TextMeshProUGUI 컴포넌트
-    // [SerializeField] private GameObject _skillIconPanel; // 제거 또는 다른 용도로 활용
 
     private Player _player; // 플레이어 컴포넌트 참조
 
@@ -20,25 +19,22 @@ public class SkillCoolTime : MonoBehaviour
 
         if (_player == null)
         {
-            Debug.LogError("SkillCoolTime: PlayerManager에서 Player 데이터를 찾을 수 없습니다.");
             this.enabled = false;
             return;
         }
 
         if (_cooldownFillImage == null)
         {
-            Debug.LogError("SkillCoolTime: CooldownFillImage가 할당되지 않았습니다. Filled 타입의 Image를 연결해주세요.");
-            this.enabled = false;
-            return;
-        }
-        if (_coolTimeText == null)
-        {
-            Debug.LogError("SkillCoolTime: CoolTimeText가 할당되지 않았습니다. TextMeshProUGUI를 연결해주세요.");
             this.enabled = false;
             return;
         }
 
-        // 시작 시 한 번 업데이트
+        if (_coolTimeText == null)
+        {
+            this.enabled = false;
+            return;
+        }
+
         UpdateCoolTimeUI();
     }
 
@@ -59,21 +55,18 @@ public class SkillCoolTime : MonoBehaviour
             return;
         }
 
-        float totalCoolTime = _player.skillBaseCooldowns[_skillIndex]; // <-- float 총 쿨타임
+        float totalCoolTime = _player.skillBaseCooldowns[_skillIndex];
 
-        // 정밀한 남은 쿨타임 (float) 가져오기
+
         float remainingCoolTimePrecise = _player.GetSkillRemainingCoolTime(_skillIndex);
 
-        if (remainingCoolTimePrecise > 0f) // 0보다 크면 쿨타임 중
+        if (remainingCoolTimePrecise > 0f) 
         {
             _coolTimeText.gameObject.SetActive(true);
             _cooldownFillImage.gameObject.SetActive(true);
 
-            // 남은 정수 시간만 텍스트로 표시
-            _coolTimeText.text = Mathf.CeilToInt(remainingCoolTimePrecise).ToString(); // 올림하여 정수로 표시
+            _coolTimeText.text = Mathf.CeilToInt(remainingCoolTimePrecise).ToString();
 
-            // Fill Amount 계산
-            // 남은 시간이 많을수록 Fill Amount가 1.0에 가까워지고, 시간이 줄어들면 0.0에 가까워집니다.
             float fillAmount = remainingCoolTimePrecise / totalCoolTime;
             _cooldownFillImage.fillAmount = fillAmount;
         }
