@@ -34,8 +34,8 @@ public class Player : MonoBehaviour
     private int _currentHealth;
 
     [Header("★ 스킬")]
-    [SerializeField] public int[] skillCooldowns = new int[5];     // 스킬별 쿨다운 시간
-    private int[] skillCooldownTimers = new int[5];                 // 스킬별 쿨다운 타이머
+    [SerializeField] public float[] skillBaseCooldowns = new float[5];     // 스킬별 쿨다운 시간
+    private float[] currentSkillCooldowns = new float[5];                 // 스킬별 쿨다운 타이머
     private float[] skillDeltaTimeAccumulators = new float[5];
 
     [Header("★ 컴포넌트")]
@@ -80,15 +80,17 @@ public class Player : MonoBehaviour
         _currentMoveSpeed = _baseMoveSpeed;
         _currentShootCooldown = _baseShootCooldown;
 
-        if (skillCooldownTimers == null || skillCooldownTimers.Length != skillCooldowns.Length)
+        // 스킬 쿨다운 타이머 초기화 (float으로)
+        if (skillBaseCooldowns == null || skillBaseCooldowns.Length != 5)
         {
-            skillCooldownTimers = new int[skillCooldowns.Length];
-            skillDeltaTimeAccumulators = new float[skillCooldowns.Length];
+            skillBaseCooldowns = new float[5]; // 5개 스킬 기준으로 초기화
         }
-        for (int i = 0; i < skillCooldowns.Length; i++)
+        currentSkillCooldowns = new float[skillBaseCooldowns.Length]; // currentSkillCooldowns도 float으로 초기화
+
+        // 시작 시 모든 스킬 쿨타임을 0으로 설정하여 사용 가능 상태로 만듭니다.
+        for (int i = 0; i < skillBaseCooldowns.Length; i++)
         {
-            skillCooldownTimers[i] = 0; // 시작 시 모든 스킬 쿨다운은 0
-            skillDeltaTimeAccumulators[i] = 0f;
+            currentSkillCooldowns[i] = 0f;
         }
 
         SetPlayerState(_state);
@@ -96,20 +98,20 @@ public class Player : MonoBehaviour
 
     void Update()
     {
-        for (int i = 0; i < skillCooldownTimers.Length; i++)
+        // 스킬 쿨다운 타이머 업데이트 (float으로)
+        for (int i = 0; i < currentSkillCooldowns.Length; i++)
         {
-            if (skillCooldownTimers[i] > 0)
+            if (currentSkillCooldowns[i] > 0f) // 0보다 클 때만 감소
             {
-                skillDeltaTimeAccumulators[i] += Time.deltaTime; // 시간 누적
-                if (skillDeltaTimeAccumulators[i] >= 1.0f) // 1초가 넘으면
+                currentSkillCooldowns[i] -= Time.deltaTime;
+                if (currentSkillCooldowns[i] < 0f) // 0보다 작아지면 0으로 고정
                 {
-                    skillCooldownTimers[i]--; // 쿨다운 1초 감소
-                    skillDeltaTimeAccumulators[i] -= 1.0f; // 1초를 빼고 남은 시간은 유지
+                    currentSkillCooldowns[i] = 0f;
                 }
             }
         }
 
-       // Debug.Log("플레이어 업데이트 공격중 1 ");
+        // Debug.Log("플레이어 업데이트 공격중 1 ");
 
         if (!_canShoot) // 발사 불가능 상태 (쿨다운 중)일 때
         {
@@ -214,20 +216,18 @@ public class Player : MonoBehaviour
     // 스킬 사용 가능 여부 확인 및 쿨다운 시작
     public bool TryUseSkill(int skillIndex)
     {
-        if (skillIndex < 0 || skillIndex >= skillCooldowns.Length) return false;
+        if (skillIndex < 0 || skillIndex >= skillBaseCooldowns.Length) return false;
 
-        if (skillCooldownTimers[skillIndex] <= 0)
+        if (currentSkillCooldowns[skillIndex] <= 0f) // 쿨다운이 0 이하면 사용 가능 (float 비교)
         {
-            // 스킬 쿨다운 시작
-            skillCooldownTimers[skillIndex] = skillCooldowns[skillIndex];
-            skillDeltaTimeAccumulators[skillIndex] = 0f;
-            Debug.Log($"Skill {skillIndex + 1} activated! Cooldown: {skillCooldowns[skillIndex]}s");
+            currentSkillCooldowns[skillIndex] = skillBaseCooldowns[skillIndex]; // 쿨다운 리셋
+            Debug.Log($"Skill {skillIndex + 1} activated! Cooldown: {skillBaseCooldowns[skillIndex]:F2}s"); // F2로 소수점 표시
             return true;
         }
         else
         {
-            Debug.Log($"Skill {skillIndex + 1} is on cooldown. {skillCooldownTimers[skillIndex]}s remaining.");
-            return false; // 쿨다운 중일 경우
+            Debug.Log($"Skill {skillIndex + 1} is on cooldown. {currentSkillCooldowns[skillIndex]:F2}s remaining.");
+            return false;
         }
     }
 
@@ -243,26 +243,14 @@ public class Player : MonoBehaviour
     }
 
     // SkillCoolTime에서 스킬의 남은 쿨타임을 가져갈 수 있도록 함수 추가
-    public int GetSkillRemainingCoolTime(int skillIndex)
+    public float GetSkillRemainingCoolTime(int skillIndex)
     {
-        if (skillIndex < 0 || skillIndex >= skillCooldownTimers.Length)
+        if (skillIndex < 0 || skillIndex >= currentSkillCooldowns.Length)
         {
             Debug.LogError($"Invalid skillIndex: {skillIndex} in GetSkillRemainingCoolTime.");
             return 0;
         }
-        return skillCooldownTimers[skillIndex];
-    }
-
-    // SkillCoolTime에서 스킬의 남은 쿨타임을 정밀하게 가져갈 수 있도록 함수 추가
-    public float GetSkillRemainingCoolTimePrecise(int skillIndex) // <-- Float 반환
-    {
-        if (skillIndex < 0 || skillIndex >= skillCooldownTimers.Length)
-        {
-            Debug.LogError($"Invalid skillIndex: {skillIndex} in GetSkillRemainingCoolTimePrecise.");
-            return 0f;
-        }
-        // 남은 정수 초 + 누적된 프레임 시간 (누적 시간은 다음 1초가 되기 전까지의 시간)
-        return skillCooldownTimers[skillIndex] + (1.0f - skillDeltaTimeAccumulators[skillIndex]);
+        return currentSkillCooldowns[skillIndex];
     }
 
     #endregion

@@ -12,19 +12,6 @@ public class EnemyShield : MonoBehaviour
     void Awake()
     {
         _currentHealth = _maxHealth;
-
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.bodyType = RigidbodyType2D.Kinematic;
-            rb.gravityScale = 0f;
-        }
-
-        Collider2D coll = GetComponent<Collider2D>();
-        if (coll != null)
-        {
-            coll.isTrigger = true;
-        }
     }
 
     void Start()

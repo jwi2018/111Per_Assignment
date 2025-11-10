@@ -7,27 +7,11 @@ public class Shield : MonoBehaviour
     [Header("★ 방패 설정")]
     [SerializeField] private int _maxHealth = 10;       // 방패의 최대 체력
     [SerializeField] private float _duration = 6.0f;    // 방패의 지속 시간
-    [SerializeField] private Collider2D _collider2D;       // 방패의 최대 체력
-    [SerializeField] private Rigidbody2D _rigidbody;    // 방패의 지속 시간
     private int _currentHealth;                         // 현재 체력
 
     void Awake()
     {
         _currentHealth = _maxHealth; // 시작 시 체력 초기화
-
-        // Rigidbody2D 설정 (중력이 없도록, 물리 영향을 받지 않도록)
-        Rigidbody2D rb = GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.bodyType = RigidbodyType2D.Kinematic; // Kinematic으로 설정 (물리 엔진이 움직이지 않음)
-            rb.gravityScale = 0f;                    // 중력 없음
-        }
-
-        Collider2D coll = GetComponent<Collider2D>();
-        if (coll != null)
-        {
-            coll.isTrigger = false; // <-- 중요: 화살 콜라이더의 Is Trigger가 true이므로, 방패는 Trigger가 아니어야 물리 충돌 감지가 가능
-        }
     }
 
     void Start()

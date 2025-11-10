@@ -482,7 +482,12 @@ MonoBehaviour:
   _canShoot: 1
   _baseShootCooldown: 0.6
   _arrowLaunchSpeed: 9.8
-  skillCooldowns: 060000000600000006000000080000000a000000
+  skillBaseCooldowns:
+  - 6
+  - 6
+  - 6
+  - 6
+  - 10
   _animator: {fileID: 5281167779498488628}
   _playerInput: {fileID: 2256980169110007714}
 --- !u!114 &2670025458513899131

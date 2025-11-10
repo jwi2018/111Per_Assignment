@@ -49,7 +49,7 @@ public class SkillCoolTime : MonoBehaviour
 
     private void UpdateCoolTimeUI()
     {
-        if (_player == null || _skillIndex < 0 || _skillIndex >= _player.skillCooldowns.Length)
+        if (_player == null || _skillIndex < 0 || _skillIndex >= _player.skillBaseCooldowns.Length)
         {
             _coolTimeText.gameObject.SetActive(false);
             _cooldownFillImage.gameObject.SetActive(false);
@@ -59,7 +59,7 @@ public class SkillCoolTime : MonoBehaviour
             return;
         }
 
-        int totalCoolTime = _player.skillCooldowns[_skillIndex]; // 해당 스킬의 전체 쿨타임 (정수)
+        float totalCoolTime = _player.skillBaseCooldowns[_skillIndex]; // <-- float 총 쿨타임
 
         // 정밀한 남은 쿨타임 (float) 가져오기
         float remainingCoolTimePrecise = _player.GetSkillRemainingCoolTime(_skillIndex);
